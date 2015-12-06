@@ -18,12 +18,22 @@
 		3A076BBD1C14874300398CCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0FA1BC1C1476E300BB7043 /* ViewController.swift */; };
 		3A076BC01C14879200398CCA /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A076BBE1C14879200398CCA /* Metal.framework */; };
 		3A076BC11C14879200398CCA /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A076BBF1C14879200398CCA /* MetalKit.framework */; };
+		3A076BC41C148FA500398CCA /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3A076BC31C148FA500398CCA /* Shaders.metal */; };
+		3A076BC51C148FA500398CCA /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3A076BC31C148FA500398CCA /* Shaders.metal */; };
+		3A076BC61C148FA500398CCA /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3A076BC31C148FA500398CCA /* Shaders.metal */; };
+		3A076BCA1C1491C900398CCA /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A076BC91C1491C900398CCA /* Component.swift */; };
+		3A076BCB1C1491C900398CCA /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A076BC91C1491C900398CCA /* Component.swift */; };
+		3A076BCC1C1491C900398CCA /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A076BC91C1491C900398CCA /* Component.swift */; };
+		3A076BCE1C14931400398CCA /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A076BCD1C14931400398CCA /* Transform.swift */; };
+		3A076BCF1C14931400398CCA /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A076BCD1C14931400398CCA /* Transform.swift */; };
+		3A076BD01C14931400398CCA /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A076BCD1C14931400398CCA /* Transform.swift */; };
 		3A0FA1BB1C1476E300BB7043 /* AppDelegate_OSX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0FA1BA1C1476E300BB7043 /* AppDelegate_OSX.swift */; };
 		3A0FA1BD1C1476E300BB7043 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0FA1BC1C1476E300BB7043 /* ViewController.swift */; };
 		3A0FA1BF1C1476E300BB7043 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A0FA1BE1C1476E300BB7043 /* Assets.xcassets */; };
 		3A0FA1C21C1476E300BB7043 /* Main_OSX.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A0FA1C01C1476E300BB7043 /* Main_OSX.storyboard */; };
 		3A0FA1CC1C147A0900BB7043 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0FA1CA1C147A0900BB7043 /* Metal.framework */; };
 		3A0FA1CD1C147A0900BB7043 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0FA1CB1C147A0900BB7043 /* MetalKit.framework */; };
+		49584725F5D0DBDFBF53AA41 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43AFBD8B4758BD44611A12C1 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +50,9 @@
 		3A076BB91C14871600398CCA /* Info_tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_tvOS.plist; sourceTree = "<group>"; };
 		3A076BBE1C14879200398CCA /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.0.sdk/System/Library/Frameworks/Metal.framework; sourceTree = DEVELOPER_DIR; };
 		3A076BBF1C14879200398CCA /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.0.sdk/System/Library/Frameworks/MetalKit.framework; sourceTree = DEVELOPER_DIR; };
+		3A076BC31C148FA500398CCA /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		3A076BC91C1491C900398CCA /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
+		3A076BCD1C14931400398CCA /* Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
 		3A0FA1B71C1476E300BB7043 /* Metal_3D_Engine_OSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Metal_3D_Engine_OSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A0FA1BA1C1476E300BB7043 /* AppDelegate_OSX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate_OSX.swift; sourceTree = "<group>"; };
 		3A0FA1BC1C1476E300BB7043 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +61,9 @@
 		3A0FA1C31C1476E300BB7043 /* Info_OSX.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_OSX.plist; sourceTree = "<group>"; };
 		3A0FA1CA1C147A0900BB7043 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		3A0FA1CB1C147A0900BB7043 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
+		43AFBD8B4758BD44611A12C1 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A048158F839049DA500AF3B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		A660DB3EC436901FD982EC05 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +91,7 @@
 			files = (
 				3A0FA1CC1C147A0900BB7043 /* Metal.framework in Frameworks */,
 				3A0FA1CD1C147A0900BB7043 /* MetalKit.framework in Frameworks */,
+				49584725F5D0DBDFBF53AA41 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,12 +143,22 @@
 			name = tvOS;
 			sourceTree = "<group>";
 		};
+		3A076BC71C1491A600398CCA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3A076BC91C1491C900398CCA /* Component.swift */,
+				3A076BCD1C14931400398CCA /* Transform.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		3A0FA1AE1C1476E300BB7043 = {
 			isa = PBXGroup;
 			children = (
 				3A0FA1C91C14794800BB7043 /* Frameworks */,
 				3A0FA1B91C1476E300BB7043 /* Metal_3D_Engine */,
 				3A0FA1B81C1476E300BB7043 /* Products */,
+				747BBEA9507D447526C33F39 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,7 +175,9 @@
 		3A0FA1B91C1476E300BB7043 /* Metal_3D_Engine */ = {
 			isa = PBXGroup;
 			children = (
+				3A076BC71C1491A600398CCA /* Components */,
 				3A076BA91C14866A00398CCA /* Resources */,
+				3A076BC31C148FA500398CCA /* Shaders.metal */,
 				3A0FA1BC1C1476E300BB7043 /* ViewController.swift */,
 			);
 			path = Metal_3D_Engine;
@@ -160,8 +189,18 @@
 				3A076BA21C14814300398CCA /* OSX */,
 				3A076BA31C14814C00398CCA /* iOS */,
 				3A076BC21C14879800398CCA /* tvOS */,
+				43AFBD8B4758BD44611A12C1 /* Pods.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		747BBEA9507D447526C33F39 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6A048158F839049DA500AF3B /* Pods.debug.xcconfig */,
+				A660DB3EC436901FD982EC05 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,9 +244,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A0FA1C61C1476E300BB7043 /* Build configuration list for PBXNativeTarget "Metal_3D_Engine_OSX" */;
 			buildPhases = (
+				DA5CC7D1ED08EDD49CB4B78B /* Check Pods Manifest.lock */,
 				3A0FA1B31C1476E300BB7043 /* Sources */,
 				3A0FA1B41C1476E300BB7043 /* Frameworks */,
 				3A0FA1B51C1476E300BB7043 /* Resources */,
+				D3E30B0BD1F453857E4C9A9F /* Embed Pods Frameworks */,
+				A80534E3800EDF5308A855C6 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -288,11 +330,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A80534E3800EDF5308A855C6 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3E30B0BD1F453857E4C9A9F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA5CC7D1ED08EDD49CB4B78B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3A076B8C1C14812700398CCA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A076BC51C148FA500398CCA /* Shaders.metal in Sources */,
+				3A076BCB1C1491C900398CCA /* Component.swift in Sources */,
+				3A076BCF1C14931400398CCA /* Transform.swift in Sources */,
 				3A076BA81C14821100398CCA /* ViewController.swift in Sources */,
 				3A076B931C14812700398CCA /* AppDelegate_iOS.swift in Sources */,
 			);
@@ -302,6 +395,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A076BC61C148FA500398CCA /* Shaders.metal in Sources */,
+				3A076BCC1C1491C900398CCA /* Component.swift in Sources */,
+				3A076BD01C14931400398CCA /* Transform.swift in Sources */,
 				3A076BBD1C14874300398CCA /* ViewController.swift in Sources */,
 				3A076BB11C14871600398CCA /* AppDelegate_tvOS.swift in Sources */,
 			);
@@ -311,6 +407,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A076BC41C148FA500398CCA /* Shaders.metal in Sources */,
+				3A076BCA1C1491C900398CCA /* Component.swift in Sources */,
+				3A076BCE1C14931400398CCA /* Transform.swift in Sources */,
 				3A0FA1BD1C1476E300BB7043 /* ViewController.swift in Sources */,
 				3A0FA1BB1C1476E300BB7043 /* AppDelegate_OSX.swift in Sources */,
 			);
@@ -504,6 +603,7 @@
 		};
 		3A0FA1C71C1476E300BB7043 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A048158F839049DA500AF3B /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_OSX;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -516,6 +616,7 @@
 		};
 		3A0FA1C81C1476E300BB7043 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A660DB3EC436901FD982EC05 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_OSX;
 				COMBINE_HIDPI_IMAGES = YES;

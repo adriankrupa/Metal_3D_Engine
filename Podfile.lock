@@ -1,0 +1,10 @@
+PODS:
+  - Swift3D (0.2.0)
+
+DEPENDENCIES:
+  - Swift3D (~> 0.2.0)
+
+SPEC CHECKSUMS:
+  Swift3D: 643ed0cb1a5eeb77e980fba546d88d709c44e2e4
+
+COCOAPODS: 0.39.0

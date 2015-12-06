@@ -14,10 +14,20 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>Metal_3D_Engine_tvOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>3A076B8F1C14812700398CCA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3A076BAD1C14871600398CCA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

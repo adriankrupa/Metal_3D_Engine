@@ -13,6 +13,11 @@
 		3A076BA61C14815400398CCA /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A076BA41C14815400398CCA /* Metal.framework */; };
 		3A076BA71C14815400398CCA /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A076BA51C14815400398CCA /* MetalKit.framework */; };
 		3A076BA81C14821100398CCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0FA1BC1C1476E300BB7043 /* ViewController.swift */; };
+		3A076BB11C14871600398CCA /* AppDelegate_tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A076BB01C14871600398CCA /* AppDelegate_tvOS.swift */; };
+		3A076BB61C14871600398CCA /* Main_tvOS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A076BB41C14871600398CCA /* Main_tvOS.storyboard */; };
+		3A076BBD1C14874300398CCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0FA1BC1C1476E300BB7043 /* ViewController.swift */; };
+		3A076BC01C14879200398CCA /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A076BBE1C14879200398CCA /* Metal.framework */; };
+		3A076BC11C14879200398CCA /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A076BBF1C14879200398CCA /* MetalKit.framework */; };
 		3A0FA1BB1C1476E300BB7043 /* AppDelegate_OSX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0FA1BA1C1476E300BB7043 /* AppDelegate_OSX.swift */; };
 		3A0FA1BD1C1476E300BB7043 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0FA1BC1C1476E300BB7043 /* ViewController.swift */; };
 		3A0FA1BF1C1476E300BB7043 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A0FA1BE1C1476E300BB7043 /* Assets.xcassets */; };
@@ -29,6 +34,12 @@
 		3A076B9E1C14812700398CCA /* Info_iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_iOS.plist; sourceTree = "<group>"; };
 		3A076BA41C14815400398CCA /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/Metal.framework; sourceTree = DEVELOPER_DIR; };
 		3A076BA51C14815400398CCA /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/MetalKit.framework; sourceTree = DEVELOPER_DIR; };
+		3A076BAE1C14871600398CCA /* Metal_3D_Engine_tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Metal_3D_Engine_tvOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A076BB01C14871600398CCA /* AppDelegate_tvOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate_tvOS.swift; sourceTree = "<group>"; };
+		3A076BB51C14871600398CCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_tvOS.storyboard; sourceTree = "<group>"; };
+		3A076BB91C14871600398CCA /* Info_tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_tvOS.plist; sourceTree = "<group>"; };
+		3A076BBE1C14879200398CCA /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.0.sdk/System/Library/Frameworks/Metal.framework; sourceTree = DEVELOPER_DIR; };
+		3A076BBF1C14879200398CCA /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.0.sdk/System/Library/Frameworks/MetalKit.framework; sourceTree = DEVELOPER_DIR; };
 		3A0FA1B71C1476E300BB7043 /* Metal_3D_Engine_OSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Metal_3D_Engine_OSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A0FA1BA1C1476E300BB7043 /* AppDelegate_OSX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate_OSX.swift; sourceTree = "<group>"; };
 		3A0FA1BC1C1476E300BB7043 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +57,15 @@
 			files = (
 				3A076BA61C14815400398CCA /* Metal.framework in Frameworks */,
 				3A076BA71C14815400398CCA /* MetalKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A076BAB1C14871600398CCA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A076BC01C14879200398CCA /* Metal.framework in Frameworks */,
+				3A076BC11C14879200398CCA /* MetalKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,14 +104,26 @@
 			children = (
 				3A0FA1BA1C1476E300BB7043 /* AppDelegate_OSX.swift */,
 				3A076B921C14812700398CCA /* AppDelegate_iOS.swift */,
+				3A076BB01C14871600398CCA /* AppDelegate_tvOS.swift */,
 				3A0FA1BE1C1476E300BB7043 /* Assets.xcassets */,
 				3A0FA1C31C1476E300BB7043 /* Info_OSX.plist */,
 				3A076B9E1C14812700398CCA /* Info_iOS.plist */,
+				3A076BB91C14871600398CCA /* Info_tvOS.plist */,
 				3A076B9B1C14812700398CCA /* LaunchScreen.storyboard */,
 				3A0FA1C01C1476E300BB7043 /* Main_OSX.storyboard */,
 				3A076B961C14812700398CCA /* Main_iOS.storyboard */,
+				3A076BB41C14871600398CCA /* Main_tvOS.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		3A076BC21C14879800398CCA /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				3A076BBE1C14879200398CCA /* Metal.framework */,
+				3A076BBF1C14879200398CCA /* MetalKit.framework */,
+			);
+			name = tvOS;
 			sourceTree = "<group>";
 		};
 		3A0FA1AE1C1476E300BB7043 = {
@@ -108,6 +140,7 @@
 			children = (
 				3A0FA1B71C1476E300BB7043 /* Metal_3D_Engine_OSX.app */,
 				3A076B901C14812700398CCA /* Metal_3D_Engine_iOS.app */,
+				3A076BAE1C14871600398CCA /* Metal_3D_Engine_tvOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,8 +157,9 @@
 		3A0FA1C91C14794800BB7043 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3A076BA31C14814C00398CCA /* iOS */,
 				3A076BA21C14814300398CCA /* OSX */,
+				3A076BA31C14814C00398CCA /* iOS */,
+				3A076BC21C14879800398CCA /* tvOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -148,6 +182,23 @@
 			name = Metal_3D_Engine_iOS;
 			productName = Metal_3D_Engine_iOS;
 			productReference = 3A076B901C14812700398CCA /* Metal_3D_Engine_iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3A076BAD1C14871600398CCA /* Metal_3D_Engine_tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A076BBA1C14871600398CCA /* Build configuration list for PBXNativeTarget "Metal_3D_Engine_tvOS" */;
+			buildPhases = (
+				3A076BAA1C14871600398CCA /* Sources */,
+				3A076BAB1C14871600398CCA /* Frameworks */,
+				3A076BAC1C14871600398CCA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Metal_3D_Engine_tvOS;
+			productName = Metal_3D_Engine_tvOS;
+			productReference = 3A076BAE1C14871600398CCA /* Metal_3D_Engine_tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 		3A0FA1B61C1476E300BB7043 /* Metal_3D_Engine_OSX */ = {
@@ -180,6 +231,9 @@
 					3A076B8F1C14812700398CCA = {
 						CreatedOnToolsVersion = 7.1;
 					};
+					3A076BAD1C14871600398CCA = {
+						CreatedOnToolsVersion = 7.1;
+					};
 					3A0FA1B61C1476E300BB7043 = {
 						CreatedOnToolsVersion = 7.1;
 					};
@@ -200,6 +254,7 @@
 			targets = (
 				3A0FA1B61C1476E300BB7043 /* Metal_3D_Engine_OSX */,
 				3A076B8F1C14812700398CCA /* Metal_3D_Engine_iOS */,
+				3A076BAD1C14871600398CCA /* Metal_3D_Engine_tvOS */,
 			);
 		};
 /* End PBXProject section */
@@ -211,6 +266,14 @@
 			files = (
 				3A076B9D1C14812700398CCA /* LaunchScreen.storyboard in Resources */,
 				3A076B981C14812700398CCA /* Main_iOS.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A076BAC1C14871600398CCA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A076BB61C14871600398CCA /* Main_tvOS.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +295,15 @@
 			files = (
 				3A076BA81C14821100398CCA /* ViewController.swift in Sources */,
 				3A076B931C14812700398CCA /* AppDelegate_iOS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A076BAA1C14871600398CCA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A076BBD1C14874300398CCA /* ViewController.swift in Sources */,
+				3A076BB11C14871600398CCA /* AppDelegate_tvOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +334,15 @@
 				3A076B9C1C14812700398CCA /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
+			sourceTree = "<group>";
+		};
+		3A076BB41C14871600398CCA /* Main_tvOS.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A076BB51C14871600398CCA /* Base */,
+			);
+			name = Main_tvOS.storyboard;
 			path = .;
 			sourceTree = "<group>";
 		};
@@ -306,6 +387,37 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3A076BBB1C14871600398CCA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = appIcon_tvOS;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage_tvOS;
+				INFOPLIST_FILE = "$(SRCROOT)/Metal_3D_Engine/Resources/Info_tvOS.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Adrian-Krupa.Metal-3D-Engine-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		3A076BBC1C14871600398CCA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = appIcon_tvOS;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage_tvOS;
+				INFOPLIST_FILE = "$(SRCROOT)/Metal_3D_Engine/Resources/Info_tvOS.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Adrian-Krupa.Metal-3D-Engine-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -423,6 +535,15 @@
 			buildConfigurations = (
 				3A076B9F1C14812700398CCA /* Debug */,
 				3A076BA01C14812700398CCA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A076BBA1C14871600398CCA /* Build configuration list for PBXNativeTarget "Metal_3D_Engine_tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A076BBB1C14871600398CCA /* Debug */,
+				3A076BBC1C14871600398CCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -7,35 +7,97 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A0FA1BB1C1476E300BB7043 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0FA1BA1C1476E300BB7043 /* AppDelegate.swift */; };
+		3A076B931C14812700398CCA /* AppDelegate_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A076B921C14812700398CCA /* AppDelegate_iOS.swift */; };
+		3A076B981C14812700398CCA /* Main_iOS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A076B961C14812700398CCA /* Main_iOS.storyboard */; };
+		3A076B9D1C14812700398CCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A076B9B1C14812700398CCA /* LaunchScreen.storyboard */; };
+		3A076BA61C14815400398CCA /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A076BA41C14815400398CCA /* Metal.framework */; };
+		3A076BA71C14815400398CCA /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A076BA51C14815400398CCA /* MetalKit.framework */; };
+		3A076BA81C14821100398CCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0FA1BC1C1476E300BB7043 /* ViewController.swift */; };
+		3A0FA1BB1C1476E300BB7043 /* AppDelegate_OSX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0FA1BA1C1476E300BB7043 /* AppDelegate_OSX.swift */; };
 		3A0FA1BD1C1476E300BB7043 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0FA1BC1C1476E300BB7043 /* ViewController.swift */; };
 		3A0FA1BF1C1476E300BB7043 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A0FA1BE1C1476E300BB7043 /* Assets.xcassets */; };
-		3A0FA1C21C1476E300BB7043 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A0FA1C01C1476E300BB7043 /* Main.storyboard */; };
+		3A0FA1C21C1476E300BB7043 /* Main_OSX.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A0FA1C01C1476E300BB7043 /* Main_OSX.storyboard */; };
+		3A0FA1CC1C147A0900BB7043 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0FA1CA1C147A0900BB7043 /* Metal.framework */; };
+		3A0FA1CD1C147A0900BB7043 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0FA1CB1C147A0900BB7043 /* MetalKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3A0FA1B71C1476E300BB7043 /* Metal_3D_Engine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Metal_3D_Engine.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A0FA1BA1C1476E300BB7043 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3A076B901C14812700398CCA /* Metal_3D_Engine_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Metal_3D_Engine_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A076B921C14812700398CCA /* AppDelegate_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate_iOS.swift; sourceTree = "<group>"; };
+		3A076B971C14812700398CCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iOS.storyboard; sourceTree = "<group>"; };
+		3A076B9C1C14812700398CCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3A076B9E1C14812700398CCA /* Info_iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_iOS.plist; sourceTree = "<group>"; };
+		3A076BA41C14815400398CCA /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/Metal.framework; sourceTree = DEVELOPER_DIR; };
+		3A076BA51C14815400398CCA /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/MetalKit.framework; sourceTree = DEVELOPER_DIR; };
+		3A0FA1B71C1476E300BB7043 /* Metal_3D_Engine_OSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Metal_3D_Engine_OSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A0FA1BA1C1476E300BB7043 /* AppDelegate_OSX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate_OSX.swift; sourceTree = "<group>"; };
 		3A0FA1BC1C1476E300BB7043 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3A0FA1BE1C1476E300BB7043 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3A0FA1C11C1476E300BB7043 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3A0FA1C31C1476E300BB7043 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A0FA1C11C1476E300BB7043 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_OSX.storyboard; sourceTree = "<group>"; };
+		3A0FA1C31C1476E300BB7043 /* Info_OSX.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_OSX.plist; sourceTree = "<group>"; };
+		3A0FA1CA1C147A0900BB7043 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		3A0FA1CB1C147A0900BB7043 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3A076B8D1C14812700398CCA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A076BA61C14815400398CCA /* Metal.framework in Frameworks */,
+				3A076BA71C14815400398CCA /* MetalKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3A0FA1B41C1476E300BB7043 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A0FA1CC1C147A0900BB7043 /* Metal.framework in Frameworks */,
+				3A0FA1CD1C147A0900BB7043 /* MetalKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A076BA21C14814300398CCA /* OSX */ = {
+			isa = PBXGroup;
+			children = (
+				3A0FA1CA1C147A0900BB7043 /* Metal.framework */,
+				3A0FA1CB1C147A0900BB7043 /* MetalKit.framework */,
+			);
+			name = OSX;
+			sourceTree = "<group>";
+		};
+		3A076BA31C14814C00398CCA /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3A076BA41C14815400398CCA /* Metal.framework */,
+				3A076BA51C14815400398CCA /* MetalKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		3A076BA91C14866A00398CCA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3A0FA1BA1C1476E300BB7043 /* AppDelegate_OSX.swift */,
+				3A076B921C14812700398CCA /* AppDelegate_iOS.swift */,
+				3A0FA1BE1C1476E300BB7043 /* Assets.xcassets */,
+				3A0FA1C31C1476E300BB7043 /* Info_OSX.plist */,
+				3A076B9E1C14812700398CCA /* Info_iOS.plist */,
+				3A076B9B1C14812700398CCA /* LaunchScreen.storyboard */,
+				3A0FA1C01C1476E300BB7043 /* Main_OSX.storyboard */,
+				3A076B961C14812700398CCA /* Main_iOS.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		3A0FA1AE1C1476E300BB7043 = {
 			isa = PBXGroup;
 			children = (
+				3A0FA1C91C14794800BB7043 /* Frameworks */,
 				3A0FA1B91C1476E300BB7043 /* Metal_3D_Engine */,
 				3A0FA1B81C1476E300BB7043 /* Products */,
 			);
@@ -44,7 +106,8 @@
 		3A0FA1B81C1476E300BB7043 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3A0FA1B71C1476E300BB7043 /* Metal_3D_Engine.app */,
+				3A0FA1B71C1476E300BB7043 /* Metal_3D_Engine_OSX.app */,
+				3A076B901C14812700398CCA /* Metal_3D_Engine_iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -52,21 +115,44 @@
 		3A0FA1B91C1476E300BB7043 /* Metal_3D_Engine */ = {
 			isa = PBXGroup;
 			children = (
-				3A0FA1BA1C1476E300BB7043 /* AppDelegate.swift */,
+				3A076BA91C14866A00398CCA /* Resources */,
 				3A0FA1BC1C1476E300BB7043 /* ViewController.swift */,
-				3A0FA1BE1C1476E300BB7043 /* Assets.xcassets */,
-				3A0FA1C01C1476E300BB7043 /* Main.storyboard */,
-				3A0FA1C31C1476E300BB7043 /* Info.plist */,
 			);
 			path = Metal_3D_Engine;
+			sourceTree = "<group>";
+		};
+		3A0FA1C91C14794800BB7043 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A076BA31C14814C00398CCA /* iOS */,
+				3A076BA21C14814300398CCA /* OSX */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3A0FA1B61C1476E300BB7043 /* Metal_3D_Engine */ = {
+		3A076B8F1C14812700398CCA /* Metal_3D_Engine_iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3A0FA1C61C1476E300BB7043 /* Build configuration list for PBXNativeTarget "Metal_3D_Engine" */;
+			buildConfigurationList = 3A076BA11C14812700398CCA /* Build configuration list for PBXNativeTarget "Metal_3D_Engine_iOS" */;
+			buildPhases = (
+				3A076B8C1C14812700398CCA /* Sources */,
+				3A076B8D1C14812700398CCA /* Frameworks */,
+				3A076B8E1C14812700398CCA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Metal_3D_Engine_iOS;
+			productName = Metal_3D_Engine_iOS;
+			productReference = 3A076B901C14812700398CCA /* Metal_3D_Engine_iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3A0FA1B61C1476E300BB7043 /* Metal_3D_Engine_OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A0FA1C61C1476E300BB7043 /* Build configuration list for PBXNativeTarget "Metal_3D_Engine_OSX" */;
 			buildPhases = (
 				3A0FA1B31C1476E300BB7043 /* Sources */,
 				3A0FA1B41C1476E300BB7043 /* Frameworks */,
@@ -76,9 +162,9 @@
 			);
 			dependencies = (
 			);
-			name = Metal_3D_Engine;
+			name = Metal_3D_Engine_OSX;
 			productName = Metal_3D_Engine;
-			productReference = 3A0FA1B71C1476E300BB7043 /* Metal_3D_Engine.app */;
+			productReference = 3A0FA1B71C1476E300BB7043 /* Metal_3D_Engine_OSX.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -91,6 +177,9 @@
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Adrian Krupa";
 				TargetAttributes = {
+					3A076B8F1C14812700398CCA = {
+						CreatedOnToolsVersion = 7.1;
+					};
 					3A0FA1B61C1476E300BB7043 = {
 						CreatedOnToolsVersion = 7.1;
 					};
@@ -109,47 +198,118 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3A0FA1B61C1476E300BB7043 /* Metal_3D_Engine */,
+				3A0FA1B61C1476E300BB7043 /* Metal_3D_Engine_OSX */,
+				3A076B8F1C14812700398CCA /* Metal_3D_Engine_iOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3A076B8E1C14812700398CCA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A076B9D1C14812700398CCA /* LaunchScreen.storyboard in Resources */,
+				3A076B981C14812700398CCA /* Main_iOS.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3A0FA1B51C1476E300BB7043 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3A0FA1BF1C1476E300BB7043 /* Assets.xcassets in Resources */,
-				3A0FA1C21C1476E300BB7043 /* Main.storyboard in Resources */,
+				3A0FA1C21C1476E300BB7043 /* Main_OSX.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3A076B8C1C14812700398CCA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A076BA81C14821100398CCA /* ViewController.swift in Sources */,
+				3A076B931C14812700398CCA /* AppDelegate_iOS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3A0FA1B31C1476E300BB7043 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3A0FA1BD1C1476E300BB7043 /* ViewController.swift in Sources */,
-				3A0FA1BB1C1476E300BB7043 /* AppDelegate.swift in Sources */,
+				3A0FA1BB1C1476E300BB7043 /* AppDelegate_OSX.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3A0FA1C01C1476E300BB7043 /* Main.storyboard */ = {
+		3A076B961C14812700398CCA /* Main_iOS.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A076B971C14812700398CCA /* Base */,
+			);
+			name = Main_iOS.storyboard;
+			path = .;
+			sourceTree = "<group>";
+		};
+		3A076B9B1C14812700398CCA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A076B9C1C14812700398CCA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			path = .;
+			sourceTree = "<group>";
+		};
+		3A0FA1C01C1476E300BB7043 /* Main_OSX.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3A0FA1C11C1476E300BB7043 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Main_OSX.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3A076B9F1C14812700398CCA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_iOS;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/Metal_3D_Engine/Resources/Info_iOS.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Adrian-Krupa.Metal-3D-Engine-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3A076BA01C14812700398CCA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_iOS;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/Metal_3D_Engine/Resources/Info_iOS.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Adrian-Krupa.Metal-3D-Engine-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		3A0FA1C41C1476E300BB7043 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -233,9 +393,9 @@
 		3A0FA1C71C1476E300BB7043 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_OSX;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = Metal_3D_Engine/Info.plist;
+				INFOPLIST_FILE = Metal_3D_Engine/Resources/Info_OSX.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Adrian-Krupa.Metal-3D-Engine";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -245,18 +405,28 @@
 		3A0FA1C81C1476E300BB7043 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_OSX;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = Metal_3D_Engine/Info.plist;
+				INFOPLIST_FILE = Metal_3D_Engine/Resources/Info_OSX.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Adrian-Krupa.Metal-3D-Engine";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3A076BA11C14812700398CCA /* Build configuration list for PBXNativeTarget "Metal_3D_Engine_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A076B9F1C14812700398CCA /* Debug */,
+				3A076BA01C14812700398CCA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3A0FA1B21C1476E300BB7043 /* Build configuration list for PBXProject "Metal_3D_Engine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -266,13 +436,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3A0FA1C61C1476E300BB7043 /* Build configuration list for PBXNativeTarget "Metal_3D_Engine" */ = {
+		3A0FA1C61C1476E300BB7043 /* Build configuration list for PBXNativeTarget "Metal_3D_Engine_OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3A0FA1C71C1476E300BB7043 /* Debug */,
 				3A0FA1C81C1476E300BB7043 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

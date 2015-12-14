@@ -1,10 +1,10 @@
 PODS:
-  - Swift3D (0.2.0)
+  - Swift3D (0.2.1)
 
 DEPENDENCIES:
-  - Swift3D (~> 0.2.0)
+  - Swift3D
 
 SPEC CHECKSUMS:
-  Swift3D: 643ed0cb1a5eeb77e980fba546d88d709c44e2e4
+  Swift3D: c7185305fd716a86f60daa6b9039d83013509805
 
 COCOAPODS: 0.39.0

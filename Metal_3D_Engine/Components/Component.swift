@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MetalKit
 
 class Component {
     
@@ -14,6 +15,6 @@ class Component {
     
     func FixedUpdate() {}
     
-    func Render() {}
+    func Render(commandBuffer: MTLCommandBuffer, camera: Camera) {}
     
 }

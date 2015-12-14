@@ -7,6 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		052B83EFF74B266F5C671925 /* Pods_Pods_OSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1301661AA172411B9C84C22 /* Pods_Pods_OSX.framework */; };
+		217CD1E7CBB3A4F66A776839 /* Pods_Pods_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2A805FC3F02EF0547B96390 /* Pods_Pods_iOS.framework */; };
+		3A0542931C17626900107B34 /* Mesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0542921C17626900107B34 /* Mesh.swift */; };
+		3A0542941C17626900107B34 /* Mesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0542921C17626900107B34 /* Mesh.swift */; };
+		3A0542951C17626900107B34 /* Mesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0542921C17626900107B34 /* Mesh.swift */; };
+		3A0542971C17644400107B34 /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0542961C17644400107B34 /* Vertex.swift */; };
+		3A0542981C17644400107B34 /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0542961C17644400107B34 /* Vertex.swift */; };
+		3A0542991C17644400107B34 /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0542961C17644400107B34 /* Vertex.swift */; };
+		3A05429B1C1764BF00107B34 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A05429A1C1764BF00107B34 /* Point.swift */; };
+		3A05429C1C1764BF00107B34 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A05429A1C1764BF00107B34 /* Point.swift */; };
+		3A05429D1C1764BF00107B34 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A05429A1C1764BF00107B34 /* Point.swift */; };
+		3A05429F1C17659B00107B34 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A05429E1C17659B00107B34 /* Line.swift */; };
+		3A0542A01C17659B00107B34 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A05429E1C17659B00107B34 /* Line.swift */; };
+		3A0542A11C17659B00107B34 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A05429E1C17659B00107B34 /* Line.swift */; };
+		3A0542A31C1766F500107B34 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0542A21C1766F500107B34 /* Triangle.swift */; };
+		3A0542A41C1766F500107B34 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0542A21C1766F500107B34 /* Triangle.swift */; };
+		3A0542A51C1766F500107B34 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0542A21C1766F500107B34 /* Triangle.swift */; };
+		3A0542A71C176B0600107B34 /* PointsMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0542A61C176B0600107B34 /* PointsMesh.swift */; };
+		3A0542A81C176B0600107B34 /* PointsMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0542A61C176B0600107B34 /* PointsMesh.swift */; };
+		3A0542A91C176B0600107B34 /* PointsMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0542A61C176B0600107B34 /* PointsMesh.swift */; };
+		3A0542AB1C178A9B00107B34 /* MeshRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0542AA1C178A9B00107B34 /* MeshRenderer.swift */; };
+		3A0542AC1C178A9B00107B34 /* MeshRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0542AA1C178A9B00107B34 /* MeshRenderer.swift */; };
+		3A0542AD1C178A9B00107B34 /* MeshRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0542AA1C178A9B00107B34 /* MeshRenderer.swift */; };
+		3A0542AF1C178BFD00107B34 /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0542AE1C178BFD00107B34 /* Material.swift */; };
+		3A0542B01C178BFD00107B34 /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0542AE1C178BFD00107B34 /* Material.swift */; };
+		3A0542B11C178BFD00107B34 /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0542AE1C178BFD00107B34 /* Material.swift */; };
+		3A0542B31C178C1400107B34 /* Shader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0542B21C178C1400107B34 /* Shader.swift */; };
+		3A0542B41C178C1400107B34 /* Shader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0542B21C178C1400107B34 /* Shader.swift */; };
+		3A0542B51C178C1400107B34 /* Shader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0542B21C178C1400107B34 /* Shader.swift */; };
 		3A076B931C14812700398CCA /* AppDelegate_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A076B921C14812700398CCA /* AppDelegate_iOS.swift */; };
 		3A076B981C14812700398CCA /* Main_iOS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A076B961C14812700398CCA /* Main_iOS.storyboard */; };
 		3A076B9D1C14812700398CCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A076B9B1C14812700398CCA /* LaunchScreen.storyboard */; };
@@ -18,25 +47,46 @@
 		3A076BBD1C14874300398CCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0FA1BC1C1476E300BB7043 /* ViewController.swift */; };
 		3A076BC01C14879200398CCA /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A076BBE1C14879200398CCA /* Metal.framework */; };
 		3A076BC11C14879200398CCA /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A076BBF1C14879200398CCA /* MetalKit.framework */; };
-		3A076BC41C148FA500398CCA /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3A076BC31C148FA500398CCA /* Shaders.metal */; };
-		3A076BC51C148FA500398CCA /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3A076BC31C148FA500398CCA /* Shaders.metal */; };
-		3A076BC61C148FA500398CCA /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3A076BC31C148FA500398CCA /* Shaders.metal */; };
-		3A076BCA1C1491C900398CCA /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A076BC91C1491C900398CCA /* Component.swift */; };
-		3A076BCB1C1491C900398CCA /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A076BC91C1491C900398CCA /* Component.swift */; };
-		3A076BCC1C1491C900398CCA /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A076BC91C1491C900398CCA /* Component.swift */; };
-		3A076BCE1C14931400398CCA /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A076BCD1C14931400398CCA /* Transform.swift */; };
-		3A076BCF1C14931400398CCA /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A076BCD1C14931400398CCA /* Transform.swift */; };
-		3A076BD01C14931400398CCA /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A076BCD1C14931400398CCA /* Transform.swift */; };
 		3A0FA1BB1C1476E300BB7043 /* AppDelegate_OSX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0FA1BA1C1476E300BB7043 /* AppDelegate_OSX.swift */; };
 		3A0FA1BD1C1476E300BB7043 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0FA1BC1C1476E300BB7043 /* ViewController.swift */; };
 		3A0FA1BF1C1476E300BB7043 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A0FA1BE1C1476E300BB7043 /* Assets.xcassets */; };
 		3A0FA1C21C1476E300BB7043 /* Main_OSX.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A0FA1C01C1476E300BB7043 /* Main_OSX.storyboard */; };
 		3A0FA1CC1C147A0900BB7043 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0FA1CA1C147A0900BB7043 /* Metal.framework */; };
 		3A0FA1CD1C147A0900BB7043 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0FA1CB1C147A0900BB7043 /* MetalKit.framework */; };
-		49584725F5D0DBDFBF53AA41 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43AFBD8B4758BD44611A12C1 /* Pods.framework */; };
+		3ADAB94C1C14F364007BFA3D /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB9491C14F364007BFA3D /* Camera.swift */; };
+		3ADAB94D1C14F364007BFA3D /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB9491C14F364007BFA3D /* Camera.swift */; };
+		3ADAB94E1C14F364007BFA3D /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB9491C14F364007BFA3D /* Camera.swift */; };
+		3ADAB94F1C14F364007BFA3D /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB94A1C14F364007BFA3D /* Component.swift */; };
+		3ADAB9501C14F364007BFA3D /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB94A1C14F364007BFA3D /* Component.swift */; };
+		3ADAB9511C14F364007BFA3D /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB94A1C14F364007BFA3D /* Component.swift */; };
+		3ADAB9521C14F364007BFA3D /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB94B1C14F364007BFA3D /* Transform.swift */; };
+		3ADAB9531C14F364007BFA3D /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB94B1C14F364007BFA3D /* Transform.swift */; };
+		3ADAB9541C14F364007BFA3D /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB94B1C14F364007BFA3D /* Transform.swift */; };
+		3ADAB9561C14F36F007BFA3D /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB9551C14F36F007BFA3D /* GameObject.swift */; };
+		3ADAB9571C14F36F007BFA3D /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB9551C14F36F007BFA3D /* GameObject.swift */; };
+		3ADAB9581C14F36F007BFA3D /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB9551C14F36F007BFA3D /* GameObject.swift */; };
+		3ADAB95B1C14F374007BFA3D /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB9591C14F374007BFA3D /* Shaders.metal */; };
+		3ADAB95C1C14F374007BFA3D /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB9591C14F374007BFA3D /* Shaders.metal */; };
+		3ADAB95D1C14F374007BFA3D /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB9591C14F374007BFA3D /* Shaders.metal */; };
+		3ADAB95E1C14F374007BFA3D /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB95A1C14F374007BFA3D /* Time.swift */; };
+		3ADAB95F1C14F374007BFA3D /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB95A1C14F374007BFA3D /* Time.swift */; };
+		3ADAB9601C14F374007BFA3D /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB95A1C14F374007BFA3D /* Time.swift */; };
+		3ADAB9621C14F380007BFA3D /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB9611C14F380007BFA3D /* Color.swift */; };
+		3ADAB9631C14F380007BFA3D /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB9611C14F380007BFA3D /* Color.swift */; };
+		3ADAB9641C14F380007BFA3D /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB9611C14F380007BFA3D /* Color.swift */; };
+		DB6812404A5A75668CECC038 /* Pods_Pods_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A67495E0E8C5F35A1A3361 /* Pods_Pods_tvOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A0542921C17626900107B34 /* Mesh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mesh.swift; sourceTree = "<group>"; };
+		3A0542961C17644400107B34 /* Vertex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vertex.swift; sourceTree = "<group>"; };
+		3A05429A1C1764BF00107B34 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		3A05429E1C17659B00107B34 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		3A0542A21C1766F500107B34 /* Triangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
+		3A0542A61C176B0600107B34 /* PointsMesh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointsMesh.swift; sourceTree = "<group>"; };
+		3A0542AA1C178A9B00107B34 /* MeshRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeshRenderer.swift; sourceTree = "<group>"; };
+		3A0542AE1C178BFD00107B34 /* Material.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
+		3A0542B21C178C1400107B34 /* Shader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shader.swift; sourceTree = "<group>"; };
 		3A076B901C14812700398CCA /* Metal_3D_Engine_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Metal_3D_Engine_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A076B921C14812700398CCA /* AppDelegate_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate_iOS.swift; sourceTree = "<group>"; };
 		3A076B971C14812700398CCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iOS.storyboard; sourceTree = "<group>"; };
@@ -50,9 +100,6 @@
 		3A076BB91C14871600398CCA /* Info_tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_tvOS.plist; sourceTree = "<group>"; };
 		3A076BBE1C14879200398CCA /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.0.sdk/System/Library/Frameworks/Metal.framework; sourceTree = DEVELOPER_DIR; };
 		3A076BBF1C14879200398CCA /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.0.sdk/System/Library/Frameworks/MetalKit.framework; sourceTree = DEVELOPER_DIR; };
-		3A076BC31C148FA500398CCA /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
-		3A076BC91C1491C900398CCA /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
-		3A076BCD1C14931400398CCA /* Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
 		3A0FA1B71C1476E300BB7043 /* Metal_3D_Engine_OSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Metal_3D_Engine_OSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A0FA1BA1C1476E300BB7043 /* AppDelegate_OSX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate_OSX.swift; sourceTree = "<group>"; };
 		3A0FA1BC1C1476E300BB7043 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,9 +108,22 @@
 		3A0FA1C31C1476E300BB7043 /* Info_OSX.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_OSX.plist; sourceTree = "<group>"; };
 		3A0FA1CA1C147A0900BB7043 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		3A0FA1CB1C147A0900BB7043 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
-		43AFBD8B4758BD44611A12C1 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6A048158F839049DA500AF3B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		A660DB3EC436901FD982EC05 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		3ADAB9491C14F364007BFA3D /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		3ADAB94A1C14F364007BFA3D /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
+		3ADAB94B1C14F364007BFA3D /* Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
+		3ADAB9551C14F36F007BFA3D /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
+		3ADAB9591C14F374007BFA3D /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		3ADAB95A1C14F374007BFA3D /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		3ADAB9611C14F380007BFA3D /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		42A67495E0E8C5F35A1A3361 /* Pods_Pods_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pods_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AD4998BF93783662C7649D3 /* Pods-Pods_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pods_iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pods_iOS/Pods-Pods_iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		7EE3DDC96564F082675CAD3D /* Pods-Pods_OSX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pods_OSX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pods_OSX/Pods-Pods_OSX.debug.xcconfig"; sourceTree = "<group>"; };
+		7F04B041238B08958105655A /* Pods-Pods_OSX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pods_OSX.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pods_OSX/Pods-Pods_OSX.release.xcconfig"; sourceTree = "<group>"; };
+		A1301661AA172411B9C84C22 /* Pods_Pods_OSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pods_OSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1DD98E0D77BB3F7D4E2DB6A /* Pods-Pods_tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pods_tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pods_tvOS/Pods-Pods_tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		D84E8E0791C1B82777680BEA /* Pods-Pods_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pods_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pods_iOS/Pods-Pods_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		E2A805FC3F02EF0547B96390 /* Pods_Pods_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pods_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD537FA4DC40C7836DBFB360 /* Pods-Pods_tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pods_tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pods_tvOS/Pods-Pods_tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +133,7 @@
 			files = (
 				3A076BA61C14815400398CCA /* Metal.framework in Frameworks */,
 				3A076BA71C14815400398CCA /* MetalKit.framework in Frameworks */,
+				217CD1E7CBB3A4F66A776839 /* Pods_Pods_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +143,7 @@
 			files = (
 				3A076BC01C14879200398CCA /* Metal.framework in Frameworks */,
 				3A076BC11C14879200398CCA /* MetalKit.framework in Frameworks */,
+				DB6812404A5A75668CECC038 /* Pods_Pods_tvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,13 +153,57 @@
 			files = (
 				3A0FA1CC1C147A0900BB7043 /* Metal.framework in Frameworks */,
 				3A0FA1CD1C147A0900BB7043 /* MetalKit.framework in Frameworks */,
-				49584725F5D0DBDFBF53AA41 /* Pods.framework in Frameworks */,
+				052B83EFF74B266F5C671925 /* Pods_Pods_OSX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		093C3472C9540F11FA6A7DBF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7EE3DDC96564F082675CAD3D /* Pods-Pods_OSX.debug.xcconfig */,
+				7F04B041238B08958105655A /* Pods-Pods_OSX.release.xcconfig */,
+				7AD4998BF93783662C7649D3 /* Pods-Pods_iOS.debug.xcconfig */,
+				D84E8E0791C1B82777680BEA /* Pods-Pods_iOS.release.xcconfig */,
+				FD537FA4DC40C7836DBFB360 /* Pods-Pods_tvOS.debug.xcconfig */,
+				A1DD98E0D77BB3F7D4E2DB6A /* Pods-Pods_tvOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3A0542901C17624A00107B34 /* Materials */ = {
+			isa = PBXGroup;
+			children = (
+				3A0542B61C178C2300107B34 /* Shaders */,
+				3A0542911C17625000107B34 /* Meshes */,
+				3A0542AE1C178BFD00107B34 /* Material.swift */,
+			);
+			path = Materials;
+			sourceTree = "<group>";
+		};
+		3A0542911C17625000107B34 /* Meshes */ = {
+			isa = PBXGroup;
+			children = (
+				3A05429E1C17659B00107B34 /* Line.swift */,
+				3A0542921C17626900107B34 /* Mesh.swift */,
+				3A05429A1C1764BF00107B34 /* Point.swift */,
+				3A0542A61C176B0600107B34 /* PointsMesh.swift */,
+				3A0542A21C1766F500107B34 /* Triangle.swift */,
+				3A0542961C17644400107B34 /* Vertex.swift */,
+			);
+			path = Meshes;
+			sourceTree = "<group>";
+		};
+		3A0542B61C178C2300107B34 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				3A0542B21C178C1400107B34 /* Shader.swift */,
+			);
+			name = Shaders;
+			sourceTree = "<group>";
+		};
 		3A076BA21C14814300398CCA /* OSX */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,22 +249,13 @@
 			name = tvOS;
 			sourceTree = "<group>";
 		};
-		3A076BC71C1491A600398CCA /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				3A076BC91C1491C900398CCA /* Component.swift */,
-				3A076BCD1C14931400398CCA /* Transform.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
 		3A0FA1AE1C1476E300BB7043 = {
 			isa = PBXGroup;
 			children = (
 				3A0FA1C91C14794800BB7043 /* Frameworks */,
 				3A0FA1B91C1476E300BB7043 /* Metal_3D_Engine */,
+				093C3472C9540F11FA6A7DBF /* Pods */,
 				3A0FA1B81C1476E300BB7043 /* Products */,
-				747BBEA9507D447526C33F39 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -175,9 +272,13 @@
 		3A0FA1B91C1476E300BB7043 /* Metal_3D_Engine */ = {
 			isa = PBXGroup;
 			children = (
-				3A076BC71C1491A600398CCA /* Components */,
+				3ADAB9481C14F359007BFA3D /* Components */,
+				3A0542901C17624A00107B34 /* Materials */,
 				3A076BA91C14866A00398CCA /* Resources */,
-				3A076BC31C148FA500398CCA /* Shaders.metal */,
+				3ADAB9611C14F380007BFA3D /* Color.swift */,
+				3ADAB9551C14F36F007BFA3D /* GameObject.swift */,
+				3ADAB9591C14F374007BFA3D /* Shaders.metal */,
+				3ADAB95A1C14F374007BFA3D /* Time.swift */,
 				3A0FA1BC1C1476E300BB7043 /* ViewController.swift */,
 			);
 			path = Metal_3D_Engine;
@@ -189,18 +290,22 @@
 				3A076BA21C14814300398CCA /* OSX */,
 				3A076BA31C14814C00398CCA /* iOS */,
 				3A076BC21C14879800398CCA /* tvOS */,
-				43AFBD8B4758BD44611A12C1 /* Pods.framework */,
+				A1301661AA172411B9C84C22 /* Pods_Pods_OSX.framework */,
+				E2A805FC3F02EF0547B96390 /* Pods_Pods_iOS.framework */,
+				42A67495E0E8C5F35A1A3361 /* Pods_Pods_tvOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		747BBEA9507D447526C33F39 /* Pods */ = {
+		3ADAB9481C14F359007BFA3D /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				6A048158F839049DA500AF3B /* Pods.debug.xcconfig */,
-				A660DB3EC436901FD982EC05 /* Pods.release.xcconfig */,
+				3ADAB9491C14F364007BFA3D /* Camera.swift */,
+				3ADAB94A1C14F364007BFA3D /* Component.swift */,
+				3A0542AA1C178A9B00107B34 /* MeshRenderer.swift */,
+				3ADAB94B1C14F364007BFA3D /* Transform.swift */,
 			);
-			name = Pods;
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,9 +315,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A076BA11C14812700398CCA /* Build configuration list for PBXNativeTarget "Metal_3D_Engine_iOS" */;
 			buildPhases = (
+				332ED010693C6869C4B9BEA6 /* Check Pods Manifest.lock */,
 				3A076B8C1C14812700398CCA /* Sources */,
 				3A076B8D1C14812700398CCA /* Frameworks */,
 				3A076B8E1C14812700398CCA /* Resources */,
+				202743BDB1E64021A88EBD5C /* Embed Pods Frameworks */,
+				7474728921E1E6E55F9A52A5 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -227,9 +335,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A076BBA1C14871600398CCA /* Build configuration list for PBXNativeTarget "Metal_3D_Engine_tvOS" */;
 			buildPhases = (
+				116CC9D8585599EF6D12D27B /* Check Pods Manifest.lock */,
 				3A076BAA1C14871600398CCA /* Sources */,
 				3A076BAB1C14871600398CCA /* Frameworks */,
 				3A076BAC1C14871600398CCA /* Resources */,
+				49915A72BC79B8AF475E2C34 /* Embed Pods Frameworks */,
+				038651D0BC0C626F25D1EB3A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -244,12 +355,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A0FA1C61C1476E300BB7043 /* Build configuration list for PBXNativeTarget "Metal_3D_Engine_OSX" */;
 			buildPhases = (
-				DA5CC7D1ED08EDD49CB4B78B /* Check Pods Manifest.lock */,
+				16A4742EF31876189DD6F2A8 /* Check Pods Manifest.lock */,
 				3A0FA1B31C1476E300BB7043 /* Sources */,
 				3A0FA1B41C1476E300BB7043 /* Frameworks */,
 				3A0FA1B51C1476E300BB7043 /* Resources */,
-				D3E30B0BD1F453857E4C9A9F /* Embed Pods Frameworks */,
-				A80534E3800EDF5308A855C6 /* Copy Pods Resources */,
+				F8496AFF035E870216D384C1 /* Embed Pods Frameworks */,
+				AE18B16A648C4AB76D19593E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -331,7 +442,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A80534E3800EDF5308A855C6 /* Copy Pods Resources */ = {
+		038651D0BC0C626F25D1EB3A /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -343,25 +454,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pods_tvOS/Pods-Pods_tvOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D3E30B0BD1F453857E4C9A9F /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DA5CC7D1ED08EDD49CB4B78B /* Check Pods Manifest.lock */ = {
+		116CC9D8585599EF6D12D27B /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -376,6 +472,111 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		16A4742EF31876189DD6F2A8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		202743BDB1E64021A88EBD5C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pods_iOS/Pods-Pods_iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		332ED010693C6869C4B9BEA6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		49915A72BC79B8AF475E2C34 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pods_tvOS/Pods-Pods_tvOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7474728921E1E6E55F9A52A5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pods_iOS/Pods-Pods_iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE18B16A648C4AB76D19593E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pods_OSX/Pods-Pods_OSX-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8496AFF035E870216D384C1 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pods_OSX/Pods-Pods_OSX-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -383,11 +584,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A076BC51C148FA500398CCA /* Shaders.metal in Sources */,
-				3A076BCB1C1491C900398CCA /* Component.swift in Sources */,
-				3A076BCF1C14931400398CCA /* Transform.swift in Sources */,
+				3A0542A81C176B0600107B34 /* PointsMesh.swift in Sources */,
+				3A0542AC1C178A9B00107B34 /* MeshRenderer.swift in Sources */,
 				3A076BA81C14821100398CCA /* ViewController.swift in Sources */,
+				3ADAB95C1C14F374007BFA3D /* Shaders.metal in Sources */,
+				3ADAB9501C14F364007BFA3D /* Component.swift in Sources */,
+				3ADAB9571C14F36F007BFA3D /* GameObject.swift in Sources */,
+				3A0542981C17644400107B34 /* Vertex.swift in Sources */,
+				3A0542A41C1766F500107B34 /* Triangle.swift in Sources */,
+				3A0542941C17626900107B34 /* Mesh.swift in Sources */,
+				3ADAB95F1C14F374007BFA3D /* Time.swift in Sources */,
+				3A0542B01C178BFD00107B34 /* Material.swift in Sources */,
+				3A0542A01C17659B00107B34 /* Line.swift in Sources */,
+				3ADAB9531C14F364007BFA3D /* Transform.swift in Sources */,
+				3A05429C1C1764BF00107B34 /* Point.swift in Sources */,
+				3A0542B41C178C1400107B34 /* Shader.swift in Sources */,
 				3A076B931C14812700398CCA /* AppDelegate_iOS.swift in Sources */,
+				3ADAB94D1C14F364007BFA3D /* Camera.swift in Sources */,
+				3ADAB9631C14F380007BFA3D /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,11 +609,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A076BC61C148FA500398CCA /* Shaders.metal in Sources */,
-				3A076BCC1C1491C900398CCA /* Component.swift in Sources */,
-				3A076BD01C14931400398CCA /* Transform.swift in Sources */,
+				3A0542A91C176B0600107B34 /* PointsMesh.swift in Sources */,
+				3A0542AD1C178A9B00107B34 /* MeshRenderer.swift in Sources */,
 				3A076BBD1C14874300398CCA /* ViewController.swift in Sources */,
+				3ADAB95D1C14F374007BFA3D /* Shaders.metal in Sources */,
+				3ADAB9511C14F364007BFA3D /* Component.swift in Sources */,
+				3ADAB9581C14F36F007BFA3D /* GameObject.swift in Sources */,
+				3A0542991C17644400107B34 /* Vertex.swift in Sources */,
+				3A0542A51C1766F500107B34 /* Triangle.swift in Sources */,
+				3A0542951C17626900107B34 /* Mesh.swift in Sources */,
+				3ADAB9601C14F374007BFA3D /* Time.swift in Sources */,
+				3A0542B11C178BFD00107B34 /* Material.swift in Sources */,
+				3A0542A11C17659B00107B34 /* Line.swift in Sources */,
+				3ADAB9541C14F364007BFA3D /* Transform.swift in Sources */,
+				3A05429D1C1764BF00107B34 /* Point.swift in Sources */,
+				3A0542B51C178C1400107B34 /* Shader.swift in Sources */,
 				3A076BB11C14871600398CCA /* AppDelegate_tvOS.swift in Sources */,
+				3ADAB94E1C14F364007BFA3D /* Camera.swift in Sources */,
+				3ADAB9641C14F380007BFA3D /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,11 +634,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A076BC41C148FA500398CCA /* Shaders.metal in Sources */,
-				3A076BCA1C1491C900398CCA /* Component.swift in Sources */,
-				3A076BCE1C14931400398CCA /* Transform.swift in Sources */,
+				3A0542A71C176B0600107B34 /* PointsMesh.swift in Sources */,
+				3A0542AB1C178A9B00107B34 /* MeshRenderer.swift in Sources */,
 				3A0FA1BD1C1476E300BB7043 /* ViewController.swift in Sources */,
+				3ADAB95B1C14F374007BFA3D /* Shaders.metal in Sources */,
+				3ADAB94F1C14F364007BFA3D /* Component.swift in Sources */,
+				3ADAB9561C14F36F007BFA3D /* GameObject.swift in Sources */,
+				3A0542971C17644400107B34 /* Vertex.swift in Sources */,
+				3A0542A31C1766F500107B34 /* Triangle.swift in Sources */,
+				3A0542931C17626900107B34 /* Mesh.swift in Sources */,
+				3ADAB95E1C14F374007BFA3D /* Time.swift in Sources */,
+				3A0542AF1C178BFD00107B34 /* Material.swift in Sources */,
+				3A05429F1C17659B00107B34 /* Line.swift in Sources */,
+				3ADAB9521C14F364007BFA3D /* Transform.swift in Sources */,
+				3A05429B1C1764BF00107B34 /* Point.swift in Sources */,
+				3A0542B31C178C1400107B34 /* Shader.swift in Sources */,
 				3A0FA1BB1C1476E300BB7043 /* AppDelegate_OSX.swift in Sources */,
+				3ADAB94C1C14F364007BFA3D /* Camera.swift in Sources */,
+				3ADAB9621C14F380007BFA3D /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +699,7 @@
 /* Begin XCBuildConfiguration section */
 		3A076B9F1C14812700398CCA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7AD4998BF93783662C7649D3 /* Pods-Pods_iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_iOS;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
@@ -475,6 +716,7 @@
 		};
 		3A076BA01C14812700398CCA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D84E8E0791C1B82777680BEA /* Pods-Pods_iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_iOS;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
@@ -492,6 +734,7 @@
 		};
 		3A076BBB1C14871600398CCA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD537FA4DC40C7836DBFB360 /* Pods-Pods_tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = appIcon_tvOS;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage_tvOS;
@@ -507,6 +750,7 @@
 		};
 		3A076BBC1C14871600398CCA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1DD98E0D77BB3F7D4E2DB6A /* Pods-Pods_tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = appIcon_tvOS;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage_tvOS;
@@ -603,7 +847,7 @@
 		};
 		3A0FA1C71C1476E300BB7043 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6A048158F839049DA500AF3B /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 7EE3DDC96564F082675CAD3D /* Pods-Pods_OSX.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_OSX;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -616,7 +860,7 @@
 		};
 		3A0FA1C81C1476E300BB7043 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A660DB3EC436901FD982EC05 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 7F04B041238B08958105655A /* Pods-Pods_OSX.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_OSX;
 				COMBINE_HIDPI_IMAGES = YES;

@@ -49,7 +49,8 @@ let vertexColorData:[Float] =
 
 class ViewController: BaseClass, MTKViewDelegate {
     
-    let device: MTLDevice = MTLCreateSystemDefaultDevice()!
+    static var currentDevice: MTLDevice!
+    var device: MTLDevice = MTLCreateSystemDefaultDevice()!
     
     var commandQueue: MTLCommandQueue! = nil
     var pipelineState: MTLRenderPipelineState! = nil
@@ -57,20 +58,28 @@ class ViewController: BaseClass, MTKViewDelegate {
     var vertexBuffer: MTLBuffer! = nil
     var vertexColorBuffer: MTLBuffer! = nil
     
+    var gameObjects: [GameObject] = []
+    var cameras: [Camera] = []
+    
     let ConstantBufferSize = 1024*1024
     
     var xOffset:[Float] = [ -1.0, 1.0, -1.0 ]
     var yOffset:[Float] = [ 1.0, 0.0, -1.0 ]
     var xDelta:[Float] = [ 0.002, -0.001, 0.003 ]
     var yDelta:[Float] = [ 0.001,  0.002, -0.001 ]
+    
+    static var currentTexture: MTLTexture!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let view = self.view as! MTKView
         view.delegate = self
+        ViewController.currentDevice = device
         view.device = device
-        view.sampleCount = 4
+        //view.sampleCount = 4
+        
+        initScene()
         
         commandQueue = device.newCommandQueue()
         commandQueue.label = "main command queue"
@@ -100,7 +109,19 @@ class ViewController: BaseClass, MTKViewDelegate {
         vertexColorBuffer.label = "colors"
     }
     
+    func initScene() {
+        let cameraGO = GameObject()
+        let cameraComponent = Camera(texture: ((self.view as! MTKView).currentDrawable?.texture)!)
+        cameraGO.AddComponent(cameraComponent)
+        cameras.append(cameraComponent)
+        gameObjects.append(cameraGO)
+    }
+    
     func update() {
+        
+        for gameObject in gameObjects {
+            gameObject.Update()
+        }
         
         // vData is pointer to the MTLBuffer's Float data contents
         let pData = vertexBuffer.contents()
@@ -140,10 +161,18 @@ class ViewController: BaseClass, MTKViewDelegate {
         commandBuffer.label = "Frame command buffer"
         self.update()
 
+        
+
+ 
         if let renderPassDescriptor = view.currentRenderPassDescriptor, currentDrawable = view.currentDrawable
         {
-            renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(1.0, 1.0, 0.0, 1.0);
+            for camera in cameras {
+                camera.clear(commandBuffer, texture: currentDrawable.texture)
+            }
+            //renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(1.0, 1.0, 0.0, 1.0);
+            
             let renderEncoder = commandBuffer.renderCommandEncoderWithDescriptor(renderPassDescriptor)
+            
             renderEncoder.label = "render encoder"
             
             renderEncoder.pushDebugGroup("draw morphing triangle")
@@ -151,14 +180,14 @@ class ViewController: BaseClass, MTKViewDelegate {
             renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, atIndex: 0)
             renderEncoder.setVertexBuffer(vertexColorBuffer, offset:0 , atIndex: 1)
             renderEncoder.drawPrimitives(.Triangle, vertexStart: 0, vertexCount: 9, instanceCount: 1)
-            
-            renderEncoder.popDebugGroup()
-            
 
+            renderEncoder.popDebugGroup()
             renderEncoder.endEncoding()
-            
             commandBuffer.presentDrawable(currentDrawable)
-        }
+
+    }
+
+
         commandBuffer.commit()
     }
 

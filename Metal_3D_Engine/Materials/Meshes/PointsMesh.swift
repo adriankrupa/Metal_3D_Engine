@@ -22,7 +22,7 @@ class PointsMesh: Mesh {
         self.points.reserveCapacity(points.count)
         var p = Point()
         for i in 0...points.count  {
-            p.a = i
+            p.a = UInt16(i)
             self.points.append(p)
         }
         self.vertices = points
@@ -30,5 +30,14 @@ class PointsMesh: Mesh {
     
     override func GetPrimitiveType() -> MTLPrimitiveType {
         return .Point
+    }
+    
+    override func FillIndexBuffer() {
+        indexBuffer = ViewController.device.newBufferWithBytes(points, length: points.count * sizeof(Point), options: [])
+        indexBuffer.label = name + "_indexBuffer"
+    }
+    
+    override func GetIndexCount() -> Int {
+        return points.count
     }
 }

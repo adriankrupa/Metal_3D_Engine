@@ -9,22 +9,6 @@
 import Foundation
 
 struct Line {
-    var indices: [Int] = [0, 0]
-    
-    var a: Int {
-        get {
-            return indices[0]
-        }
-        set {
-            indices[0] = newValue
-        }
-    }
-    var b: Int {
-        get {
-            return indices[1]
-        }
-        set {
-            indices[1] = newValue
-        }
-    }
+    var a: UInt16 = 0
+    var b: UInt16 = 0
 }

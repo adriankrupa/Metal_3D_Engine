@@ -19,6 +19,7 @@ import MetalKit
 
 let vertexData:[Float] =
 [
+    /*
     -1.0, -1.0, 0.0, 1.0,
     -1.0,  1.0, 0.0, 1.0,
     1.0, -1.0, 0.0, 1.0,
@@ -26,7 +27,7 @@ let vertexData:[Float] =
     1.0, -1.0, 0.0, 1.0,
     -1.0,  1.0, 0.0, 1.0,
     1.0,  1.0, 0.0, 1.0,
-    
+    */
     -0.0, 0.25, 0.0, 1.0,
     -0.25, -0.25, 0.0, 1.0,
     0.25, -0.25, 0.0, 1.0
@@ -34,14 +35,15 @@ let vertexData:[Float] =
 
 let vertexColorData:[Float] =
 [
-    0.0, 0.0, 1.0, 1.0,
-    0.0, 0.0, 1.0, 1.0,
-    0.0, 0.0, 1.0, 1.0,
+    /*
+    0.0, 1.0, 1.0, 1.0,
+    0.0, 1.0, 1.0, 1.0,
+    0.0, 1.0, 1.0, 1.0,
     
     0.0, 0.0, 1.0, 1.0,
     0.0, 0.0, 1.0, 1.0,
     0.0, 0.0, 1.0, 1.0,
-    
+    */
     0.0, 0.0, 1.0, 1.0,
     0.0, 1.0, 0.0, 1.0,
     1.0, 0.0, 0.0, 1.0
@@ -50,7 +52,7 @@ let vertexColorData:[Float] =
 class ViewController: BaseClass, MTKViewDelegate {
     
     static var currentDevice: MTLDevice!
-    var device: MTLDevice = MTLCreateSystemDefaultDevice()!
+    static var device: MTLDevice = MTLCreateSystemDefaultDevice()!
     
     var commandQueue: MTLCommandQueue! = nil
     var pipelineState: MTLRenderPipelineState! = nil
@@ -75,16 +77,16 @@ class ViewController: BaseClass, MTKViewDelegate {
 
         let view = self.view as! MTKView
         view.delegate = self
-        ViewController.currentDevice = device
-        view.device = device
+        ViewController.currentDevice = ViewController.device
+        view.device = ViewController.device
         //view.sampleCount = 4
         
         initScene()
         
-        commandQueue = device.newCommandQueue()
+        commandQueue = ViewController.device.newCommandQueue()
         commandQueue.label = "main command queue"
         
-        let defaultLibrary = device.newDefaultLibrary()!
+        let defaultLibrary = ViewController.device.newDefaultLibrary()!
         let fragmentProgram = defaultLibrary.newFunctionWithName("passThroughFragment")!
         let vertexProgram = defaultLibrary.newFunctionWithName("passThroughVertex")!
         
@@ -95,17 +97,17 @@ class ViewController: BaseClass, MTKViewDelegate {
         pipelineStateDescriptor.sampleCount = view.sampleCount
         
         do {
-            try pipelineState = device.newRenderPipelineStateWithDescriptor(pipelineStateDescriptor)
+            try pipelineState = ViewController.device.newRenderPipelineStateWithDescriptor(pipelineStateDescriptor)
         } catch let error {
             print("Failed to create pipeline state, error \(error)")
         }
         
         // generate a large enough buffer to allow streaming vertices for 3 semaphore controlled frames
-        vertexBuffer = device.newBufferWithLength(ConstantBufferSize, options: [])
+        vertexBuffer = ViewController.device.newBufferWithLength(ConstantBufferSize, options: [])
         vertexBuffer.label = "vertices"
         
         let vertexColorSize = vertexData.count * sizeofValue(vertexColorData[0])
-        vertexColorBuffer = device.newBufferWithBytes(vertexColorData, length: vertexColorSize, options: [])
+        vertexColorBuffer = ViewController.device.newBufferWithBytes(vertexColorData, length: vertexColorSize, options: [])
         vertexColorBuffer.label = "colors"
     }
     
@@ -115,6 +117,7 @@ class ViewController: BaseClass, MTKViewDelegate {
         cameraGO.AddComponent(cameraComponent)
         cameras.append(cameraComponent)
         gameObjects.append(cameraGO)
+        gameObjects.append(GameObject().AddComponent(MeshRenderer(mesh: LinesCubeMesh()).AddMaterial(Material(vertexProgram: "ambientVertexShader", fragmentProgram: "ambientFragmentShader"))))
     }
     
     func update() {
@@ -131,7 +134,7 @@ class ViewController: BaseClass, MTKViewDelegate {
         vData.initializeFrom(vertexData)
         
         // Animate triangle offsets
-        let lastTriVertex = 24
+        let lastTriVertex = 0
         let vertexSize = 4
         for j in 0..<3 {
             // update the animation offsets
@@ -166,28 +169,32 @@ class ViewController: BaseClass, MTKViewDelegate {
  
         if let renderPassDescriptor = view.currentRenderPassDescriptor, currentDrawable = view.currentDrawable
         {
+
+
             for camera in cameras {
                 camera.clear(commandBuffer, texture: currentDrawable.texture)
+                
+                renderPassDescriptor.colorAttachments[0].loadAction = MTLLoadAction.Load
+                renderPassDescriptor.colorAttachments[0].storeAction = MTLStoreAction.Store
+                let renderEncoder = commandBuffer.renderCommandEncoderWithDescriptor(renderPassDescriptor)
+                renderEncoder.label = "render encoder"
+                
+                for gameObject in gameObjects {
+                    gameObject.Render(renderEncoder, camera: camera)
+                }
+                /*
+                //renderEncoder.pushDebugGroup("draw morphing triangle")
+                renderEncoder.setRenderPipelineState(pipelineState)
+                renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, atIndex: 0)
+                renderEncoder.setVertexBuffer(vertexColorBuffer, offset:0 , atIndex: 1)
+                renderEncoder.drawPrimitives(.Triangle, vertexStart: 0, vertexCount: 9, instanceCount: 1)
+                */
+                //renderEncoder.popDebugGroup()
+                renderEncoder.endEncoding()
+                
+                commandBuffer.presentDrawable(currentDrawable)
             }
-            //renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(1.0, 1.0, 0.0, 1.0);
-            
-            let renderEncoder = commandBuffer.renderCommandEncoderWithDescriptor(renderPassDescriptor)
-            
-            renderEncoder.label = "render encoder"
-            
-            renderEncoder.pushDebugGroup("draw morphing triangle")
-            renderEncoder.setRenderPipelineState(pipelineState)
-            renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, atIndex: 0)
-            renderEncoder.setVertexBuffer(vertexColorBuffer, offset:0 , atIndex: 1)
-            renderEncoder.drawPrimitives(.Triangle, vertexStart: 0, vertexCount: 9, instanceCount: 1)
-
-            renderEncoder.popDebugGroup()
-            renderEncoder.endEncoding()
-            commandBuffer.presentDrawable(currentDrawable)
-
-    }
-
-
+        }
         commandBuffer.commit()
     }
 

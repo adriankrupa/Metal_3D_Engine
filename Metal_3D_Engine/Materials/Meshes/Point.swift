@@ -9,14 +9,6 @@
 import Foundation
 
 struct Point {
-    var indices: [Int] = [0]
 
-    var a: Int {
-        get {
-            return indices[0]
-        }
-        set {
-            indices[0] = newValue
-        }
-    }
+    var a: UInt16 = 0
 }

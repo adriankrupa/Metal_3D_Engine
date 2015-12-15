@@ -86,4 +86,8 @@ class Camera : Component {
         renderEncoder.endEncoding()
     }
     
+    func GetProjectionMatrix() -> float4x4 {
+        return translate(projectionMatrix, v: float3(0,0,-5))
+    }
+    
 }

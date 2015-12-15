@@ -7,14 +7,19 @@
 //
 
 import Foundation
+import MetalKit
 
 class GameObject {
     
     var isEnables = true
+    var name: String = "GameObject"
+    
+    var transform: Transform
     var components: [Component] = []
     
     init() {
-        components.append(Transform())
+        transform = Transform()
+        components.append(transform)
     }
     
     func Update() {
@@ -29,8 +34,15 @@ class GameObject {
         }
     }
     
+    func Render(commandEncoder: MTLRenderCommandEncoder, camera: Camera) {
+        for component in components {
+            component.Render(commandEncoder, camera: camera)
+        }
+    }
+    
     func AddComponent(component: Component) -> GameObject {
         components.append(component)
+        component.AssignGameObject(self)
         return self
     }
     

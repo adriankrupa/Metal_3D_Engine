@@ -53,6 +53,24 @@
 		3A0FA1C21C1476E300BB7043 /* Main_OSX.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A0FA1C01C1476E300BB7043 /* Main_OSX.storyboard */; };
 		3A0FA1CC1C147A0900BB7043 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0FA1CA1C147A0900BB7043 /* Metal.framework */; };
 		3A0FA1CD1C147A0900BB7043 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0FA1CB1C147A0900BB7043 /* MetalKit.framework */; };
+		3A6561271C1F697900321AA8 /* PointMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6561261C1F697900321AA8 /* PointMesh.swift */; };
+		3A6561281C1F697900321AA8 /* PointMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6561261C1F697900321AA8 /* PointMesh.swift */; };
+		3A6561291C1F697900321AA8 /* PointMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6561261C1F697900321AA8 /* PointMesh.swift */; };
+		3A65612C1C1F858200321AA8 /* AmbientShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3A65612B1C1F858200321AA8 /* AmbientShader.metal */; };
+		3A65612D1C1F858200321AA8 /* AmbientShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3A65612B1C1F858200321AA8 /* AmbientShader.metal */; };
+		3A65612E1C1F858200321AA8 /* AmbientShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3A65612B1C1F858200321AA8 /* AmbientShader.metal */; };
+		3A6561301C1FB2BA00321AA8 /* PointsCubeMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A65612F1C1FB2BA00321AA8 /* PointsCubeMesh.swift */; };
+		3A6561311C1FB2BA00321AA8 /* PointsCubeMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A65612F1C1FB2BA00321AA8 /* PointsCubeMesh.swift */; };
+		3A6561321C1FB2BA00321AA8 /* PointsCubeMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A65612F1C1FB2BA00321AA8 /* PointsCubeMesh.swift */; };
+		3A6561341C1FC89A00321AA8 /* LineMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6561331C1FC89A00321AA8 /* LineMesh.swift */; };
+		3A6561351C1FC89A00321AA8 /* LineMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6561331C1FC89A00321AA8 /* LineMesh.swift */; };
+		3A6561361C1FC89A00321AA8 /* LineMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6561331C1FC89A00321AA8 /* LineMesh.swift */; };
+		3A6561381C1FC8C800321AA8 /* LinesMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6561371C1FC8C800321AA8 /* LinesMesh.swift */; };
+		3A6561391C1FC8C800321AA8 /* LinesMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6561371C1FC8C800321AA8 /* LinesMesh.swift */; };
+		3A65613A1C1FC8C800321AA8 /* LinesMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6561371C1FC8C800321AA8 /* LinesMesh.swift */; };
+		3A65613C1C1FCFBC00321AA8 /* LinesCubeMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A65613B1C1FCFBC00321AA8 /* LinesCubeMesh.swift */; };
+		3A65613D1C1FCFBC00321AA8 /* LinesCubeMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A65613B1C1FCFBC00321AA8 /* LinesCubeMesh.swift */; };
+		3A65613E1C1FCFBC00321AA8 /* LinesCubeMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A65613B1C1FCFBC00321AA8 /* LinesCubeMesh.swift */; };
 		3ADAB94C1C14F364007BFA3D /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB9491C14F364007BFA3D /* Camera.swift */; };
 		3ADAB94D1C14F364007BFA3D /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB9491C14F364007BFA3D /* Camera.swift */; };
 		3ADAB94E1C14F364007BFA3D /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB9491C14F364007BFA3D /* Camera.swift */; };
@@ -108,6 +126,12 @@
 		3A0FA1C31C1476E300BB7043 /* Info_OSX.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_OSX.plist; sourceTree = "<group>"; };
 		3A0FA1CA1C147A0900BB7043 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		3A0FA1CB1C147A0900BB7043 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
+		3A6561261C1F697900321AA8 /* PointMesh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointMesh.swift; sourceTree = "<group>"; };
+		3A65612B1C1F858200321AA8 /* AmbientShader.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = AmbientShader.metal; sourceTree = "<group>"; };
+		3A65612F1C1FB2BA00321AA8 /* PointsCubeMesh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointsCubeMesh.swift; sourceTree = "<group>"; };
+		3A6561331C1FC89A00321AA8 /* LineMesh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineMesh.swift; sourceTree = "<group>"; };
+		3A6561371C1FC8C800321AA8 /* LinesMesh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinesMesh.swift; sourceTree = "<group>"; };
+		3A65613B1C1FCFBC00321AA8 /* LinesCubeMesh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinesCubeMesh.swift; sourceTree = "<group>"; };
 		3ADAB9491C14F364007BFA3D /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		3ADAB94A1C14F364007BFA3D /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		3ADAB94B1C14F364007BFA3D /* Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
@@ -186,10 +210,12 @@
 		3A0542911C17625000107B34 /* Meshes */ = {
 			isa = PBXGroup;
 			children = (
+				3A6561251C1F695C00321AA8 /* ExampleMeshes */,
 				3A05429E1C17659B00107B34 /* Line.swift */,
 				3A0542921C17626900107B34 /* Mesh.swift */,
 				3A05429A1C1764BF00107B34 /* Point.swift */,
 				3A0542A61C176B0600107B34 /* PointsMesh.swift */,
+				3A6561371C1FC8C800321AA8 /* LinesMesh.swift */,
 				3A0542A21C1766F500107B34 /* Triangle.swift */,
 				3A0542961C17644400107B34 /* Vertex.swift */,
 			);
@@ -199,6 +225,7 @@
 		3A0542B61C178C2300107B34 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				3A65612A1C1F857200321AA8 /* AmbientShaders */,
 				3A0542B21C178C1400107B34 /* Shader.swift */,
 			);
 			name = Shaders;
@@ -295,6 +322,25 @@
 				42A67495E0E8C5F35A1A3361 /* Pods_Pods_tvOS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3A6561251C1F695C00321AA8 /* ExampleMeshes */ = {
+			isa = PBXGroup;
+			children = (
+				3A6561261C1F697900321AA8 /* PointMesh.swift */,
+				3A65612F1C1FB2BA00321AA8 /* PointsCubeMesh.swift */,
+				3A6561331C1FC89A00321AA8 /* LineMesh.swift */,
+				3A65613B1C1FCFBC00321AA8 /* LinesCubeMesh.swift */,
+			);
+			name = ExampleMeshes;
+			sourceTree = "<group>";
+		};
+		3A65612A1C1F857200321AA8 /* AmbientShaders */ = {
+			isa = PBXGroup;
+			children = (
+				3A65612B1C1F858200321AA8 /* AmbientShader.metal */,
+			);
+			name = AmbientShaders;
 			sourceTree = "<group>";
 		};
 		3ADAB9481C14F359007BFA3D /* Components */ = {
@@ -584,22 +630,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A6561351C1FC89A00321AA8 /* LineMesh.swift in Sources */,
+				3A6561281C1F697900321AA8 /* PointMesh.swift in Sources */,
 				3A0542A81C176B0600107B34 /* PointsMesh.swift in Sources */,
 				3A0542AC1C178A9B00107B34 /* MeshRenderer.swift in Sources */,
 				3A076BA81C14821100398CCA /* ViewController.swift in Sources */,
 				3ADAB95C1C14F374007BFA3D /* Shaders.metal in Sources */,
 				3ADAB9501C14F364007BFA3D /* Component.swift in Sources */,
 				3ADAB9571C14F36F007BFA3D /* GameObject.swift in Sources */,
+				3A65612D1C1F858200321AA8 /* AmbientShader.metal in Sources */,
 				3A0542981C17644400107B34 /* Vertex.swift in Sources */,
 				3A0542A41C1766F500107B34 /* Triangle.swift in Sources */,
 				3A0542941C17626900107B34 /* Mesh.swift in Sources */,
 				3ADAB95F1C14F374007BFA3D /* Time.swift in Sources */,
 				3A0542B01C178BFD00107B34 /* Material.swift in Sources */,
 				3A0542A01C17659B00107B34 /* Line.swift in Sources */,
+				3A6561311C1FB2BA00321AA8 /* PointsCubeMesh.swift in Sources */,
 				3ADAB9531C14F364007BFA3D /* Transform.swift in Sources */,
 				3A05429C1C1764BF00107B34 /* Point.swift in Sources */,
 				3A0542B41C178C1400107B34 /* Shader.swift in Sources */,
+				3A6561391C1FC8C800321AA8 /* LinesMesh.swift in Sources */,
 				3A076B931C14812700398CCA /* AppDelegate_iOS.swift in Sources */,
+				3A65613D1C1FCFBC00321AA8 /* LinesCubeMesh.swift in Sources */,
 				3ADAB94D1C14F364007BFA3D /* Camera.swift in Sources */,
 				3ADAB9631C14F380007BFA3D /* Color.swift in Sources */,
 			);
@@ -609,22 +661,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A6561361C1FC89A00321AA8 /* LineMesh.swift in Sources */,
+				3A6561291C1F697900321AA8 /* PointMesh.swift in Sources */,
 				3A0542A91C176B0600107B34 /* PointsMesh.swift in Sources */,
 				3A0542AD1C178A9B00107B34 /* MeshRenderer.swift in Sources */,
 				3A076BBD1C14874300398CCA /* ViewController.swift in Sources */,
 				3ADAB95D1C14F374007BFA3D /* Shaders.metal in Sources */,
 				3ADAB9511C14F364007BFA3D /* Component.swift in Sources */,
 				3ADAB9581C14F36F007BFA3D /* GameObject.swift in Sources */,
+				3A65612E1C1F858200321AA8 /* AmbientShader.metal in Sources */,
 				3A0542991C17644400107B34 /* Vertex.swift in Sources */,
 				3A0542A51C1766F500107B34 /* Triangle.swift in Sources */,
 				3A0542951C17626900107B34 /* Mesh.swift in Sources */,
 				3ADAB9601C14F374007BFA3D /* Time.swift in Sources */,
 				3A0542B11C178BFD00107B34 /* Material.swift in Sources */,
 				3A0542A11C17659B00107B34 /* Line.swift in Sources */,
+				3A6561321C1FB2BA00321AA8 /* PointsCubeMesh.swift in Sources */,
 				3ADAB9541C14F364007BFA3D /* Transform.swift in Sources */,
 				3A05429D1C1764BF00107B34 /* Point.swift in Sources */,
 				3A0542B51C178C1400107B34 /* Shader.swift in Sources */,
+				3A65613A1C1FC8C800321AA8 /* LinesMesh.swift in Sources */,
 				3A076BB11C14871600398CCA /* AppDelegate_tvOS.swift in Sources */,
+				3A65613E1C1FCFBC00321AA8 /* LinesCubeMesh.swift in Sources */,
 				3ADAB94E1C14F364007BFA3D /* Camera.swift in Sources */,
 				3ADAB9641C14F380007BFA3D /* Color.swift in Sources */,
 			);
@@ -634,22 +692,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A6561341C1FC89A00321AA8 /* LineMesh.swift in Sources */,
+				3A6561271C1F697900321AA8 /* PointMesh.swift in Sources */,
 				3A0542A71C176B0600107B34 /* PointsMesh.swift in Sources */,
 				3A0542AB1C178A9B00107B34 /* MeshRenderer.swift in Sources */,
 				3A0FA1BD1C1476E300BB7043 /* ViewController.swift in Sources */,
 				3ADAB95B1C14F374007BFA3D /* Shaders.metal in Sources */,
 				3ADAB94F1C14F364007BFA3D /* Component.swift in Sources */,
 				3ADAB9561C14F36F007BFA3D /* GameObject.swift in Sources */,
+				3A65612C1C1F858200321AA8 /* AmbientShader.metal in Sources */,
 				3A0542971C17644400107B34 /* Vertex.swift in Sources */,
 				3A0542A31C1766F500107B34 /* Triangle.swift in Sources */,
 				3A0542931C17626900107B34 /* Mesh.swift in Sources */,
 				3ADAB95E1C14F374007BFA3D /* Time.swift in Sources */,
 				3A0542AF1C178BFD00107B34 /* Material.swift in Sources */,
 				3A05429F1C17659B00107B34 /* Line.swift in Sources */,
+				3A6561301C1FB2BA00321AA8 /* PointsCubeMesh.swift in Sources */,
 				3ADAB9521C14F364007BFA3D /* Transform.swift in Sources */,
 				3A05429B1C1764BF00107B34 /* Point.swift in Sources */,
 				3A0542B31C178C1400107B34 /* Shader.swift in Sources */,
+				3A6561381C1FC8C800321AA8 /* LinesMesh.swift in Sources */,
 				3A0FA1BB1C1476E300BB7043 /* AppDelegate_OSX.swift in Sources */,
+				3A65613C1C1FCFBC00321AA8 /* LinesCubeMesh.swift in Sources */,
 				3ADAB94C1C14F364007BFA3D /* Camera.swift in Sources */,
 				3ADAB9621C14F380007BFA3D /* Color.swift in Sources */,
 			);

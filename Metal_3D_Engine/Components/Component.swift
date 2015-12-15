@@ -11,10 +11,23 @@ import MetalKit
 
 class Component {
     
+    weak var gameObject: GameObject? = nil
+    
+    func AssignGameObject(gameObject: GameObject) {
+        if(self.gameObject == nil) {
+            self.gameObject = gameObject
+            Start()
+        } else {
+            self.gameObject = gameObject
+        }
+    }
+    
+    func Start() {}
+    
     func Update() {}
     
     func FixedUpdate() {}
     
-    func Render(commandBuffer: MTLCommandBuffer, camera: Camera) {}
+    func Render(commandEncoder: MTLRenderCommandEncoder, camera: Camera) {}
     
 }

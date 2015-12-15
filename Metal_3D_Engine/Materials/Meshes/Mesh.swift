@@ -14,6 +14,8 @@ class Mesh {
     var indexBuffer: MTLBuffer! = nil
     var vertexBuffer: MTLBuffer! = nil
     
+    var name = "Mesh"
+    
     let buffers = 1
     
     var vertices: [Vertex] = []
@@ -25,6 +27,27 @@ class Mesh {
         meshChangeCounter++
     }
     
-    func GetPrimitiveType() -> MTLPrimitiveType { return .Triangle }
+    func FillIndexBuffer() {}
     
+    func FillData() {
+        
+        if(meshHash != meshChangeCounter) {
+            meshHash = meshChangeCounter
+        } else {
+            return
+        }
+        
+        vertexBuffer = ViewController.device.newBufferWithBytes(vertices, length: vertices.count * sizeof(Vertex), options: [])
+        vertexBuffer.label = name + "_vertexBuffer"
+        
+        FillIndexBuffer()
+    }
+    
+    func GetPrimitiveType() -> MTLPrimitiveType {
+        return .Triangle
+    }
+    
+    func GetIndexCount() -> Int {
+        return 0
+    }
 }

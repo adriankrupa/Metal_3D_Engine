@@ -1,0 +1,38 @@
+//
+//  AmbientShader.metal
+//  Metal_3D_Engine
+//
+//  Created by Adrian Krupa on 15.12.2015.
+//  Copyright © 2015 Adrian Krupa. All rights reserved.
+//
+
+#include <metal_stdlib>
+using namespace metal;
+
+struct Vertex {
+    float3 position [[attribute(0)]];
+    float4 color [[attribute(1)]];
+};
+
+struct VertexInOut {
+    float4  position [[position]];
+    float4  color;
+};
+
+struct Uniforms {
+    float4x4 modelViewProjectionMatrix;
+};
+
+vertex VertexInOut ambientVertexShader(Vertex vert [[stage_in]],
+                                       constant Uniforms &uniforms [[buffer(1)]]) {
+    VertexInOut outVertex;
+    
+    outVertex.position = uniforms.modelViewProjectionMatrix*float4(vert.position, 1);
+    outVertex.color = vert.color;
+    
+    return outVertex;
+};
+
+fragment float4 ambientFragmentShader(VertexInOut inFrag [[stage_in]]) {
+    return inFrag.color;
+};

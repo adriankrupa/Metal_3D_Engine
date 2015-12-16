@@ -70,16 +70,23 @@ class ViewController: BaseClass, MTKViewDelegate {
     var xDelta:[Float] = [ 0.002, -0.001, 0.003 ]
     var yDelta:[Float] = [ 0.001,  0.002, -0.001 ]
     
+    var lastFrameSize = CGSize()
+    
     static var currentTexture: MTLTexture!
+    
+    var lastUpdateTime: CFAbsoluteTime = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        lastUpdateTime = CFAbsoluteTimeGetCurrent()
+
 
         let view = self.view as! MTKView
         view.delegate = self
         ViewController.currentDevice = ViewController.device
         view.device = ViewController.device
-        //view.sampleCount = 4
+        view.preferredFramesPerSecond = 120
         
         initScene()
         
@@ -94,7 +101,6 @@ class ViewController: BaseClass, MTKViewDelegate {
         pipelineStateDescriptor.vertexFunction = vertexProgram
         pipelineStateDescriptor.fragmentFunction = fragmentProgram
         pipelineStateDescriptor.colorAttachments[0].pixelFormat = view.colorPixelFormat
-        pipelineStateDescriptor.sampleCount = view.sampleCount
         
         do {
             try pipelineState = ViewController.device.newRenderPipelineStateWithDescriptor(pipelineStateDescriptor)
@@ -113,14 +119,19 @@ class ViewController: BaseClass, MTKViewDelegate {
     
     func initScene() {
         let cameraGO = GameObject()
+        cameraGO.GetTransform().Position = float3(0,0,10)
         let cameraComponent = Camera(texture: ((self.view as! MTKView).currentDrawable?.texture)!)
         cameraGO.AddComponent(cameraComponent)
         cameras.append(cameraComponent)
         gameObjects.append(cameraGO)
-        gameObjects.append(GameObject().AddComponent(MeshRenderer(mesh: LinesCubeMesh()).AddMaterial(Material(vertexProgram: "ambientVertexShader", fragmentProgram: "ambientFragmentShader"))))
+        let c = MeshRenderer(mesh: LinesCubeMesh()).AddMaterial(Material(vertexProgram: "ambientVertexShader", fragmentProgram: "ambientFragmentShader"))
+        gameObjects.append(GameObject().AddComponent(c).AddComponent(ObjectRotator()))
     }
     
     func update() {
+        let currentTime = CFAbsoluteTimeGetCurrent()
+        Time.deltaTime = Float(currentTime - lastUpdateTime)
+        lastUpdateTime = currentTime
         
         for gameObject in gameObjects {
             gameObject.Update()
@@ -163,21 +174,28 @@ class ViewController: BaseClass, MTKViewDelegate {
         let commandBuffer = commandQueue.commandBuffer()
         commandBuffer.label = "Frame command buffer"
         self.update()
-
         
-
- 
         if let renderPassDescriptor = view.currentRenderPassDescriptor, currentDrawable = view.currentDrawable
         {
-
-
+            let size = view.frame.size
+            if(lastFrameSize != size) {
+                lastFrameSize = size
+                for camera in cameras {
+                    camera.SetFrameSize(size)
+                }
+            }
+            
             for camera in cameras {
                 camera.clear(commandBuffer, texture: currentDrawable.texture)
                 
                 renderPassDescriptor.colorAttachments[0].loadAction = MTLLoadAction.Load
                 renderPassDescriptor.colorAttachments[0].storeAction = MTLStoreAction.Store
+                renderPassDescriptor.colorAttachments[0].texture = currentDrawable.texture
+
                 let renderEncoder = commandBuffer.renderCommandEncoderWithDescriptor(renderPassDescriptor)
                 renderEncoder.label = "render encoder"
+                
+                camera.UpdateViewportIntoEncoder(renderEncoder)
                 
                 for gameObject in gameObjects {
                     gameObject.Render(renderEncoder, camera: camera)
@@ -202,4 +220,6 @@ class ViewController: BaseClass, MTKViewDelegate {
         
     }
 }
+
+
 

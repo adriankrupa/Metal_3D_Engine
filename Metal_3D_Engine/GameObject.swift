@@ -34,6 +34,10 @@ class GameObject {
         }
     }
     
+    func GetTransform() -> Transform {
+        return transform
+    }
+    
     func Render(commandEncoder: MTLRenderCommandEncoder, camera: Camera) {
         for component in components {
             component.Render(commandEncoder, camera: camera)

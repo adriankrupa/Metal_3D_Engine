@@ -71,6 +71,9 @@
 		3A65613C1C1FCFBC00321AA8 /* LinesCubeMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A65613B1C1FCFBC00321AA8 /* LinesCubeMesh.swift */; };
 		3A65613D1C1FCFBC00321AA8 /* LinesCubeMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A65613B1C1FCFBC00321AA8 /* LinesCubeMesh.swift */; };
 		3A65613E1C1FCFBC00321AA8 /* LinesCubeMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A65613B1C1FCFBC00321AA8 /* LinesCubeMesh.swift */; };
+		3A6561411C20B65300321AA8 /* ObjectRotator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6561401C20B65300321AA8 /* ObjectRotator.swift */; };
+		3A6561421C20B65300321AA8 /* ObjectRotator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6561401C20B65300321AA8 /* ObjectRotator.swift */; };
+		3A6561431C20B65300321AA8 /* ObjectRotator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6561401C20B65300321AA8 /* ObjectRotator.swift */; };
 		3ADAB94C1C14F364007BFA3D /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB9491C14F364007BFA3D /* Camera.swift */; };
 		3ADAB94D1C14F364007BFA3D /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB9491C14F364007BFA3D /* Camera.swift */; };
 		3ADAB94E1C14F364007BFA3D /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB9491C14F364007BFA3D /* Camera.swift */; };
@@ -132,6 +135,7 @@
 		3A6561331C1FC89A00321AA8 /* LineMesh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineMesh.swift; sourceTree = "<group>"; };
 		3A6561371C1FC8C800321AA8 /* LinesMesh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinesMesh.swift; sourceTree = "<group>"; };
 		3A65613B1C1FCFBC00321AA8 /* LinesCubeMesh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinesCubeMesh.swift; sourceTree = "<group>"; };
+		3A6561401C20B65300321AA8 /* ObjectRotator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectRotator.swift; sourceTree = "<group>"; };
 		3ADAB9491C14F364007BFA3D /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		3ADAB94A1C14F364007BFA3D /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		3ADAB94B1C14F364007BFA3D /* Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
@@ -200,8 +204,8 @@
 		3A0542901C17624A00107B34 /* Materials */ = {
 			isa = PBXGroup;
 			children = (
-				3A0542B61C178C2300107B34 /* Shaders */,
 				3A0542911C17625000107B34 /* Meshes */,
+				3A0542B61C178C2300107B34 /* Shaders */,
 				3A0542AE1C178BFD00107B34 /* Material.swift */,
 			);
 			path = Materials;
@@ -212,10 +216,10 @@
 			children = (
 				3A6561251C1F695C00321AA8 /* ExampleMeshes */,
 				3A05429E1C17659B00107B34 /* Line.swift */,
+				3A6561371C1FC8C800321AA8 /* LinesMesh.swift */,
 				3A0542921C17626900107B34 /* Mesh.swift */,
 				3A05429A1C1764BF00107B34 /* Point.swift */,
 				3A0542A61C176B0600107B34 /* PointsMesh.swift */,
-				3A6561371C1FC8C800321AA8 /* LinesMesh.swift */,
 				3A0542A21C1766F500107B34 /* Triangle.swift */,
 				3A0542961C17644400107B34 /* Vertex.swift */,
 			);
@@ -228,7 +232,7 @@
 				3A65612A1C1F857200321AA8 /* AmbientShaders */,
 				3A0542B21C178C1400107B34 /* Shader.swift */,
 			);
-			name = Shaders;
+			path = Shaders;
 			sourceTree = "<group>";
 		};
 		3A076BA21C14814300398CCA /* OSX */ = {
@@ -327,12 +331,12 @@
 		3A6561251C1F695C00321AA8 /* ExampleMeshes */ = {
 			isa = PBXGroup;
 			children = (
-				3A6561261C1F697900321AA8 /* PointMesh.swift */,
-				3A65612F1C1FB2BA00321AA8 /* PointsCubeMesh.swift */,
 				3A6561331C1FC89A00321AA8 /* LineMesh.swift */,
 				3A65613B1C1FCFBC00321AA8 /* LinesCubeMesh.swift */,
+				3A6561261C1F697900321AA8 /* PointMesh.swift */,
+				3A65612F1C1FB2BA00321AA8 /* PointsCubeMesh.swift */,
 			);
-			name = ExampleMeshes;
+			path = ExampleMeshes;
 			sourceTree = "<group>";
 		};
 		3A65612A1C1F857200321AA8 /* AmbientShaders */ = {
@@ -340,12 +344,21 @@
 			children = (
 				3A65612B1C1F858200321AA8 /* AmbientShader.metal */,
 			);
-			name = AmbientShaders;
+			path = AmbientShaders;
+			sourceTree = "<group>";
+		};
+		3A65613F1C20B63600321AA8 /* MyScripts */ = {
+			isa = PBXGroup;
+			children = (
+				3A6561401C20B65300321AA8 /* ObjectRotator.swift */,
+			);
+			name = MyScripts;
 			sourceTree = "<group>";
 		};
 		3ADAB9481C14F359007BFA3D /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				3A65613F1C20B63600321AA8 /* MyScripts */,
 				3ADAB9491C14F364007BFA3D /* Camera.swift */,
 				3ADAB94A1C14F364007BFA3D /* Component.swift */,
 				3A0542AA1C178A9B00107B34 /* MeshRenderer.swift */,
@@ -638,6 +651,7 @@
 				3ADAB95C1C14F374007BFA3D /* Shaders.metal in Sources */,
 				3ADAB9501C14F364007BFA3D /* Component.swift in Sources */,
 				3ADAB9571C14F36F007BFA3D /* GameObject.swift in Sources */,
+				3A6561421C20B65300321AA8 /* ObjectRotator.swift in Sources */,
 				3A65612D1C1F858200321AA8 /* AmbientShader.metal in Sources */,
 				3A0542981C17644400107B34 /* Vertex.swift in Sources */,
 				3A0542A41C1766F500107B34 /* Triangle.swift in Sources */,
@@ -669,6 +683,7 @@
 				3ADAB95D1C14F374007BFA3D /* Shaders.metal in Sources */,
 				3ADAB9511C14F364007BFA3D /* Component.swift in Sources */,
 				3ADAB9581C14F36F007BFA3D /* GameObject.swift in Sources */,
+				3A6561431C20B65300321AA8 /* ObjectRotator.swift in Sources */,
 				3A65612E1C1F858200321AA8 /* AmbientShader.metal in Sources */,
 				3A0542991C17644400107B34 /* Vertex.swift in Sources */,
 				3A0542A51C1766F500107B34 /* Triangle.swift in Sources */,
@@ -700,6 +715,7 @@
 				3ADAB95B1C14F374007BFA3D /* Shaders.metal in Sources */,
 				3ADAB94F1C14F364007BFA3D /* Component.swift in Sources */,
 				3ADAB9561C14F36F007BFA3D /* GameObject.swift in Sources */,
+				3A6561411C20B65300321AA8 /* ObjectRotator.swift in Sources */,
 				3A65612C1C1F858200321AA8 /* AmbientShader.metal in Sources */,
 				3A0542971C17644400107B34 /* Vertex.swift in Sources */,
 				3A0542A31C1766F500107B34 /* Triangle.swift in Sources */,

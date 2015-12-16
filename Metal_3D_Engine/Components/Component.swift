@@ -22,6 +22,10 @@ class Component {
         }
     }
     
+    func GetTransform() -> Transform {
+        return gameObject!.GetTransform()
+    }
+    
     func Start() {}
     
     func Update() {}

@@ -27,12 +27,17 @@ class Camera : Component {
     var clearFlag = ClearFlag.SolidColor
     var projection = Projection.Perspective
     var color: Color = Color(red: 1, green: 0, blue: 1, alpha: 1)
+    var viewport = float4(0, 0, 1, 1)
     var fieldOfView = Float(M_PI/3)
     var aspectRatio = Float(16.0/9.0)
     var nearClippingPlane = Float(0.1)
     var farClippingPlane = Float(1000)
     var depth = Float(0)
     var size = Float(1)
+    var frameSize = CGSize()
+    
+    private var cachedViewMatrix: float4x4!
+    private var cachedVPMatrix: float4x4!
     
     
     var projectionMatrix = float4x4(0)
@@ -48,7 +53,6 @@ class Camera : Component {
         renderPassDescriptor.colorAttachments[0].loadAction = .Clear
         renderPassDescriptor.colorAttachments[0].storeAction = .Store
         renderPassDescriptor.colorAttachments[0].texture = texture
-        //renderPassDescriptor = view.sampleCount
         
         var red: CGFloat = 0
         var green: CGFloat = 0
@@ -72,6 +76,13 @@ class Camera : Component {
     func clear(commandBuffer: MTLCommandBuffer, texture: MTLTexture) {
         renderPassDescriptor.colorAttachments[0].texture = texture
         let renderEncoder = commandBuffer.renderCommandEncoderWithDescriptor(renderPassDescriptor)
+        
+        renderEncoder.setViewport(MTLViewport(
+            originX: Double(viewport.x * Float(frameSize.width)),
+            originY: Double(viewport.y * Float(frameSize.height)),
+            width: Double((viewport.z - viewport.x) * Float(frameSize.width)),
+            height: Double((viewport.w - viewport.y) * Float(frameSize.height)), znear: 1, zfar: 1))
+        
         switch clearFlag {
         case .DontClear:
             return
@@ -86,8 +97,38 @@ class Camera : Component {
         renderEncoder.endEncoding()
     }
     
-    func GetProjectionMatrix() -> float4x4 {
-        return translate(projectionMatrix, v: float3(0,0,-5))
+    func UpdateViewportIntoEncoder(renderEncoder: MTLRenderCommandEncoder) {
+        renderEncoder.setViewport(MTLViewport(
+            originX: Double(viewport.x * Float(frameSize.width)),
+            originY: Double(viewport.y * Float(frameSize.height)),
+            width: Double((viewport.z - viewport.x) * Float(frameSize.width)),
+            height: Double((viewport.w - viewport.y) * Float(frameSize.height)), znear: 1, zfar: 1))
     }
     
+    func SetFrameSize(size: CGSize) {
+        frameSize = size
+        aspectRatio = ((viewport.z - viewport.x) * Float(frameSize.width)) / ((viewport.w - viewport.y) * Float(frameSize.height))
+        updateProjectionMatrix()
+    }
+    
+    func GetVPMatrix() -> float4x4 {
+        let viewMatrix = GetViewMatrix()
+        if (cachedViewMatrix == nil || cachedViewMatrix! == viewMatrix) {
+            cachedViewMatrix = viewMatrix;
+            cachedVPMatrix = projectionMatrix * viewMatrix;
+        }
+        return cachedVPMatrix;
+    }
+    
+    func GetProjectionMatrix() -> float4x4 {
+        return projectionMatrix
+    }
+    
+    func GetViewMatrix() -> float4x4 {
+        return gameObject!.GetTransform().GetViewMatrix();
+    }
+    
+    func GetModelMatrix() -> float4x4 {
+        return gameObject!.GetTransform().GetModelMatrix();
+    }
 }

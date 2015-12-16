@@ -20,14 +20,14 @@ class Material {
         
         let defaultLibrary = ViewController.device.newDefaultLibrary()!
         
-        let fragmentProgram = defaultLibrary.newFunctionWithName(fragmentProgram)!
-        let vertexProgram = defaultLibrary.newFunctionWithName(vertexProgram)!
+        let fragmentProgramObject = defaultLibrary.newFunctionWithName(fragmentProgram)!
+        let vertexProgramObject = defaultLibrary.newFunctionWithName(vertexProgram)!
+        
         
         pipelineStateDescriptor = MTLRenderPipelineDescriptor()
-        pipelineStateDescriptor.vertexFunction = vertexProgram
-        pipelineStateDescriptor.fragmentFunction = fragmentProgram
+        pipelineStateDescriptor.vertexFunction = vertexProgramObject
+        pipelineStateDescriptor.fragmentFunction = fragmentProgramObject
         pipelineStateDescriptor.colorAttachments[0].pixelFormat = MTLPixelFormat.BGRA8Unorm
-        pipelineStateDescriptor.sampleCount = 1
         pipelineStateDescriptor.vertexDescriptor = Vertex.vertexDescriptor
         initialize()
     }

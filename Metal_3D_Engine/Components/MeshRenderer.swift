@@ -29,12 +29,23 @@ class MeshRenderer: Component {
     private func Render(commandEncoder: MTLRenderCommandEncoder, camera: Camera, material: Material) {
         mesh.FillData()
         
-        let projection = camera.GetProjectionMatrix()
+        let projection = camera.GetProjectionMatrix() * camera.GetViewMatrix() * GetTransform().GetModelMatrix()
         let Uniforms: [float4x4] = [projection]
         
-        material.uniformBuffer = ViewController.device.newBufferWithBytes(Uniforms, length: sizeof(float4x4), options: [])
-        material.uniformBuffer.label = "uniforms_vertexBuffer"
-        
+        if(material.uniformBuffer == nil) {
+#if os(OSX)
+            material.uniformBuffer = ViewController.device.newBufferWithLength(sizeof(float4x4), options: [.StorageModeManaged])
+#else
+            material.uniformBuffer = ViewController.device.newBufferWithLength(sizeof(float4x4), options: [.StorageModeShared])
+#endif
+            material.uniformBuffer.label = "uniforms_vertexBuffer"
+        } else {
+            memcpy(material.uniformBuffer.contents(), Uniforms, sizeof(float4x4))
+#if os(OSX)
+            material.uniformBuffer.didModifyRange(NSMakeRange(0, sizeof(float4x4)))
+#endif
+        }
+
         commandEncoder.setRenderPipelineState(material.pipelineState)
         commandEncoder.setVertexBuffer(mesh.vertexBuffer, offset: 0, atIndex: 0)
         commandEncoder.setVertexBuffer(material.uniformBuffer, offset: 0, atIndex: 1)

@@ -7,3 +7,17 @@
 //
 
 import Foundation
+
+class Time {
+    
+    private static var dt: Float = 0
+    
+    static var deltaTime: Float {
+        get {
+            return dt
+        }
+        set {
+            dt = newValue
+        }
+    }
+}

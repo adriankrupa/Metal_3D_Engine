@@ -7,11 +7,11 @@
 //
 
 #if os(OSX)
-import Cocoa
-typealias BaseClass = NSViewController
+    import Cocoa
+    typealias BaseClass = NSViewController
 #else
-import UIKit
-typealias BaseClass = UIViewController
+    import UIKit
+    typealias BaseClass = UIViewController
 #endif
 
 import MetalKit
@@ -53,6 +53,7 @@ class ViewController: BaseClass, MTKViewDelegate {
     
     static var currentDevice: MTLDevice!
     static var device: MTLDevice = MTLCreateSystemDefaultDevice()!
+    static var library: MTLLibrary!
     
     var commandQueue: MTLCommandQueue! = nil
     var pipelineState: MTLRenderPipelineState! = nil
@@ -75,27 +76,26 @@ class ViewController: BaseClass, MTKViewDelegate {
     static var currentTexture: MTLTexture!
     
     var lastUpdateTime: CFAbsoluteTime = 0
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         lastUpdateTime = CFAbsoluteTimeGetCurrent()
-
-
+        
+        
         let view = self.view as! MTKView
         view.delegate = self
         ViewController.currentDevice = ViewController.device
         view.device = ViewController.device
         view.preferredFramesPerSecond = 120
         
-        initScene()
         
         commandQueue = ViewController.device.newCommandQueue()
         commandQueue.label = "main command queue"
         
-        let defaultLibrary = ViewController.device.newDefaultLibrary()!
-        let fragmentProgram = defaultLibrary.newFunctionWithName("passThroughFragment")!
-        let vertexProgram = defaultLibrary.newFunctionWithName("passThroughVertex")!
+        ViewController.library = ViewController.device.newDefaultLibrary()!
+        let fragmentProgram = ViewController.library.newFunctionWithName("passThroughFragment")!
+        let vertexProgram = ViewController.library.newFunctionWithName("passThroughVertex")!
         
         let pipelineStateDescriptor = MTLRenderPipelineDescriptor()
         pipelineStateDescriptor.vertexFunction = vertexProgram
@@ -115,6 +115,9 @@ class ViewController: BaseClass, MTKViewDelegate {
         let vertexColorSize = vertexData.count * sizeofValue(vertexColorData[0])
         vertexColorBuffer = ViewController.device.newBufferWithBytes(vertexColorData, length: vertexColorSize, options: [])
         vertexColorBuffer.label = "colors"
+        
+        initScene()
+        
     }
     
     func initScene() {
@@ -122,10 +125,19 @@ class ViewController: BaseClass, MTKViewDelegate {
         cameraGO.GetTransform().Position = float3(0,0,10)
         let cameraComponent = Camera(texture: ((self.view as! MTKView).currentDrawable?.texture)!)
         cameraGO.AddComponent(cameraComponent)
+        cameraGO.AddComponent(CameraMovement3D())
         cameras.append(cameraComponent)
         gameObjects.append(cameraGO)
-        let c = MeshRenderer(mesh: LinesCubeMesh()).AddMaterial(Material(vertexProgram: "ambientVertexShader", fragmentProgram: "ambientFragmentShader"))
-        gameObjects.append(GameObject().AddComponent(c).AddComponent(ObjectRotator()))
+        for i in 0..<500 {
+            let c = MeshRenderer(mesh: LinesCubeMesh()).AddMaterial(Material(vertexProgram: "ambientVertexShader", fragmentProgram: "ambientFragmentShader"))
+            
+            let GO = GameObject().AddComponent(c).AddComponent(ObjectRotator())
+            GO.GetTransform().Position = float3(
+                Float(Int(arc4random_uniform(2000)) - 1000)/Float(100.0),
+                Float(Int(arc4random_uniform(2000)) - 1000)/Float(100.0),
+                Float(Int(arc4random_uniform(2000)))/Float(100.0))
+            gameObjects.append(GO)
+        }
     }
     
     func update() {
@@ -177,7 +189,13 @@ class ViewController: BaseClass, MTKViewDelegate {
         
         if let renderPassDescriptor = view.currentRenderPassDescriptor, currentDrawable = view.currentDrawable
         {
-            let size = view.frame.size
+            #if os(OSX)
+                let scale = NSScreen.mainScreen()!.backingScaleFactor
+            #else
+                let scale = UIScreen.mainScreen().scale
+            #endif
+            let size = CGSize(width: view.bounds.size.width * scale, height: view.bounds.size.height * scale)
+            
             if(lastFrameSize != size) {
                 lastFrameSize = size
                 for camera in cameras {
@@ -191,7 +209,7 @@ class ViewController: BaseClass, MTKViewDelegate {
                 renderPassDescriptor.colorAttachments[0].loadAction = MTLLoadAction.Load
                 renderPassDescriptor.colorAttachments[0].storeAction = MTLStoreAction.Store
                 renderPassDescriptor.colorAttachments[0].texture = currentDrawable.texture
-
+                
                 let renderEncoder = commandBuffer.renderCommandEncoderWithDescriptor(renderPassDescriptor)
                 renderEncoder.label = "render encoder"
                 
@@ -215,8 +233,9 @@ class ViewController: BaseClass, MTKViewDelegate {
         }
         commandBuffer.commit()
     }
-
+    
     func mtkView(view: MTKView, drawableSizeWillChange size: CGSize) {
+        
         
     }
 }

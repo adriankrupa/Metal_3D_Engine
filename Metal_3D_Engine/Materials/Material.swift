@@ -17,11 +17,9 @@ class Material {
     var uniformBuffer: MTLBuffer! = nil
     
     init(vertexProgram: String, fragmentProgram: String) {
-        
-        let defaultLibrary = ViewController.device.newDefaultLibrary()!
-        
-        let fragmentProgramObject = defaultLibrary.newFunctionWithName(fragmentProgram)!
-        let vertexProgramObject = defaultLibrary.newFunctionWithName(vertexProgram)!
+                
+        let fragmentProgramObject = ViewController.library.newFunctionWithName(fragmentProgram)!
+        let vertexProgramObject = ViewController.library.newFunctionWithName(vertexProgram)!
         
         
         pipelineStateDescriptor = MTLRenderPipelineDescriptor()

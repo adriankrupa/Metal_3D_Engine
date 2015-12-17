@@ -49,7 +49,7 @@ class Transform: Component {
             return rotation_
         }
         set {
-            rotation_ = newValue
+            rotation_ = normalize(newValue)
             rotationInEulerAngles_ = eulerAngles(rotation_)
             transformChanged = true
         }

@@ -11,7 +11,7 @@ import simd
 
 class ObjectRotator: Component {
     
-    var rotationSpeed = float3(0.5, 0.5, 0)
+    var rotationSpeed = float3(0.5, 0, 0)
     
     override func Update() {
         super.Update()

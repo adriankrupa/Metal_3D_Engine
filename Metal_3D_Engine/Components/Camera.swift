@@ -61,7 +61,7 @@ class Camera : Component {
         
         color.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
         
-        renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(red.native, green.native, blue.native, alpha.native)
+        renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(Double(red.native), Double(green.native), Double(blue.native), Double(alpha.native))
     }
     
     func updateProjectionMatrix() {

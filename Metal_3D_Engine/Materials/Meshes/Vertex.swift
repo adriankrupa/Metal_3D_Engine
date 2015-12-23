@@ -11,8 +11,12 @@ import MetalKit
 import simd
 
 struct Vertex {
-    var position = float3(1, 1, 1)
+        
+    var position = float3(0, 0, 0)
     var color = float4(1, 1, 1, 1)
+    var tangent = float3(0, 1, 0)
+    var UV = float2(0, 0)
+    var normal = float3(1, 0, 0)
     
     static private var verDesc: MTLVertexDescriptor!
     
@@ -27,7 +31,8 @@ struct Vertex {
             verDesc = newValue
         }
     }
-        static private func initVertexDescriptor() {
+    
+    static private func initVertexDescriptor() {
         Vertex.verDesc = MTLVertexDescriptor()
         Vertex.verDesc.attributes[0].format = .Float3
         Vertex.verDesc.attributes[0].bufferIndex = 0
@@ -39,6 +44,6 @@ struct Vertex {
         
         Vertex.verDesc.layouts[0].stride = sizeof(Vertex)
         Vertex.verDesc.layouts[0].stepFunction = .PerVertex
-
+        
     }
 }

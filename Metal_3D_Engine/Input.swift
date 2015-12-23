@@ -24,7 +24,6 @@ class Input {
         let t = NSEvent.mouseLocation()
         return float2(Float(t.x), Float(t.y))
         #else
-        print(mousePos)
         return mousePos
         #endif
         }

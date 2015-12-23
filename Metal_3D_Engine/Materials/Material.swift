@@ -20,13 +20,25 @@ class Material {
                 
         let fragmentProgramObject = ViewController.library.newFunctionWithName(fragmentProgram)!
         let vertexProgramObject = ViewController.library.newFunctionWithName(vertexProgram)!
-        
+                
         
         pipelineStateDescriptor = MTLRenderPipelineDescriptor()
         pipelineStateDescriptor.vertexFunction = vertexProgramObject
         pipelineStateDescriptor.fragmentFunction = fragmentProgramObject
         pipelineStateDescriptor.colorAttachments[0].pixelFormat = MTLPixelFormat.BGRA8Unorm
         pipelineStateDescriptor.vertexDescriptor = Vertex.vertexDescriptor
+        pipelineStateDescriptor.depthAttachmentPixelFormat = .Depth32Float
+        initialize()
+    }
+    
+    init(shader: Shader) {
+        
+        pipelineStateDescriptor = MTLRenderPipelineDescriptor()
+        pipelineStateDescriptor.vertexFunction = shader.getVertexShader()
+        pipelineStateDescriptor.fragmentFunction = shader.getFragmentShader()
+        pipelineStateDescriptor.colorAttachments[0].pixelFormat = MTLPixelFormat.BGRA8Unorm
+        pipelineStateDescriptor.vertexDescriptor = Vertex.vertexDescriptor
+        pipelineStateDescriptor.depthAttachmentPixelFormat = .Depth32Float
         initialize()
     }
     

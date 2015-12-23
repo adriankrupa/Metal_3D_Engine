@@ -73,13 +73,15 @@ class ViewController: BaseClass, MTKViewDelegate {
     
     var lastFrameSize = CGSize()
     
+    var depthTexture: MTLTexture! = nil
+    
     static var currentTexture: MTLTexture!
     
     var lastUpdateTime: CFAbsoluteTime = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         lastUpdateTime = CFAbsoluteTimeGetCurrent()
         
         
@@ -89,6 +91,7 @@ class ViewController: BaseClass, MTKViewDelegate {
         view.device = ViewController.device
         view.preferredFramesPerSecond = 120
         
+        print(view.device!.name!)
         
         commandQueue = ViewController.device.newCommandQueue()
         commandQueue.label = "main command queue"
@@ -101,6 +104,7 @@ class ViewController: BaseClass, MTKViewDelegate {
         pipelineStateDescriptor.vertexFunction = vertexProgram
         pipelineStateDescriptor.fragmentFunction = fragmentProgram
         pipelineStateDescriptor.colorAttachments[0].pixelFormat = view.colorPixelFormat
+        pipelineStateDescriptor.depthAttachmentPixelFormat = .Depth32Float
         
         do {
             try pipelineState = ViewController.device.newRenderPipelineStateWithDescriptor(pipelineStateDescriptor)
@@ -116,6 +120,7 @@ class ViewController: BaseClass, MTKViewDelegate {
         vertexColorBuffer = ViewController.device.newBufferWithBytes(vertexColorData, length: vertexColorSize, options: [])
         vertexColorBuffer.label = "colors"
         
+        
         initScene()
         
     }
@@ -123,13 +128,14 @@ class ViewController: BaseClass, MTKViewDelegate {
     func initScene() {
         let cameraGO = GameObject()
         cameraGO.GetTransform().Position = float3(0,0,10)
-        let cameraComponent = Camera(texture: ((self.view as! MTKView).currentDrawable?.texture)!)
+        let cameraComponent = Camera()
         cameraGO.AddComponent(cameraComponent)
         cameraGO.AddComponent(CameraMovement3D())
         cameras.append(cameraComponent)
         gameObjects.append(cameraGO)
-        for i in 0..<500 {
-            let c = MeshRenderer(mesh: LinesCubeMesh()).AddMaterial(Material(vertexProgram: "ambientVertexShader", fragmentProgram: "ambientFragmentShader"))
+        for _ in 0..<100 {
+            let color = Color(red: CGFloat(rand()%255)/255.0, green: CGFloat(rand()%255)/255.0, blue: CGFloat(rand()%255)/255.0, alpha: 1)
+            let c = MeshRenderer(mesh: TubeMesh(color: color)).AddMaterial(Material(shader: AmbientShader()))
             
             let GO = GameObject().AddComponent(c).AddComponent(ObjectRotator())
             GO.GetTransform().Position = float3(
@@ -186,7 +192,7 @@ class ViewController: BaseClass, MTKViewDelegate {
         let commandBuffer = commandQueue.commandBuffer()
         commandBuffer.label = "Frame command buffer"
         self.update()
-        
+
         if let renderPassDescriptor = view.currentRenderPassDescriptor, currentDrawable = view.currentDrawable
         {
             #if os(OSX)
@@ -204,13 +210,23 @@ class ViewController: BaseClass, MTKViewDelegate {
             }
             
             for camera in cameras {
-                camera.clear(commandBuffer, texture: currentDrawable.texture)
+                checkDepthTexture(currentDrawable.texture)
                 
-                renderPassDescriptor.colorAttachments[0].loadAction = MTLLoadAction.Load
-                renderPassDescriptor.colorAttachments[0].storeAction = MTLStoreAction.Store
+                camera.clear(commandBuffer, texture: currentDrawable.texture, depthTexture: depthTexture)
+                
+                
+                renderPassDescriptor.colorAttachments[0].loadAction = .Load
+                renderPassDescriptor.colorAttachments[0].storeAction = .Store
                 renderPassDescriptor.colorAttachments[0].texture = currentDrawable.texture
+                renderPassDescriptor.depthAttachment.loadAction = .Load
+                renderPassDescriptor.depthAttachment.storeAction = .Store
+                renderPassDescriptor.depthAttachment.texture = depthTexture
                 
                 let renderEncoder = commandBuffer.renderCommandEncoderWithDescriptor(renderPassDescriptor)
+                renderEncoder.setDepthStencilState(ViewController.device.newDepthStencilStateWithDescriptor(camera.depthStencilDescriptor!))
+                renderEncoder.setFrontFacingWinding(.Clockwise)
+                //renderEncoder.setCullMode(.Back)
+                
                 renderEncoder.label = "render encoder"
                 
                 camera.UpdateViewportIntoEncoder(renderEncoder)
@@ -218,20 +234,28 @@ class ViewController: BaseClass, MTKViewDelegate {
                 for gameObject in gameObjects {
                     gameObject.Render(renderEncoder, camera: camera)
                 }
-                /*
-                //renderEncoder.pushDebugGroup("draw morphing triangle")
-                renderEncoder.setRenderPipelineState(pipelineState)
-                renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, atIndex: 0)
-                renderEncoder.setVertexBuffer(vertexColorBuffer, offset:0 , atIndex: 1)
-                renderEncoder.drawPrimitives(.Triangle, vertexStart: 0, vertexCount: 9, instanceCount: 1)
-                */
-                //renderEncoder.popDebugGroup()
+                
                 renderEncoder.endEncoding()
                 
                 commandBuffer.presentDrawable(currentDrawable)
             }
         }
         commandBuffer.commit()
+    }
+    
+    func checkDepthTexture(currentColorTexture: MTLTexture) {
+        if depthTexture == nil ||
+            depthTexture.width != currentColorTexture.width ||
+            depthTexture.height != currentColorTexture.height {
+                
+                let description = MTLTextureDescriptor.texture2DDescriptorWithPixelFormat(.Depth32Float, width: currentColorTexture.width, height: currentColorTexture.height, mipmapped: false)
+                description.textureType = .Type2D
+                description.sampleCount = currentColorTexture.sampleCount
+                description.storageMode = .Private
+                description.usage = .RenderTarget
+                
+                depthTexture = ViewController.device.newTextureWithDescriptor(description)
+        }
     }
     
     func mtkView(view: MTKView, drawableSizeWillChange size: CGSize) {

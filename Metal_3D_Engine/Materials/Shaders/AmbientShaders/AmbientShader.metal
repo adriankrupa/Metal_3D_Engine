@@ -27,9 +27,9 @@ vertex VertexInOut ambientVertexShader(Vertex vert [[stage_in]],
                                        constant Uniforms &uniforms [[buffer(1)]]) {
     VertexInOut outVertex;
     
-    outVertex.position = uniforms.modelViewProjectionMatrix*float4(vert.position, 1);
+    outVertex.position = uniforms.modelViewProjectionMatrix * float4(vert.position, 1);
     outVertex.color = vert.color;
-    
+
     return outVertex;
 };
 

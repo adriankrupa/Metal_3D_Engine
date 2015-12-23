@@ -7,7 +7,40 @@
 //
 
 import Foundation
+import MetalKit
 
 class Shader {
+    
+    private static var vertexShader: MTLFunction!
+    private static var fragmentShader: MTLFunction!
+    
+    init() {
+        if(self.dynamicType.vertexShader == nil) {
+            self.dynamicType.vertexShader =  ViewController.library.newFunctionWithName(vertexShaderName())!
+        }
+        if(self.dynamicType.fragmentShader == nil) {
+            self.dynamicType.fragmentShader =  ViewController.library.newFunctionWithName(fragmentShaderName())!
+        }
+    }
+    
+    func vertexShaderName() -> String {
+        return "ambientVertexShader"
+    }
+    
+    func fragmentShaderName() -> String {
+        return "ambientFragmentShader"
+    }
+    
+    func getVertexShader() -> MTLFunction {
+        return self.dynamicType.vertexShader
+    }
+    
+    func getFragmentShader() -> MTLFunction {
+        return self.dynamicType.fragmentShader
+    }
+    
+    func isUsing_ModelViewProjectionMatrix() -> Bool {
+        return false
+    }
     
 }

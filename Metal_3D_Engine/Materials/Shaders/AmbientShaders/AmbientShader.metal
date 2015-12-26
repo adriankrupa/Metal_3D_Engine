@@ -7,11 +7,14 @@
 //
 
 #include <metal_stdlib>
+
+#include "VertexAttributesLayoutBindings.h"
+
 using namespace metal;
 
 struct Vertex {
-    float3 position [[attribute(0)]];
-    float4 color [[attribute(1)]];
+    float3 position [[attribute(VertexAttributesPosition)]];
+    float4 color [[attribute(VertexAttributesColor)]];
 };
 
 struct VertexInOut {

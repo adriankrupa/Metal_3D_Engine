@@ -34,15 +34,51 @@ struct Vertex {
     
     static private func initVertexDescriptor() {
         Vertex.verDesc = MTLVertexDescriptor()
-        Vertex.verDesc.attributes[0].format = .Float3
-        Vertex.verDesc.attributes[0].bufferIndex = 0
-        Vertex.verDesc.attributes[0].offset = 0
         
-        Vertex.verDesc.attributes[1].format = .Float4
-        Vertex.verDesc.attributes[1].bufferIndex = 0
-        Vertex.verDesc.attributes[1].offset = sizeof(float3)
+        var v = Vertex()
+        
+        withUnsafePointers(&v, &v.position, { (pointerBase, pointerField) -> Void in
+            let offset = UnsafePointer<Void>(pointerField) - UnsafePointer<Void>(pointerBase)
+            
+            Vertex.verDesc.attributes[VertexAttributes.Position.rawValue].format = .Float3
+            Vertex.verDesc.attributes[VertexAttributes.Position.rawValue].bufferIndex = 0
+            Vertex.verDesc.attributes[VertexAttributes.Position.rawValue].offset = offset
+        })
+        
+        withUnsafePointers(&v, &v.color, { (pointerBase, pointerField) -> Void in
+            let offset = UnsafePointer<Void>(pointerField) - UnsafePointer<Void>(pointerBase)
+            
+            Vertex.verDesc.attributes[VertexAttributes.Color.rawValue].format = .Float4
+            Vertex.verDesc.attributes[VertexAttributes.Color.rawValue].bufferIndex = 0
+            Vertex.verDesc.attributes[VertexAttributes.Color.rawValue].offset = offset
+        })
+        
+        withUnsafePointers(&v, &v.tangent, { (pointerBase, pointerField) -> Void in
+            let offset = UnsafePointer<Void>(pointerField) - UnsafePointer<Void>(pointerBase)
+            
+            Vertex.verDesc.attributes[VertexAttributes.Tangent.rawValue].format = .Float3
+            Vertex.verDesc.attributes[VertexAttributes.Tangent.rawValue].bufferIndex = 0
+            Vertex.verDesc.attributes[VertexAttributes.Tangent.rawValue].offset = offset
+        })
+        
+        withUnsafePointers(&v, &v.UV, { (pointerBase, pointerField) -> Void in
+            let offset = UnsafePointer<Void>(pointerField) - UnsafePointer<Void>(pointerBase)
+            
+            Vertex.verDesc.attributes[VertexAttributes.UV.rawValue].format = .Float2
+            Vertex.verDesc.attributes[VertexAttributes.UV.rawValue].bufferIndex = 0
+            Vertex.verDesc.attributes[VertexAttributes.UV.rawValue].offset = offset
+        })
+        
+        withUnsafePointers(&v, &v.normal, { (pointerBase, pointerField) -> Void in
+            let offset = UnsafePointer<Void>(pointerField) - UnsafePointer<Void>(pointerBase)
+            
+            Vertex.verDesc.attributes[VertexAttributes.Normal.rawValue].format = .Float3
+            Vertex.verDesc.attributes[VertexAttributes.Normal.rawValue].bufferIndex = 0
+            Vertex.verDesc.attributes[VertexAttributes.Normal.rawValue].offset = offset
+        })
         
         Vertex.verDesc.layouts[0].stride = sizeof(Vertex)
+        Vertex.verDesc.layouts[0].stepRate = 1
         Vertex.verDesc.layouts[0].stepFunction = .PerVertex
         
     }

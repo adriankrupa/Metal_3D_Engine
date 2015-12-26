@@ -91,6 +91,7 @@ class ViewController: BaseClass, MTKViewDelegate {
         view.device = ViewController.device
         view.preferredFramesPerSecond = 120
         
+        
         print(view.device!.name!)
         
         commandQueue = ViewController.device.newCommandQueue()
@@ -133,8 +134,12 @@ class ViewController: BaseClass, MTKViewDelegate {
         cameraGO.AddComponent(CameraMovement3D())
         cameras.append(cameraComponent)
         gameObjects.append(cameraGO)
+        
         for _ in 0..<100 {
+            
             let color = Color(red: CGFloat(rand()%255)/255.0, green: CGFloat(rand()%255)/255.0, blue: CGFloat(rand()%255)/255.0, alpha: 1)
+
+            
             let c = MeshRenderer(mesh: TubeMesh(color: color)).AddMaterial(Material(shader: AmbientShader()))
             
             let GO = GameObject().AddComponent(c).AddComponent(ObjectRotator())

@@ -9,7 +9,7 @@
 import Foundation
 import simd
 
-class LinesCubeMesh: LinesMesh {
+class LinesCubeMesh: LinesMesh<UInt16> {
 
     override init() {
         super.init()
@@ -28,7 +28,7 @@ class LinesCubeMesh: LinesMesh {
             vertices.append(v);
         }
         
-        var l = Line()
+        var l = Line<UInt16>()
         for i in 0..<4 {
             l.a = UInt16(i%4);
             l.b = UInt16((i+1)%4);

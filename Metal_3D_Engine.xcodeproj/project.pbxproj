@@ -47,6 +47,12 @@
 		3A076BBD1C14874300398CCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0FA1BC1C1476E300BB7043 /* ViewController.swift */; };
 		3A076BC01C14879200398CCA /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A076BBE1C14879200398CCA /* Metal.framework */; };
 		3A076BC11C14879200398CCA /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A076BBF1C14879200398CCA /* MetalKit.framework */; };
+		3A0CF9841C2F2022004EE8B5 /* EngineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0CF9831C2F2022004EE8B5 /* EngineController.swift */; };
+		3A0CF9851C2F2022004EE8B5 /* EngineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0CF9831C2F2022004EE8B5 /* EngineController.swift */; };
+		3A0CF9861C2F2022004EE8B5 /* EngineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0CF9831C2F2022004EE8B5 /* EngineController.swift */; };
+		3A0CF9881C2F2780004EE8B5 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0CF9871C2F2780004EE8B5 /* ModelManager.swift */; };
+		3A0CF9891C2F2780004EE8B5 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0CF9871C2F2780004EE8B5 /* ModelManager.swift */; };
+		3A0CF98A1C2F2780004EE8B5 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0CF9871C2F2780004EE8B5 /* ModelManager.swift */; };
 		3A0FA1BB1C1476E300BB7043 /* AppDelegate_OSX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0FA1BA1C1476E300BB7043 /* AppDelegate_OSX.swift */; };
 		3A0FA1BD1C1476E300BB7043 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0FA1BC1C1476E300BB7043 /* ViewController.swift */; };
 		3A0FA1BF1C1476E300BB7043 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A0FA1BE1C1476E300BB7043 /* Assets.xcassets */; };
@@ -151,6 +157,8 @@
 		3A076BB91C14871600398CCA /* Info_tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_tvOS.plist; sourceTree = "<group>"; };
 		3A076BBE1C14879200398CCA /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.0.sdk/System/Library/Frameworks/Metal.framework; sourceTree = DEVELOPER_DIR; };
 		3A076BBF1C14879200398CCA /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.0.sdk/System/Library/Frameworks/MetalKit.framework; sourceTree = DEVELOPER_DIR; };
+		3A0CF9831C2F2022004EE8B5 /* EngineController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngineController.swift; sourceTree = "<group>"; };
+		3A0CF9871C2F2780004EE8B5 /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		3A0FA1B71C1476E300BB7043 /* Metal_3D_Engine_OSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Metal_3D_Engine_OSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A0FA1BA1C1476E300BB7043 /* AppDelegate_OSX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate_OSX.swift; sourceTree = "<group>"; };
 		3A0FA1BC1C1476E300BB7043 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -356,9 +364,11 @@
 				3A0542901C17624A00107B34 /* Materials */,
 				3A076BA91C14866A00398CCA /* Resources */,
 				3ADAB9611C14F380007BFA3D /* Color.swift */,
+				3A0CF9831C2F2022004EE8B5 /* EngineController.swift */,
 				3A65614C1C21B4ED00321AA8 /* EngineView.swift */,
 				3ADAB9551C14F36F007BFA3D /* GameObject.swift */,
 				3A6561481C21A54E00321AA8 /* Input.swift */,
+				3A0CF9871C2F2780004EE8B5 /* ModelManager.swift */,
 				3ADAB9591C14F374007BFA3D /* Shaders.metal */,
 				3ADAB95A1C14F374007BFA3D /* Time.swift */,
 				3A0FA1BC1C1476E300BB7043 /* ViewController.swift */,
@@ -709,6 +719,7 @@
 				3AA7F58A1C297375001EB1CE /* TrianglesMesh.swift in Sources */,
 				3A0542A81C176B0600107B34 /* PointsMesh.swift in Sources */,
 				3A0542AC1C178A9B00107B34 /* MeshRenderer.swift in Sources */,
+				3A0CF9891C2F2780004EE8B5 /* ModelManager.swift in Sources */,
 				3A65614E1C21B4ED00321AA8 /* EngineView.swift in Sources */,
 				3A076BA81C14821100398CCA /* ViewController.swift in Sources */,
 				3AA7F5961C2B0720001EB1CE /* TorusLineMesh.swift in Sources */,
@@ -716,6 +727,7 @@
 				3ADAB9501C14F364007BFA3D /* Component.swift in Sources */,
 				3A635B0B1C24D4D700DEAC82 /* AmbientShader.swift in Sources */,
 				3ADAB9571C14F36F007BFA3D /* GameObject.swift in Sources */,
+				3A0CF9851C2F2022004EE8B5 /* EngineController.swift in Sources */,
 				3A6561421C20B65300321AA8 /* ObjectRotator.swift in Sources */,
 				3AA7F58E1C2975B5001EB1CE /* CubeMesh.swift in Sources */,
 				3A65612D1C1F858200321AA8 /* AmbientShader.metal in Sources */,
@@ -750,6 +762,7 @@
 				3AA7F58B1C297375001EB1CE /* TrianglesMesh.swift in Sources */,
 				3A0542A91C176B0600107B34 /* PointsMesh.swift in Sources */,
 				3A0542AD1C178A9B00107B34 /* MeshRenderer.swift in Sources */,
+				3A0CF98A1C2F2780004EE8B5 /* ModelManager.swift in Sources */,
 				3A65614F1C21B4ED00321AA8 /* EngineView.swift in Sources */,
 				3A076BBD1C14874300398CCA /* ViewController.swift in Sources */,
 				3AA7F5971C2B0720001EB1CE /* TorusLineMesh.swift in Sources */,
@@ -757,6 +770,7 @@
 				3ADAB9511C14F364007BFA3D /* Component.swift in Sources */,
 				3A635B0C1C24D4D700DEAC82 /* AmbientShader.swift in Sources */,
 				3ADAB9581C14F36F007BFA3D /* GameObject.swift in Sources */,
+				3A0CF9861C2F2022004EE8B5 /* EngineController.swift in Sources */,
 				3A6561431C20B65300321AA8 /* ObjectRotator.swift in Sources */,
 				3AA7F58F1C2975B5001EB1CE /* CubeMesh.swift in Sources */,
 				3A65612E1C1F858200321AA8 /* AmbientShader.metal in Sources */,
@@ -791,6 +805,7 @@
 				3AA7F5891C297375001EB1CE /* TrianglesMesh.swift in Sources */,
 				3A0542A71C176B0600107B34 /* PointsMesh.swift in Sources */,
 				3A0542AB1C178A9B00107B34 /* MeshRenderer.swift in Sources */,
+				3A0CF9881C2F2780004EE8B5 /* ModelManager.swift in Sources */,
 				3A65614D1C21B4ED00321AA8 /* EngineView.swift in Sources */,
 				3A0FA1BD1C1476E300BB7043 /* ViewController.swift in Sources */,
 				3AA7F5951C2B0720001EB1CE /* TorusLineMesh.swift in Sources */,
@@ -798,6 +813,7 @@
 				3ADAB94F1C14F364007BFA3D /* Component.swift in Sources */,
 				3A635B0A1C24D4D700DEAC82 /* AmbientShader.swift in Sources */,
 				3ADAB9561C14F36F007BFA3D /* GameObject.swift in Sources */,
+				3A0CF9841C2F2022004EE8B5 /* EngineController.swift in Sources */,
 				3A6561411C20B65300321AA8 /* ObjectRotator.swift in Sources */,
 				3AA7F58D1C2975B5001EB1CE /* CubeMesh.swift in Sources */,
 				3A65612C1C1F858200321AA8 /* AmbientShader.metal in Sources */,

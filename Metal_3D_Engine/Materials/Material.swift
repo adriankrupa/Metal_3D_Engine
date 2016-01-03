@@ -18,8 +18,8 @@ class Material {
     
     init(vertexProgram: String, fragmentProgram: String) {
                 
-        let fragmentProgramObject = ViewController.library.newFunctionWithName(fragmentProgram)!
-        let vertexProgramObject = ViewController.library.newFunctionWithName(vertexProgram)!
+        let fragmentProgramObject = EngineController.library.newFunctionWithName(fragmentProgram)!
+        let vertexProgramObject = EngineController.library.newFunctionWithName(vertexProgram)!
                 
         
         pipelineStateDescriptor = MTLRenderPipelineDescriptor()
@@ -49,7 +49,7 @@ class Material {
     
     private func initialize() {
         do {
-            try pipelineState = ViewController.device.newRenderPipelineStateWithDescriptor(pipelineStateDescriptor)
+            try pipelineState = EngineController.device.newRenderPipelineStateWithDescriptor(pipelineStateDescriptor)
         } catch let error {
             print("Failed to create pipeline state, error \(error)")
         }

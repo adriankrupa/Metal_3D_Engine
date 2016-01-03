@@ -9,9 +9,9 @@
 import Foundation
 import MetalKit
 
-class LinesMesh: Mesh {
+class LinesMesh<IndicesType: MTLUnsignedIndexType>: Mesh {
     
-    var lines: [Line] = []
+    var lines: [Line<IndicesType>] = []
     
     override init() {
         super.init()
@@ -21,19 +21,19 @@ class LinesMesh: Mesh {
         super.init()
 
         self.lines.reserveCapacity(stripLine ? points.count-1 : points.count/2)
-        var l = Line()
+        var l = Line<IndicesType>()
         
         if(stripLine) {
             for i in 0..<points.count-1 {
-                l.a = UInt16(i)
-                l.b = UInt16(i+1)
+                l.a = IndicesType(UIntMax(i))
+                l.b = IndicesType(UIntMax(i+1))
                 lines.append(l)
             }
         } else {
             for i in 0..<points.count/2 {
-                l.a = UInt16(i*2)
-                l.b = UInt16(i*2+1)
-                lines.append(l);
+                l.a = IndicesType(UIntMax(i*2))
+                l.b = IndicesType(UIntMax(i*2+1))
+                lines.append(l)
             }
         }
         self.vertices = points
@@ -44,11 +44,15 @@ class LinesMesh: Mesh {
     }
     
     override func FillIndexBuffer() {
-        indexBuffer = ViewController.device.newBufferWithBytes(lines, length: lines.count * sizeof(Line), options: [])
+        indexBuffer = EngineController.device.newBufferWithBytes(lines, length: lines.count * sizeof(Line<IndicesType>), options: [])
         indexBuffer.label = name + "_indexBuffer"
     }
     
     override func GetIndexCount() -> Int {
         return lines.count * 2
+    }
+    
+    override func GetMetalIndexType() -> MTLIndexType {
+        return IndicesType.GetMetalType()
     }
 }

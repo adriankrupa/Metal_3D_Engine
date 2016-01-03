@@ -9,7 +9,7 @@
 import Foundation
 import simd
 
-class TubeMesh: TrianglesMesh {
+class TubeMesh: TrianglesMesh<UInt16> {
     
     init(R _R: Float? = nil, r _r: Float? = nil, height _height: Float? = nil, density _density: Int? = nil, color _color: Color? = nil) {
         super.init()
@@ -80,7 +80,7 @@ class TubeMesh: TrianglesMesh {
             }
         }
         
-        var t = Triangle()
+        var t = Triangle<UInt16>()
         for i in 0..<density {
             
             t.a = UInt16(offset + i * 2)

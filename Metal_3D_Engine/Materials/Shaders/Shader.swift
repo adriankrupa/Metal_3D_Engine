@@ -16,10 +16,10 @@ class Shader {
     
     init() {
         if(self.dynamicType.vertexShader == nil) {
-            self.dynamicType.vertexShader =  ViewController.library.newFunctionWithName(vertexShaderName())!
+            self.dynamicType.vertexShader =  EngineController.library.newFunctionWithName(vertexShaderName())!
         }
         if(self.dynamicType.fragmentShader == nil) {
-            self.dynamicType.fragmentShader =  ViewController.library.newFunctionWithName(fragmentShaderName())!
+            self.dynamicType.fragmentShader =  EngineController.library.newFunctionWithName(fragmentShaderName())!
         }
     }
     

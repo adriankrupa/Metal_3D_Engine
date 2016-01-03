@@ -9,7 +9,7 @@
 import Foundation
 import simd
 
-class PointsCubeMesh: PointsMesh {
+class PointsCubeMesh: PointsMesh<UInt16> {
     
     override init() {
         super.init()
@@ -21,7 +21,7 @@ class PointsCubeMesh: PointsMesh {
         initialize(pointsNumber)
     }
     
-    private func initialize(pointsNumber: Int = 5) {
+    private func initialize(pointsNumber: Int = 20) {
         name = "PointsCubeMesh"
         var v = Vertex()
         v.color = float4(1, 1, 1, 1)
@@ -36,7 +36,7 @@ class PointsCubeMesh: PointsMesh {
                                             (Float(j)/Float(pointsNumber-1))*2.0 - 1,
                                             (Float(k)/Float(pointsNumber-1))*2.0 - 1)
                     }
-                    var p = Point()
+                    var p = Point<UInt16>()
                     p.a = index++
 
                     vertices.append(v)

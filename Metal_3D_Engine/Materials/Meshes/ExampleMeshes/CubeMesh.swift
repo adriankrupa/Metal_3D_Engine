@@ -9,7 +9,7 @@
 import Foundation
 import simd
 
-class CubeMesh: TrianglesMesh {
+class CubeMesh: TrianglesMesh<UInt16> {
     
     init(color: Color = Color.whiteColor()) {
         super.init()
@@ -133,7 +133,7 @@ class CubeMesh: TrianglesMesh {
         vertices.append(v)
         
         
-        var t = Triangle()
+        var t = Triangle<UInt16>()
         
         t.a = 0
         t.b = 1

@@ -9,7 +9,7 @@
 import Foundation
 import simd
 
-class TorusMesh: TrianglesMesh {
+class TorusMesh: TrianglesMesh<UInt16> {
     
     init(R: Float = 1.0, r: Float! = 0.25, density: Int = 40, color: Color = Color.whiteColor()) {
         super.init()
@@ -41,7 +41,7 @@ class TorusMesh: TrianglesMesh {
             }
         }
         
-        var t = Triangle()
+        var t = Triangle<UInt16>()
         for i in 0..<density {
             for j in 0..<density  {
                 

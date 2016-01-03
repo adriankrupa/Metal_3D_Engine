@@ -86,7 +86,7 @@ class Camera : Component {
         renderPassDescriptor.colorAttachments[0].texture = texture
         renderPassDescriptor.depthAttachment.texture = depthTexture
         let renderEncoder = commandBuffer.renderCommandEncoderWithDescriptor(renderPassDescriptor)
-        renderEncoder.setDepthStencilState(ViewController.device.newDepthStencilStateWithDescriptor(depthStencilDescriptor!))
+        renderEncoder.setDepthStencilState(EngineController.device.newDepthStencilStateWithDescriptor(depthStencilDescriptor!))
         
         renderEncoder.setViewport(MTLViewport(
             originX: Double(viewport.x * Float(frameSize.width)),

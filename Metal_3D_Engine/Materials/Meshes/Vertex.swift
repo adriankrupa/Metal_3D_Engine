@@ -83,3 +83,19 @@ struct Vertex {
         
     }
 }
+
+protocol MTLUnsignedIndexType: UnsignedIntegerType {
+    static func GetMetalType() -> MTLIndexType
+}
+
+extension UInt16 : MTLUnsignedIndexType {
+    static func GetMetalType() -> MTLIndexType {
+        return .UInt16
+    }
+}
+
+extension UInt32 : MTLUnsignedIndexType {
+    static func GetMetalType() -> MTLIndexType {
+        return .UInt32
+    }
+}

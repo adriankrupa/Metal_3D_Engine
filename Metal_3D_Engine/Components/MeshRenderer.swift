@@ -34,9 +34,9 @@ class MeshRenderer: Component {
         
         if(material.uniformBuffer == nil) {
 #if os(OSX)
-            material.uniformBuffer = ViewController.device.newBufferWithLength(sizeof(float4x4), options: [.StorageModeManaged])
+            material.uniformBuffer = EngineController.device.newBufferWithLength(sizeof(float4x4), options: [.StorageModeManaged])
 #else
-            material.uniformBuffer = ViewController.device.newBufferWithLength(sizeof(float4x4), options: [.StorageModeShared])
+            material.uniformBuffer = EngineController.device.newBufferWithLength(sizeof(float4x4), options: [.StorageModeShared])
 #endif
             material.uniformBuffer.label = "uniforms_vertexBuffer"
         } else {
@@ -49,7 +49,7 @@ class MeshRenderer: Component {
         commandEncoder.setRenderPipelineState(material.pipelineState)
         commandEncoder.setVertexBuffer(mesh.vertexBuffer, offset: 0, atIndex: 0)
         commandEncoder.setVertexBuffer(material.uniformBuffer, offset: 0, atIndex: 1)
-        commandEncoder.drawIndexedPrimitives(mesh.GetPrimitiveType(), indexCount: mesh.GetIndexCount(), indexType: MTLIndexType.UInt16, indexBuffer: mesh.indexBuffer, indexBufferOffset: 0)
+        commandEncoder.drawIndexedPrimitives(mesh.GetPrimitiveType(), indexCount: mesh.GetIndexCount(), indexType: mesh.GetMetalIndexType(), indexBuffer: mesh.indexBuffer, indexBufferOffset: 0)
     }
     
     func AddMaterial(material: Material) -> MeshRenderer {

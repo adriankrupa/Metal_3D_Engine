@@ -37,9 +37,9 @@ class Mesh {
             return
         }
         
-        vertexBuffer = ViewController.device.newBufferWithBytes(vertices, length: vertices.count * sizeof(Vertex), options: [])
+        vertexBuffer = EngineController.device.newBufferWithBytes(vertices, length: vertices.count * sizeof(Vertex), options: [])
         vertexBuffer.label = name + "_vertexBuffer"
-        
+        vertices = []
         FillIndexBuffer()
     }
     
@@ -49,5 +49,9 @@ class Mesh {
     
     func GetIndexCount() -> Int {
         return 0
+    }
+    
+    func GetMetalIndexType() -> MTLIndexType {
+        return .UInt32
     }
 }

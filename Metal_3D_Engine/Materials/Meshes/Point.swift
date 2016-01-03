@@ -8,7 +8,6 @@
 
 import Foundation
 
-struct Point {
-
-    var a: UInt16 = 0
+struct Point<IndicesType : MTLUnsignedIndexType>  {
+    var a: IndicesType = 0
 }

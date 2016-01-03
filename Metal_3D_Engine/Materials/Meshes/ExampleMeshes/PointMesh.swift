@@ -9,7 +9,7 @@
 import Foundation
 import simd
 
-class PointMesh: PointsMesh {
+class PointMesh: PointsMesh<UInt16> {
     
     override init() {
         super.init()
@@ -19,7 +19,7 @@ class PointMesh: PointsMesh {
         v.color = float4(1, 1, 1, 1)
         v.position = float3(0, 0, 0)
         
-        var p = Point()
+        var p = Point<UInt16>()
         p.a = 0
         
         vertices.append(v)

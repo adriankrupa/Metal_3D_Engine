@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Line {
-    var a: UInt16 = 0
-    var b: UInt16 = 0
+struct Line <IndicesType : MTLUnsignedIndexType> {
+    var a: IndicesType = 0
+    var b: IndicesType = 0
 }

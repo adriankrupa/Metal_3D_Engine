@@ -9,7 +9,7 @@
 import Foundation
 import simd
 
-class TorusLineMesh: LinesMesh {
+class TorusLineMesh: LinesMesh<UInt16> {
     
     init(R: Float? = nil, r: Float? = nil, density: Int? = nil, color: Color? = nil) {
         super.init()
@@ -47,7 +47,7 @@ class TorusLineMesh: LinesMesh {
             }
         }
         
-        var l = Line()
+        var l = Line<UInt16>()
         for i in 0..<_density {
             for j in 0..<_density  {
                 

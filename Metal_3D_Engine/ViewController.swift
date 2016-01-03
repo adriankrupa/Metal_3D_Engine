@@ -51,10 +51,6 @@ let vertexColorData:[Float] =
 
 class ViewController: BaseClass, MTKViewDelegate {
     
-    static var currentDevice: MTLDevice!
-    static var device: MTLDevice = MTLCreateSystemDefaultDevice()!
-    static var library: MTLLibrary!
-    
     var commandQueue: MTLCommandQueue! = nil
     var pipelineState: MTLRenderPipelineState! = nil
     
@@ -81,25 +77,23 @@ class ViewController: BaseClass, MTKViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        EngineController.initialize()
         lastUpdateTime = CFAbsoluteTimeGetCurrent()
         
         
         let view = self.view as! MTKView
         view.delegate = self
-        ViewController.currentDevice = ViewController.device
-        view.device = ViewController.device
+        view.device = EngineController.device
         view.preferredFramesPerSecond = 120
         
         
         print(view.device!.name!)
         
-        commandQueue = ViewController.device.newCommandQueue()
+        commandQueue = EngineController.device.newCommandQueue()
         commandQueue.label = "main command queue"
         
-        ViewController.library = ViewController.device.newDefaultLibrary()!
-        let fragmentProgram = ViewController.library.newFunctionWithName("passThroughFragment")!
-        let vertexProgram = ViewController.library.newFunctionWithName("passThroughVertex")!
+        let fragmentProgram = EngineController.library.newFunctionWithName("passThroughFragment")!
+        let vertexProgram = EngineController.library.newFunctionWithName("passThroughVertex")!
         
         let pipelineStateDescriptor = MTLRenderPipelineDescriptor()
         pipelineStateDescriptor.vertexFunction = vertexProgram
@@ -108,22 +102,21 @@ class ViewController: BaseClass, MTKViewDelegate {
         pipelineStateDescriptor.depthAttachmentPixelFormat = .Depth32Float
         
         do {
-            try pipelineState = ViewController.device.newRenderPipelineStateWithDescriptor(pipelineStateDescriptor)
+            try pipelineState = EngineController.device.newRenderPipelineStateWithDescriptor(pipelineStateDescriptor)
         } catch let error {
             print("Failed to create pipeline state, error \(error)")
         }
         
         // generate a large enough buffer to allow streaming vertices for 3 semaphore controlled frames
-        vertexBuffer = ViewController.device.newBufferWithLength(ConstantBufferSize, options: [])
+        vertexBuffer = EngineController.device.newBufferWithLength(ConstantBufferSize, options: [])
         vertexBuffer.label = "vertices"
         
         let vertexColorSize = vertexData.count * sizeofValue(vertexColorData[0])
-        vertexColorBuffer = ViewController.device.newBufferWithBytes(vertexColorData, length: vertexColorSize, options: [])
+        vertexColorBuffer = EngineController.device.newBufferWithBytes(vertexColorData, length: vertexColorSize, options: [])
         vertexColorBuffer.label = "colors"
         
         
         initScene()
-        
     }
     
     func initScene() {
@@ -135,14 +128,18 @@ class ViewController: BaseClass, MTKViewDelegate {
         cameras.append(cameraComponent)
         gameObjects.append(cameraGO)
         
-        for _ in 0..<100 {
+        var mesh2 = ModelManager.LoadObject("Data/Assets/teapot/teapot.obj")!
+
+        
+        for _ in 0..<50 {
             
             let color = Color(red: CGFloat(rand()%255)/255.0, green: CGFloat(rand()%255)/255.0, blue: CGFloat(rand()%255)/255.0, alpha: 1)
 
+            var mesh = PointsCubeMesh()
+
+            let c = MeshRenderer(mesh: mesh2).AddMaterial(Material(shader: AmbientShader()))
             
-            let c = MeshRenderer(mesh: TubeMesh(color: color)).AddMaterial(Material(shader: AmbientShader()))
-            
-            let GO = GameObject().AddComponent(c).AddComponent(ObjectRotator())
+            let GO = GameObject().AddComponent(c)//.AddComponent(ObjectRotator())
             GO.GetTransform().Position = float3(
                 Float(Int(arc4random_uniform(2000)) - 1000)/Float(100.0),
                 Float(Int(arc4random_uniform(2000)) - 1000)/Float(100.0),
@@ -228,7 +225,7 @@ class ViewController: BaseClass, MTKViewDelegate {
                 renderPassDescriptor.depthAttachment.texture = depthTexture
                 
                 let renderEncoder = commandBuffer.renderCommandEncoderWithDescriptor(renderPassDescriptor)
-                renderEncoder.setDepthStencilState(ViewController.device.newDepthStencilStateWithDescriptor(camera.depthStencilDescriptor!))
+                renderEncoder.setDepthStencilState(EngineController.device.newDepthStencilStateWithDescriptor(camera.depthStencilDescriptor!))
                 renderEncoder.setFrontFacingWinding(.Clockwise)
                 //renderEncoder.setCullMode(.Back)
                 
@@ -259,7 +256,7 @@ class ViewController: BaseClass, MTKViewDelegate {
                 description.storageMode = .Private
                 description.usage = .RenderTarget
                 
-                depthTexture = ViewController.device.newTextureWithDescriptor(description)
+                depthTexture = EngineController.device.newTextureWithDescriptor(description)
         }
     }
     

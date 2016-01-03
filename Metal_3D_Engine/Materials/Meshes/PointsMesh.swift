@@ -9,9 +9,9 @@
 import Foundation
 import MetalKit
 
-class PointsMesh: Mesh {
+class PointsMesh<IndicesType: MTLUnsignedIndexType>: Mesh {
     
-    var points: [Point] = []
+    var points: [Point<IndicesType>] = []
     
     override init() {
         super.init()
@@ -20,9 +20,9 @@ class PointsMesh: Mesh {
     init(points: [Vertex]) {
         super.init()
         self.points.reserveCapacity(points.count)
-        var p = Point()
+        var p = Point<IndicesType>()
         for i in 0...points.count  {
-            p.a = UInt16(i)
+            p.a = IndicesType(UIntMax(i))
             self.points.append(p)
         }
         self.vertices = points
@@ -33,11 +33,15 @@ class PointsMesh: Mesh {
     }
     
     override func FillIndexBuffer() {
-        indexBuffer = ViewController.device.newBufferWithBytes(points, length: points.count * sizeof(Point), options: [])
+        indexBuffer = EngineController.device.newBufferWithBytes(points, length: points.count * sizeof(Point<IndicesType>), options: [])
         indexBuffer.label = name + "_indexBuffer"
     }
     
     override func GetIndexCount() -> Int {
         return points.count
+    }
+    
+    override func GetMetalIndexType() -> MTLIndexType {
+        return IndicesType.GetMetalType()
     }
 }

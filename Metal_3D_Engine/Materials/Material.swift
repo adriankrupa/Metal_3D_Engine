@@ -13,8 +13,9 @@ class Material {
     
     var pipelineStateDescriptor: MTLRenderPipelineDescriptor! = nil
     var pipelineState: MTLRenderPipelineState! = nil
-    
-    var uniformBuffer: MTLBuffer! = nil
+        
+    var builtInUniformMeta: BuiltInBuffer.Type!
+    var uniformBuffers: [UniformBuffer] = []
     
     init(vertexProgram: String, fragmentProgram: String) {
                 
@@ -31,7 +32,7 @@ class Material {
         initialize()
     }
     
-    init(shader: Shader) {
+    init(shader: Shader, uniformBuffers: [UniformBuffer] = []) {
         
         pipelineStateDescriptor = MTLRenderPipelineDescriptor()
         pipelineStateDescriptor.vertexFunction = shader.getVertexShader()
@@ -39,6 +40,10 @@ class Material {
         pipelineStateDescriptor.colorAttachments[0].pixelFormat = MTLPixelFormat.BGRA8Unorm
         pipelineStateDescriptor.vertexDescriptor = Vertex.vertexDescriptor
         pipelineStateDescriptor.depthAttachmentPixelFormat = .Depth32Float
+        
+        self.builtInUniformMeta = shader.getBuiltInUniformsBufferMetaData()
+        self.uniformBuffers += uniformBuffers
+        
         initialize()
     }
     

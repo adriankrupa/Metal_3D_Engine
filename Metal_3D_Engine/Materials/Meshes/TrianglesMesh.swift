@@ -44,13 +44,6 @@ class TrianglesMesh<IndicesType: MTLUnsignedIndexType>: Mesh {
     init(points: [Vertex], triangles: [Triangle<IndicesType>]) {
         super.init()
         
-        for vertex in points {
-            print(vertex.position)
-        }
-        for triangle in triangles {
-            print(triangle)
-        }
-        
         self.triangles = triangles
         self.vertices = points
     }

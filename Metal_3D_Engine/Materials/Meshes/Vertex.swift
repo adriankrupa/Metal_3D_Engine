@@ -13,7 +13,7 @@ import simd
 struct Vertex {
         
     var position = float3(0, 0, 0)
-    var color = float4(1, 1, 1, 1)
+    var color = float4(1, 0, 1, 0)
     var tangent = float3(0, 1, 0)
     var UV = float2(0, 0)
     var normal = float3(1, 0, 0)

@@ -14,10 +14,15 @@ class MeshRenderer: Component {
     var mesh: Mesh!
     var materials: [Material] = []
     
+    var builtInUniformBuffers: [BuiltInBuffer] = []
+    var uniformsTemp: BuiltInUniforms!
+    
+    
     override func Render(commandEncoder: MTLRenderCommandEncoder, camera: Camera) {
         super.Render(commandEncoder, camera: camera)
-        for material in materials {
-            Render(commandEncoder, camera: camera, material: material)
+        uniformsTemp = BuiltInUniforms()
+        for i in 0..<materials.count {
+            Render(commandEncoder, camera: camera, index: i)
         }
     }
     
@@ -26,35 +31,44 @@ class MeshRenderer: Component {
         self.mesh = mesh
     }
     
-    private func Render(commandEncoder: MTLRenderCommandEncoder, camera: Camera, material: Material) {
+    private func Render(commandEncoder: MTLRenderCommandEncoder, camera: Camera, index: Int) {
         mesh.FillData()
         
-        let projection = camera.GetProjectionMatrix() * camera.GetViewMatrix() * GetTransform().GetModelMatrix()
-        let Uniforms: [float4x4] = [projection]
+        let material = materials[index]
+        let builtInUniformBuffer = builtInUniformBuffers[index]
         
-        if(material.uniformBuffer == nil) {
-#if os(OSX)
-            material.uniformBuffer = EngineController.device.newBufferWithLength(sizeof(float4x4), options: [.StorageModeManaged])
-#else
-            material.uniformBuffer = EngineController.device.newBufferWithLength(sizeof(float4x4), options: [.StorageModeShared])
-#endif
-            material.uniformBuffer.label = "uniforms_vertexBuffer"
-        } else {
-            memcpy(material.uniformBuffer.contents(), Uniforms, sizeof(float4x4))
-#if os(OSX)
-            material.uniformBuffer.didModifyRange(NSMakeRange(0, sizeof(float4x4)))
-#endif
+        if(builtInUniformBuffer.isUsing_ModelViewProjectionMatrix()) {
+            uniformsTemp.modelMatrix = uniformsTemp.modelMatrix ?? GetTransform().GetModelMatrix()
+            uniformsTemp.viewMatrix = uniformsTemp.viewMatrix ?? camera.GetViewMatrix()
+            uniformsTemp.projectionMatrix = uniformsTemp.projectionMatrix ?? camera.GetProjectionMatrix()
+            uniformsTemp.modelViewProjectionMatrix = uniformsTemp.modelViewProjectionMatrix ?? uniformsTemp.projectionMatrix! * uniformsTemp.viewMatrix! * uniformsTemp.modelMatrix!
+            builtInUniformBuffer.set_ModelViewProjectionMatrix(uniformsTemp.modelViewProjectionMatrix!)
+        }
+        
+        builtInUniformBuffer.fillDataAndUpdate()
+        
+        for uniformBuffer in material.uniformBuffers {
+            
+            uniformBuffer.fillDataAndUpdate()
         }
 
         commandEncoder.setRenderPipelineState(material.pipelineState)
         commandEncoder.setVertexBuffer(mesh.vertexBuffer, offset: 0, atIndex: 0)
-        commandEncoder.setVertexBuffer(material.uniformBuffer, offset: 0, atIndex: 1)
+        commandEncoder.setVertexBuffer(builtInUniformBuffer.buffer, offset: 0, atIndex: 1)
         commandEncoder.drawIndexedPrimitives(mesh.GetPrimitiveType(), indexCount: mesh.GetIndexCount(), indexType: mesh.GetMetalIndexType(), indexBuffer: mesh.indexBuffer, indexBufferOffset: 0)
     }
     
     func AddMaterial(material: Material) -> MeshRenderer {
         materials.append(material)
+        builtInUniformBuffers.append(material.builtInUniformMeta.init())
         return self
+    }
+    
+    struct BuiltInUniforms {
+        var modelMatrix: float4x4?
+        var viewMatrix: float4x4?
+        var projectionMatrix: float4x4?
+        var modelViewProjectionMatrix: float4x4?
     }
     
 }

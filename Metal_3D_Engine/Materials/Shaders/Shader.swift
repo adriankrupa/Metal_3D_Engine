@@ -39,8 +39,8 @@ class Shader {
         return self.dynamicType.fragmentShader
     }
     
-    func isUsing_ModelViewProjectionMatrix() -> Bool {
-        return false
+    func getBuiltInUniformsBufferMetaData() -> BuiltInBuffer.Type {
+        return BuiltInBuffer.self
     }
     
 }

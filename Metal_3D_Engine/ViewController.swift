@@ -128,22 +128,22 @@ class ViewController: BaseClass, MTKViewDelegate {
         cameras.append(cameraComponent)
         gameObjects.append(cameraGO)
         
-        var mesh2 = ModelManager.LoadObject("Data/Assets/teapot/teapot.obj")!
+        var mesh2 = ModelManager.LoadObject("Data/Assets/teapot/teapot.obj", parameters: ["Color":Color(red: 1, green: 1, blue: 1, alpha: 1)])!
 
         
-        for _ in 0..<50 {
+        for _ in 0..<2000 {
             
             let color = Color(red: CGFloat(rand()%255)/255.0, green: CGFloat(rand()%255)/255.0, blue: CGFloat(rand()%255)/255.0, alpha: 1)
 
-            var mesh = PointsCubeMesh()
+            var mesh = CubeMesh()
 
-            let c = MeshRenderer(mesh: mesh2).AddMaterial(Material(shader: AmbientShader()))
+            let c = MeshRenderer(mesh: mesh).AddMaterial(Material(shader: AmbientShader()))
             
             let GO = GameObject().AddComponent(c)//.AddComponent(ObjectRotator())
             GO.GetTransform().Position = float3(
-                Float(Int(arc4random_uniform(2000)) - 1000)/Float(100.0),
-                Float(Int(arc4random_uniform(2000)) - 1000)/Float(100.0),
-                Float(Int(arc4random_uniform(2000)))/Float(100.0))
+                Float(Int(arc4random_uniform(20000)) - 10000)/Float(200.0),
+                Float(Int(arc4random_uniform(20000)) - 10000)/Float(200.0),
+                Float(Int(arc4random_uniform(20000)))/Float(200.0))
             gameObjects.append(GO)
         }
     }

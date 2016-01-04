@@ -9,6 +9,8 @@
 #include <metal_stdlib>
 
 #include "VertexAttributesLayoutBindings.h"
+#include "LightAttributes.h"
+
 
 using namespace metal;
 

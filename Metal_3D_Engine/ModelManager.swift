@@ -11,7 +11,7 @@ import MetalKit
 
 class ModelManager {
     
-    static func LoadObject(path: String) -> Mesh? {
+    static func LoadObject(path: String, parameters: Dictionary<String, AnyObject>? = nil) -> Mesh? {
         
         let mdlVertexDescriptor = MTKModelIOVertexDescriptorFromMetal(Vertex.vertexDescriptor)
         
@@ -47,7 +47,7 @@ class ModelManager {
         let pointer = UnsafePointer<Vertex>(mapa.bytes)
         let buffer = UnsafeBufferPointer(start: pointer, count: mdlMeshes![0].vertexCount!)
         
-        let vertices: [Vertex] = Array<Vertex>(buffer)
+        var vertices: [Vertex] = Array<Vertex>(buffer)
         
         let mm = mdlMeshes![0] as! MDLMesh
         //mm.makeVerticesUnique()
@@ -57,6 +57,19 @@ class ModelManager {
         let ipointer = UnsafePointer<Triangle<UInt32>>(imapa.bytes)
         let ibuffer = UnsafeBufferPointer(start: ipointer, count: sm.indexCount/3)
         let indices: [Triangle<UInt32>] = Array(ibuffer)
+        
+        if let par = parameters {
+            if let color = par["color"] as? Color {
+                for i in 0..<vertices.count {
+                    vertices[i].color = color.getRGBA()
+                }
+            }
+            if let color = par["Color"] as? Color {
+                for i in 0..<vertices.count {
+                    vertices[i].color = color.getRGBA()
+                }
+            }
+        }
         
         return TrianglesMesh(points: vertices, triangles: indices)
         return nil

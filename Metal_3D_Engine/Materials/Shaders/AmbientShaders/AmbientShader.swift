@@ -9,11 +9,10 @@
 import Foundation
 
 class AmbientShader: Shader {
-        
-    override func isUsing_ModelViewProjectionMatrix() -> Bool {
-        return true
-    }
     
+    override func getBuiltInUniformsBufferMetaData() -> BuiltInBuffer.Type {
+        return MVP_Simple_Buffer.self
+    }
     override func vertexShaderName() -> String {
         return "ambientVertexShader"
     }

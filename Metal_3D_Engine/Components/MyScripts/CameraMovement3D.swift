@@ -56,7 +56,7 @@ class CameraMovement3D: Component {
 
         var tempCameraSpeed = cameraSpeed;
         if (Input.GetKey(.KEY_LEFT_SHIFT) || Input.GetKey(.KEY_RIGHT_SHIFT)) {
-                tempCameraSpeed *= 10
+                tempCameraSpeed *= 30
         }
         
         if (Input.GetKey(.KEY_W)) {

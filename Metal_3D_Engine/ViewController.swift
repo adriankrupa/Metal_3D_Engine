@@ -72,7 +72,7 @@ class ViewController: BaseClass, MTKViewDelegate {
     var depthTexture: MTLTexture! = nil
     
     static var currentTexture: MTLTexture!
-    
+
     var lastUpdateTime: CFAbsoluteTime = 0
     
     override func viewDidLoad() {
@@ -130,20 +130,21 @@ class ViewController: BaseClass, MTKViewDelegate {
         
         var mesh2 = ModelManager.LoadObject("Data/Assets/teapot/teapot.obj", parameters: ["Color":Color(red: 1, green: 1, blue: 1, alpha: 1)])!
 
-        
+        let m = Material(shader: AmbientShader())
         for _ in 0..<2000 {
             
             let color = Color(red: CGFloat(rand()%255)/255.0, green: CGFloat(rand()%255)/255.0, blue: CGFloat(rand()%255)/255.0, alpha: 1)
 
             var mesh = CubeMesh()
 
-            let c = MeshRenderer(mesh: mesh).AddMaterial(Material(shader: AmbientShader()))
+            let c = MeshRenderer(mesh: mesh).AddMaterial(m)
             
             let GO = GameObject().AddComponent(c)//.AddComponent(ObjectRotator())
             GO.GetTransform().Position = float3(
                 Float(Int(arc4random_uniform(20000)) - 10000)/Float(200.0),
                 Float(Int(arc4random_uniform(20000)) - 10000)/Float(200.0),
                 Float(Int(arc4random_uniform(20000)))/Float(200.0))
+            //GO.GetTransform().Position = float3(0,0,0)
             gameObjects.append(GO)
         }
     }
@@ -216,7 +217,7 @@ class ViewController: BaseClass, MTKViewDelegate {
                 
                 camera.clear(commandBuffer, texture: currentDrawable.texture, depthTexture: depthTexture)
                 
-                
+                EngineController.lastPipelineState = nil
                 renderPassDescriptor.colorAttachments[0].loadAction = .Load
                 renderPassDescriptor.colorAttachments[0].storeAction = .Store
                 renderPassDescriptor.colorAttachments[0].texture = currentDrawable.texture

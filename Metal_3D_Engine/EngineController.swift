@@ -13,7 +13,8 @@ class EngineController {
     
     static var device: MTLDevice!
     static var library: MTLLibrary!
-    
+    static var lastPipelineState: MTLRenderPipelineState!
+
     private static var inited = false
 
     static func initialize() {

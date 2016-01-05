@@ -18,6 +18,7 @@ class MeshRenderer: Component {
     var uniformsTemp: BuiltInUniforms!
     
     
+    
     override func Render(commandEncoder: MTLRenderCommandEncoder, camera: Camera) {
         super.Render(commandEncoder, camera: camera)
         uniformsTemp = BuiltInUniforms()
@@ -39,7 +40,7 @@ class MeshRenderer: Component {
         
         if(builtInUniformBuffer.isUsing_ModelViewProjectionMatrix()) {
             uniformsTemp.modelMatrix = uniformsTemp.modelMatrix ?? GetTransform().GetModelMatrix()
-            uniformsTemp.viewMatrix = uniformsTemp.viewMatrix ?? camera.GetViewMatrix()
+            uniformsTemp.viewMatrix = camera.GetViewMatrix()
             uniformsTemp.projectionMatrix = uniformsTemp.projectionMatrix ?? camera.GetProjectionMatrix()
             uniformsTemp.modelViewProjectionMatrix = uniformsTemp.modelViewProjectionMatrix ?? uniformsTemp.projectionMatrix! * uniformsTemp.viewMatrix! * uniformsTemp.modelMatrix!
             builtInUniformBuffer.set_ModelViewProjectionMatrix(uniformsTemp.modelViewProjectionMatrix!)
@@ -52,7 +53,10 @@ class MeshRenderer: Component {
             uniformBuffer.fillDataAndUpdate()
         }
 
-        commandEncoder.setRenderPipelineState(material.pipelineState)
+        if(EngineController.lastPipelineState == nil || EngineController.lastPipelineState !== material.pipelineState) {
+            commandEncoder.setRenderPipelineState(material.pipelineState)
+            EngineController.lastPipelineState = material.pipelineState
+        }
         commandEncoder.setVertexBuffer(mesh.vertexBuffer, offset: 0, atIndex: 0)
         commandEncoder.setVertexBuffer(builtInUniformBuffer.buffer, offset: 0, atIndex: 1)
         commandEncoder.drawIndexedPrimitives(mesh.GetPrimitiveType(), indexCount: mesh.GetIndexCount(), indexType: mesh.GetMetalIndexType(), indexBuffer: mesh.indexBuffer, indexBufferOffset: 0)

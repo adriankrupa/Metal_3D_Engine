@@ -310,10 +310,10 @@
 			children = (
 				3A65612A1C1F857200321AA8 /* AmbientShaders */,
 				3A04348F1C3950FC00477A71 /* ShadersIncludes */,
-				3A0542B21C178C1400107B34 /* Shader.swift */,
-				3A11BF061C3B1420008B2C60 /* UniformBuffer.swift */,
 				3A11BF0A1C3B1728008B2C60 /* BuiltInBuffer.swift */,
 				3A11BF0E1C3B1986008B2C60 /* MVP_Simple_Buffer.swift */,
+				3A0542B21C178C1400107B34 /* Shader.swift */,
+				3A11BF061C3B1420008B2C60 /* UniformBuffer.swift */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";

@@ -92,10 +92,10 @@ class Transform: Component {
     
     func GetViewMatrix() -> float4x4 {
         recomputeMatrices()
-        if (modelMatrixChanged) {
+        //if (modelMatrixChanged) {
             modelMatrixChanged = false
             cachedViewMatrix = GetModelMatrix().inverse
-        }
+        //}
         return cachedViewMatrix;
     }
     

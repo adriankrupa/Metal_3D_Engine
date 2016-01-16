@@ -34,7 +34,6 @@ class CameraMovement3D: Component {
         let mousePosition = Input.mousePosition
         let mousePositionDelta = mousePosition - lastMousePosition
         let transform = GetTransform()
-        print(mousePositionDelta)
         
         if (Input.GetButton(.LEFT) || Input.touchCount > 0) {
             rotationX -= mousePositionDelta.x * cameraSensitivity

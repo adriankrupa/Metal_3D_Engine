@@ -74,6 +74,7 @@ class ViewController: BaseClass, MTKViewDelegate {
     static var currentTexture: MTLTexture!
 
     var lastUpdateTime: CFAbsoluteTime = 0
+    var thisView: MTKView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,13 +82,14 @@ class ViewController: BaseClass, MTKViewDelegate {
         lastUpdateTime = CFAbsoluteTimeGetCurrent()
         
         
-        let view = self.view as! MTKView
-        view.delegate = self
-        view.device = EngineController.device
-        view.preferredFramesPerSecond = 120
+        thisView = self.view as! MTKView
+        thisView.delegate = self
+        thisView.device = EngineController.device
+        thisView.preferredFramesPerSecond = 60
+        thisView.sampleCount = 4
         
         
-        print(view.device!.name!)
+        print(thisView.device!.name!)
         
         commandQueue = EngineController.device.newCommandQueue()
         commandQueue.label = "main command queue"
@@ -98,7 +100,7 @@ class ViewController: BaseClass, MTKViewDelegate {
         let pipelineStateDescriptor = MTLRenderPipelineDescriptor()
         pipelineStateDescriptor.vertexFunction = vertexProgram
         pipelineStateDescriptor.fragmentFunction = fragmentProgram
-        pipelineStateDescriptor.colorAttachments[0].pixelFormat = view.colorPixelFormat
+        pipelineStateDescriptor.colorAttachments[0].pixelFormat = thisView.colorPixelFormat
         pipelineStateDescriptor.depthAttachmentPixelFormat = .Depth32Float
         
         do {
@@ -115,13 +117,21 @@ class ViewController: BaseClass, MTKViewDelegate {
         vertexColorBuffer = EngineController.device.newBufferWithBytes(vertexColorData, length: vertexColorSize, options: [])
         vertexColorBuffer.label = "colors"
         
+        #if os(OSX)
+            let scale = NSScreen.mainScreen()!.backingScaleFactor
+        #else
+            let scale = UIScreen.mainScreen().scale
+        #endif
+        let size = CGSize(width: view.bounds.size.width * scale, height: view.bounds.size.height * scale)
+        print(size)
+        
         
         initScene()
     }
     
     func initScene() {
         let cameraGO = GameObject()
-        cameraGO.GetTransform().Position = float3(0,0,10)
+        cameraGO.GetTransform().Position = float3(0,0,-10)
         let cameraComponent = Camera()
         cameraGO.AddComponent(cameraComponent)
         cameraGO.AddComponent(CameraMovement3D())
@@ -130,20 +140,20 @@ class ViewController: BaseClass, MTKViewDelegate {
         
         var mesh2 = ModelManager.LoadObject("Data/Assets/teapot/teapot.obj", parameters: ["Color":Color(red: 1, green: 1, blue: 1, alpha: 1)])!
 
-        let m = Material(shader: AmbientShader())
-        for _ in 0..<2000 {
+        let m = Material(sampleCount: thisView.sampleCount, shader: AmbientShader())
+        for _ in 0..<150 {
             
             let color = Color(red: CGFloat(rand()%255)/255.0, green: CGFloat(rand()%255)/255.0, blue: CGFloat(rand()%255)/255.0, alpha: 1)
 
             var mesh = CubeMesh()
 
-            let c = MeshRenderer(mesh: mesh).AddMaterial(m)
+            let c = MeshRenderer(mesh: mesh2).AddMaterial(m)
             
-            let GO = GameObject().AddComponent(c)//.AddComponent(ObjectRotator())
+            let GO = GameObject().AddComponent(c).AddComponent(ObjectRotator())
             GO.GetTransform().Position = float3(
                 Float(Int(arc4random_uniform(20000)) - 10000)/Float(200.0),
                 Float(Int(arc4random_uniform(20000)) - 10000)/Float(200.0),
-                Float(Int(arc4random_uniform(20000)))/Float(200.0))
+                Float(Int(arc4random_uniform(20000)) - 10000)/Float(200.0))
             //GO.GetTransform().Position = float3(0,0,0)
             gameObjects.append(GO)
         }
@@ -213,17 +223,28 @@ class ViewController: BaseClass, MTKViewDelegate {
             }
             
             for camera in cameras {
-                checkDepthTexture(currentDrawable.texture)
+                checkDepthTexture(currentDrawable.texture, view: view)
                 
-                camera.clear(commandBuffer, texture: currentDrawable.texture, depthTexture: depthTexture)
+                //camera.clear(commandBuffer, texture: currentDrawable.texture, depthTexture: depthTexture)
+                camera.configureRenderPassDescriptor(renderPassDescriptor)
                 
                 EngineController.lastPipelineState = nil
-                renderPassDescriptor.colorAttachments[0].loadAction = .Load
-                renderPassDescriptor.colorAttachments[0].storeAction = .Store
+                
                 renderPassDescriptor.colorAttachments[0].texture = currentDrawable.texture
-                renderPassDescriptor.depthAttachment.loadAction = .Load
-                renderPassDescriptor.depthAttachment.storeAction = .Store
                 renderPassDescriptor.depthAttachment.texture = depthTexture
+                
+                if view.sampleCount > 1 {
+                    let description = MTLTextureDescriptor.texture2DDescriptorWithPixelFormat(.BGRA8Unorm, width: currentDrawable.texture.width, height: currentDrawable.texture.height, mipmapped: false)
+                    description.textureType = .Type2DMultisample
+                    description.sampleCount = view.sampleCount
+                    description.storageMode = .Private
+                    description.usage = .RenderTarget
+
+                    let tex = EngineController.device.newTextureWithDescriptor(description)
+                    renderPassDescriptor.colorAttachments[0].texture = tex
+                    renderPassDescriptor.colorAttachments[0].resolveTexture = currentDrawable.texture
+                    renderPassDescriptor.colorAttachments[0].storeAction = .MultisampleResolve
+                }
                 
                 let renderEncoder = commandBuffer.renderCommandEncoderWithDescriptor(renderPassDescriptor)
                 renderEncoder.setDepthStencilState(EngineController.device.newDepthStencilStateWithDescriptor(camera.depthStencilDescriptor!))
@@ -232,7 +253,7 @@ class ViewController: BaseClass, MTKViewDelegate {
                 
                 renderEncoder.label = "render encoder"
                 
-                camera.UpdateViewportIntoEncoder(renderEncoder)
+                camera.configureEncoder(renderEncoder)
                 
                 for gameObject in gameObjects {
                     gameObject.Render(renderEncoder, camera: camera)
@@ -246,14 +267,14 @@ class ViewController: BaseClass, MTKViewDelegate {
         commandBuffer.commit()
     }
     
-    func checkDepthTexture(currentColorTexture: MTLTexture) {
+    func checkDepthTexture(currentColorTexture: MTLTexture, view: MTKView) {
         if depthTexture == nil ||
             depthTexture.width != currentColorTexture.width ||
             depthTexture.height != currentColorTexture.height {
                 
                 let description = MTLTextureDescriptor.texture2DDescriptorWithPixelFormat(.Depth32Float, width: currentColorTexture.width, height: currentColorTexture.height, mipmapped: false)
-                description.textureType = .Type2D
-                description.sampleCount = currentColorTexture.sampleCount
+                description.textureType = view.sampleCount > 1 ? .Type2DMultisample : .Type2D
+                description.sampleCount = view.sampleCount
                 description.storageMode = .Private
                 description.usage = .RenderTarget
                 

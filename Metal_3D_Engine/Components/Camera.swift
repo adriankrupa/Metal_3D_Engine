@@ -82,9 +82,51 @@ class Camera : Component {
         }
     }
     
-    func clear(commandBuffer: MTLCommandBuffer, texture: MTLTexture, depthTexture: MTLTexture) {
-        renderPassDescriptor.colorAttachments[0].texture = texture
-        renderPassDescriptor.depthAttachment.texture = depthTexture
+    func configureRenderPassDescriptor(renderPassDescriptor: MTLRenderPassDescriptor) {
+        renderPassDescriptor.depthAttachment.clearDepth = 1.0
+        
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+        
+        color.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        
+        renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(Double(red.native), Double(green.native), Double(blue.native), Double(alpha.native))
+
+        switch clearFlag {
+        case .DontClear:
+            renderPassDescriptor.colorAttachments[0].loadAction = .Load
+            renderPassDescriptor.colorAttachments[0].storeAction = .Store
+            renderPassDescriptor.depthAttachment.loadAction = .Load
+            renderPassDescriptor.depthAttachment.storeAction = .Store
+            return
+        case .SolidColor:
+            renderPassDescriptor.colorAttachments[0].loadAction = .Clear
+            renderPassDescriptor.colorAttachments[0].storeAction = .Store
+            renderPassDescriptor.depthAttachment.loadAction = .Clear
+            renderPassDescriptor.depthAttachment.storeAction = .Store
+            break
+        case .OnlyDepth:
+            renderPassDescriptor.colorAttachments[0].loadAction = .Load
+            renderPassDescriptor.colorAttachments[0].storeAction = .Store
+            renderPassDescriptor.depthAttachment.loadAction = .Clear
+            renderPassDescriptor.depthAttachment.storeAction = .Store
+            break
+        case .Skybox:
+            break
+        }
+    }
+    
+    func clear(commandBuffer: MTLCommandBuffer, texture: MTLTexture, depthTexture: MTLTexture, multisampleTexture: MTLTexture? = nil) {
+        if let mst = multisampleTexture {
+            renderPassDescriptor.colorAttachments[0].texture = mst
+            renderPassDescriptor.colorAttachments[0].resolveTexture = texture
+
+        } else {
+            renderPassDescriptor.colorAttachments[0].texture = texture
+            renderPassDescriptor.depthAttachment.texture = depthTexture
+        }
         let renderEncoder = commandBuffer.renderCommandEncoderWithDescriptor(renderPassDescriptor)
         renderEncoder.setDepthStencilState(EngineController.device.newDepthStencilStateWithDescriptor(depthStencilDescriptor!))
         
@@ -108,12 +150,13 @@ class Camera : Component {
         renderEncoder.endEncoding()
     }
     
-    func UpdateViewportIntoEncoder(renderEncoder: MTLRenderCommandEncoder) {
+    func configureEncoder(renderEncoder: MTLRenderCommandEncoder) {
         renderEncoder.setViewport(MTLViewport(
             originX: Double(viewport.x * Float(frameSize.width)),
             originY: Double(viewport.y * Float(frameSize.height)),
             width: Double((viewport.z - viewport.x) * Float(frameSize.width)),
             height: Double((viewport.w - viewport.y) * Float(frameSize.height)), znear: 0, zfar: 1))
+        renderEncoder.setDepthStencilState(EngineController.device.newDepthStencilStateWithDescriptor(depthStencilDescriptor!))
     }
     
     func SetFrameSize(size: CGSize) {

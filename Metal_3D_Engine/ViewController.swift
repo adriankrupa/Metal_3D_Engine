@@ -51,7 +51,6 @@ let vertexColorData:[Float] =
 
 class ViewController: BaseClass, MTKViewDelegate {
     
-    var commandQueue: MTLCommandQueue! = nil
     var pipelineState: MTLRenderPipelineState! = nil
     
     var vertexBuffer: MTLBuffer! = nil
@@ -86,13 +85,13 @@ class ViewController: BaseClass, MTKViewDelegate {
         thisView.delegate = self
         thisView.device = EngineController.device
         thisView.preferredFramesPerSecond = 60
-        thisView.sampleCount = 4
+        thisView.sampleCount = 8
         
         
         print(thisView.device!.name!)
         
-        commandQueue = EngineController.device.newCommandQueue()
-        commandQueue.label = "main command queue"
+        EngineController.commandQueue = EngineController.device.newCommandQueue()
+        EngineController.commandQueue.label = "main command queue"
         
         let fragmentProgram = EngineController.library.newFunctionWithName("passThroughFragment")!
         let vertexProgram = EngineController.library.newFunctionWithName("passThroughVertex")!
@@ -138,18 +137,14 @@ class ViewController: BaseClass, MTKViewDelegate {
         cameras.append(cameraComponent)
         gameObjects.append(cameraGO)
         
-        let texture = TextureManager.loadTexture("Data/Textures/rock/rock_diffuse.jpg")
+        //let texture = TextureManager.loadTexture("Data/Textures/rock/rock_diffuse.jpg", generateMipMaps: true)
+        let texture = TextureManager.loadTexture("Data/Textures/fiber.jpg", generateMipMaps: true)
         
-        let commandBuffer = commandQueue.commandBuffer()
-        let commandEncoder = commandBuffer.blitCommandEncoder()
-        commandEncoder.generateMipmapsForTexture(texture!)
-        commandEncoder.endEncoding()
-        commandBuffer.commit()
-        //var mesh2 = ModelManager.LoadObject("Data/Assets/teapot/teapot.obj", parameters: ["Color":Color(red: 1, green: 1, blue: 1, alpha: 1)])!
+        let mesh2 = ModelManager.LoadObject("Data/Assets/teapot/teapot.obj", parameters: ["Color":Color(red: 1, green: 1, blue: 1, alpha: 1)])!
 
-        let m = Material(sampleCount: thisView.sampleCount, shader: AmbientTexturedShader())
+        let m = Material(sampleCount: thisView.sampleCount, shader: UnlitTexturedShader())
         m.textures.append(texture!)
-        for _ in 0..<1500 {
+        for _ in 0..<200 {
             
             let color = Color(red: CGFloat(rand()%255)/255.0, green: CGFloat(rand()%255)/255.0, blue: CGFloat(rand()%255)/255.0, alpha: 1)
 
@@ -210,7 +205,7 @@ class ViewController: BaseClass, MTKViewDelegate {
     }
     
     func drawInMTKView(view: MTKView) {
-        let commandBuffer = commandQueue.commandBuffer()
+        let commandBuffer = EngineController.commandQueue.commandBuffer()
         commandBuffer.label = "Frame command buffer"
         self.update()
 
@@ -256,8 +251,8 @@ class ViewController: BaseClass, MTKViewDelegate {
                 
                 let renderEncoder = commandBuffer.renderCommandEncoderWithDescriptor(renderPassDescriptor)
                 renderEncoder.setDepthStencilState(EngineController.device.newDepthStencilStateWithDescriptor(camera.depthStencilDescriptor!))
-                renderEncoder.setFrontFacingWinding(.Clockwise)
-                //renderEncoder.setCullMode(.Back)
+                //renderEncoder.setFrontFacingWinding(.Clockwise)
+                renderEncoder.setCullMode(.Front)
                 
                 renderEncoder.label = "render encoder"
                 

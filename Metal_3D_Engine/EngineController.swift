@@ -14,6 +14,7 @@ class EngineController {
     static var device: MTLDevice!
     static var library: MTLLibrary!
     static var lastPipelineState: MTLRenderPipelineState!
+    static var commandQueue: MTLCommandQueue! = nil
 
     private static var inited = false
 

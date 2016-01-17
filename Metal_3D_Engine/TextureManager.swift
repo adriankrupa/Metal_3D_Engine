@@ -19,23 +19,28 @@ class TextureManager {
         }
     }
     
-    static func loadTexture(texturePath: String) -> MTLTexture? {
+    static func loadTexture(texturePath: String, generateMipMaps: Bool = true) -> MTLTexture? {
         
         initialize()
         
         let assetURL = NSBundle.mainBundle().URLForResource(texturePath, withExtension: nil)
         
-        if assetURL == nil {
-            return nil
-        }
+        if let url = assetURL {
         
-
-        do {
-            //let texture = try textureLoader.newTextureWithContentsOfURL(assetURL!, options: [newTextureWithContentsOfURL : 8])
-            let texture = try textureLoader.newTextureWithContentsOfURL(assetURL!, options: [MTKTextureLoaderOptionAllocateMipmaps : 8])
-            return texture
-        } catch {
-            
+            do {
+                let texture = try textureLoader.newTextureWithContentsOfURL(url, options: [MTKTextureLoaderOptionAllocateMipmaps : generateMipMaps ? 1 : 0])
+                
+                if generateMipMaps {
+                    let commandBuffer = EngineController.commandQueue.commandBuffer()
+                    let commandEncoder = commandBuffer.blitCommandEncoder()
+                    commandEncoder.generateMipmapsForTexture(texture)
+                    commandEncoder.endEncoding()
+                    commandBuffer.commit()
+                }
+                
+                return texture
+            } catch {
+            }
         }
         return nil
     }

@@ -1,5 +1,5 @@
 //
-//  AmbientShader.metal
+//  UnlitShader.metal
 //  Metal_3D_Engine
 //
 //  Created by Adrian Krupa on 15.12.2015.
@@ -28,7 +28,7 @@ struct Uniforms {
     float4x4 modelViewProjectionMatrix;
 };
 
-vertex VertexInOut ambientVertexShader(Vertex vert [[stage_in]],
+vertex VertexInOut unlitVertexShader(Vertex vert [[stage_in]],
                                        constant Uniforms &uniforms [[buffer(1)]]) {
     VertexInOut outVertex;
     outVertex.position = uniforms.modelViewProjectionMatrix * float4(vert.position, 1);
@@ -36,6 +36,6 @@ vertex VertexInOut ambientVertexShader(Vertex vert [[stage_in]],
     return outVertex;
 };
 
-fragment float4 ambientFragmentShader(VertexInOut inFrag [[stage_in]]) {
+fragment float4 unlitFragmentShader(VertexInOut inFrag [[stage_in]]) {
     return inFrag.color;
 };

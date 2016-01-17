@@ -24,11 +24,11 @@ class Shader {
     }
     
     func vertexShaderName() -> String {
-        return "ambientVertexShader"
+        return "unlitVertexShader"
     }
     
     func fragmentShaderName() -> String {
-        return "ambientFragmentShader"
+        return "unlitFragmentShader"
     }
     
     func getVertexShader() -> MTLFunction {

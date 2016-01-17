@@ -1,24 +1,24 @@
 //
-//  AmbientShader.swift
+//  UnlitTexturedShader.swift
 //  Metal_3D_Engine
 //
-//  Created by Adrian Krupa on 19.12.2015.
-//  Copyright © 2015 Adrian Krupa. All rights reserved.
+//  Created by Adrian Krupa on 17.01.2016.
+//  Copyright © 2016 Adrian Krupa. All rights reserved.
 //
 
 import Foundation
 
-class AmbientShader: Shader {
+class UnlitTexturedShader: Shader {
     
     override func getBuiltInUniformsBufferMetaData() -> BuiltInBuffer.Type {
         return MVP_Simple_Buffer.self
     }
     override func vertexShaderName() -> String {
-        return "ambientVertexShader"
+        return "unlitTexturedVertexShader"
     }
     
     override func fragmentShaderName() -> String {
-        return "ambientFragmentShader"
+        return "unlitTexturedFragmentShader"
     }
-        
+    
 }

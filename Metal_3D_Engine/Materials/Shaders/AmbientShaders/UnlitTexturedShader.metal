@@ -1,5 +1,5 @@
 //
-//  AmbientTexturedShader.metal
+//  UnlitTexturedShader.metal
 //  Metal_3D_Engine
 //
 //  Created by Adrian Krupa on 17.01.2016.
@@ -30,7 +30,7 @@ struct Uniforms {
     float4x4 modelViewProjectionMatrix;
 };
 
-vertex VertexInOut ambientTexturedVertexShader(Vertex vert [[stage_in]],
+vertex VertexInOut unlitTexturedVertexShader(Vertex vert [[stage_in]],
                                        constant Uniforms &uniforms [[buffer(1)]]) {
     VertexInOut outVertex;
     outVertex.position = uniforms.modelViewProjectionMatrix * float4(vert.position, 1);
@@ -39,10 +39,10 @@ vertex VertexInOut ambientTexturedVertexShader(Vertex vert [[stage_in]],
     return outVertex;
 };
 
-fragment float4 ambientTexturedFragmentShader(VertexInOut inFrag [[stage_in]],
+fragment float4 unlitTexturedFragmentShader(VertexInOut inFrag [[stage_in]],
                                               texture2d<half> diffuseTexture [[ texture(0) ]]) {
     
-    constexpr sampler defaultSampler(mip_filter::linear);
+    constexpr sampler defaultSampler(filter::linear, mip_filter::linear);
     
     return float4(diffuseTexture.sample(defaultSampler, inFrag.uv)) * inFrag.color;
 };

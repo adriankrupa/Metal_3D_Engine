@@ -17,6 +17,8 @@ class Material {
     var builtInUniformMeta: BuiltInBuffer.Type!
     var uniformBuffers: [UniformBuffer] = []
     
+    var textures: [MTLTexture] = []
+    
     init(sampleCount: Int, vertexProgram: String, fragmentProgram: String) {
                 
         let fragmentProgramObject = EngineController.library.newFunctionWithName(fragmentProgram)!

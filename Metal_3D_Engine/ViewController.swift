@@ -138,16 +138,24 @@ class ViewController: BaseClass, MTKViewDelegate {
         cameras.append(cameraComponent)
         gameObjects.append(cameraGO)
         
-        var mesh2 = ModelManager.LoadObject("Data/Assets/teapot/teapot.obj", parameters: ["Color":Color(red: 1, green: 1, blue: 1, alpha: 1)])!
+        let texture = TextureManager.loadTexture("Data/Textures/rock/rock_diffuse.jpg")
+        
+        let commandBuffer = commandQueue.commandBuffer()
+        let commandEncoder = commandBuffer.blitCommandEncoder()
+        commandEncoder.generateMipmapsForTexture(texture!)
+        commandEncoder.endEncoding()
+        commandBuffer.commit()
+        //var mesh2 = ModelManager.LoadObject("Data/Assets/teapot/teapot.obj", parameters: ["Color":Color(red: 1, green: 1, blue: 1, alpha: 1)])!
 
-        let m = Material(sampleCount: thisView.sampleCount, shader: AmbientShader())
-        for _ in 0..<150 {
+        let m = Material(sampleCount: thisView.sampleCount, shader: AmbientTexturedShader())
+        m.textures.append(texture!)
+        for _ in 0..<1500 {
             
             let color = Color(red: CGFloat(rand()%255)/255.0, green: CGFloat(rand()%255)/255.0, blue: CGFloat(rand()%255)/255.0, alpha: 1)
 
-            var mesh = CubeMesh()
+            let mesh = CubeMesh()
 
-            let c = MeshRenderer(mesh: mesh2).AddMaterial(m)
+            let c = MeshRenderer(mesh: mesh).AddMaterial(m)
             
             let GO = GameObject().AddComponent(c).AddComponent(ObjectRotator())
             GO.GetTransform().Position = float3(

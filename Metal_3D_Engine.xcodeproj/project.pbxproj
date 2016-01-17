@@ -122,6 +122,15 @@
 		3AA7F5951C2B0720001EB1CE /* TorusLineMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA7F5941C2B0720001EB1CE /* TorusLineMesh.swift */; };
 		3AA7F5961C2B0720001EB1CE /* TorusLineMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA7F5941C2B0720001EB1CE /* TorusLineMesh.swift */; };
 		3AA7F5971C2B0720001EB1CE /* TorusLineMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA7F5941C2B0720001EB1CE /* TorusLineMesh.swift */; };
+		3AAA25F31C4BCDA5000E0A9C /* TextureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAA25F21C4BCDA5000E0A9C /* TextureManager.swift */; };
+		3AAA25F41C4BCDA5000E0A9C /* TextureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAA25F21C4BCDA5000E0A9C /* TextureManager.swift */; };
+		3AAA25F51C4BCDA5000E0A9C /* TextureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAA25F21C4BCDA5000E0A9C /* TextureManager.swift */; };
+		3AAA25F71C4BD456000E0A9C /* AmbientTexturedShader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAA25F61C4BD456000E0A9C /* AmbientTexturedShader.swift */; };
+		3AAA25F81C4BD456000E0A9C /* AmbientTexturedShader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAA25F61C4BD456000E0A9C /* AmbientTexturedShader.swift */; };
+		3AAA25F91C4BD456000E0A9C /* AmbientTexturedShader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAA25F61C4BD456000E0A9C /* AmbientTexturedShader.swift */; };
+		3AAA25FB1C4BD478000E0A9C /* AmbientTexturedShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3AAA25FA1C4BD478000E0A9C /* AmbientTexturedShader.metal */; };
+		3AAA25FC1C4BD478000E0A9C /* AmbientTexturedShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3AAA25FA1C4BD478000E0A9C /* AmbientTexturedShader.metal */; };
+		3AAA25FD1C4BD478000E0A9C /* AmbientTexturedShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3AAA25FA1C4BD478000E0A9C /* AmbientTexturedShader.metal */; };
 		3ADAB94C1C14F364007BFA3D /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB9491C14F364007BFA3D /* Camera.swift */; };
 		3ADAB94D1C14F364007BFA3D /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB9491C14F364007BFA3D /* Camera.swift */; };
 		3ADAB94E1C14F364007BFA3D /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAB9491C14F364007BFA3D /* Camera.swift */; };
@@ -204,6 +213,9 @@
 		3AA7F58C1C2975B5001EB1CE /* CubeMesh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubeMesh.swift; sourceTree = "<group>"; };
 		3AA7F5901C298108001EB1CE /* TorusMesh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorusMesh.swift; sourceTree = "<group>"; };
 		3AA7F5941C2B0720001EB1CE /* TorusLineMesh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TorusLineMesh.swift; sourceTree = "<group>"; };
+		3AAA25F21C4BCDA5000E0A9C /* TextureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextureManager.swift; sourceTree = "<group>"; };
+		3AAA25F61C4BD456000E0A9C /* AmbientTexturedShader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmbientTexturedShader.swift; sourceTree = "<group>"; };
+		3AAA25FA1C4BD478000E0A9C /* AmbientTexturedShader.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = AmbientTexturedShader.metal; sourceTree = "<group>"; };
 		3ADAB9491C14F364007BFA3D /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		3ADAB94A1C14F364007BFA3D /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		3ADAB94B1C14F364007BFA3D /* Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
@@ -400,6 +412,7 @@
 				3ADAB9591C14F374007BFA3D /* Shaders.metal */,
 				3ADAB95A1C14F374007BFA3D /* Time.swift */,
 				3A0FA1BC1C1476E300BB7043 /* ViewController.swift */,
+				3AAA25F21C4BCDA5000E0A9C /* TextureManager.swift */,
 			);
 			path = Metal_3D_Engine;
 			sourceTree = "<group>";
@@ -437,6 +450,8 @@
 			children = (
 				3A65612B1C1F858200321AA8 /* AmbientShader.metal */,
 				3A635B091C24D4D700DEAC82 /* AmbientShader.swift */,
+				3AAA25F61C4BD456000E0A9C /* AmbientTexturedShader.swift */,
+				3AAA25FA1C4BD478000E0A9C /* AmbientTexturedShader.metal */,
 			);
 			path = AmbientShaders;
 			sourceTree = "<group>";
@@ -742,12 +757,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AAA25F81C4BD456000E0A9C /* AmbientTexturedShader.swift in Sources */,
 				3A11BF0C1C3B1728008B2C60 /* BuiltInBuffer.swift in Sources */,
 				3A6561351C1FC89A00321AA8 /* LineMesh.swift in Sources */,
 				3A6561281C1F697900321AA8 /* PointMesh.swift in Sources */,
+				3AAA25FC1C4BD478000E0A9C /* AmbientTexturedShader.metal in Sources */,
 				3AA7F58A1C297375001EB1CE /* TrianglesMesh.swift in Sources */,
 				3A0542A81C176B0600107B34 /* PointsMesh.swift in Sources */,
 				3A0542AC1C178A9B00107B34 /* MeshRenderer.swift in Sources */,
+				3AAA25F41C4BCDA5000E0A9C /* TextureManager.swift in Sources */,
 				3A0CF9891C2F2780004EE8B5 /* ModelManager.swift in Sources */,
 				3A65614E1C21B4ED00321AA8 /* EngineView.swift in Sources */,
 				3A076BA81C14821100398CCA /* ViewController.swift in Sources */,
@@ -789,12 +807,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AAA25F91C4BD456000E0A9C /* AmbientTexturedShader.swift in Sources */,
 				3A11BF0D1C3B1728008B2C60 /* BuiltInBuffer.swift in Sources */,
 				3A6561361C1FC89A00321AA8 /* LineMesh.swift in Sources */,
 				3A6561291C1F697900321AA8 /* PointMesh.swift in Sources */,
+				3AAA25FD1C4BD478000E0A9C /* AmbientTexturedShader.metal in Sources */,
 				3AA7F58B1C297375001EB1CE /* TrianglesMesh.swift in Sources */,
 				3A0542A91C176B0600107B34 /* PointsMesh.swift in Sources */,
 				3A0542AD1C178A9B00107B34 /* MeshRenderer.swift in Sources */,
+				3AAA25F51C4BCDA5000E0A9C /* TextureManager.swift in Sources */,
 				3A0CF98A1C2F2780004EE8B5 /* ModelManager.swift in Sources */,
 				3A65614F1C21B4ED00321AA8 /* EngineView.swift in Sources */,
 				3A076BBD1C14874300398CCA /* ViewController.swift in Sources */,
@@ -836,12 +857,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AAA25F71C4BD456000E0A9C /* AmbientTexturedShader.swift in Sources */,
 				3A11BF0B1C3B1728008B2C60 /* BuiltInBuffer.swift in Sources */,
 				3A6561341C1FC89A00321AA8 /* LineMesh.swift in Sources */,
 				3A6561271C1F697900321AA8 /* PointMesh.swift in Sources */,
+				3AAA25FB1C4BD478000E0A9C /* AmbientTexturedShader.metal in Sources */,
 				3AA7F5891C297375001EB1CE /* TrianglesMesh.swift in Sources */,
 				3A0542A71C176B0600107B34 /* PointsMesh.swift in Sources */,
 				3A0542AB1C178A9B00107B34 /* MeshRenderer.swift in Sources */,
+				3AAA25F31C4BCDA5000E0A9C /* TextureManager.swift in Sources */,
 				3A0CF9881C2F2780004EE8B5 /* ModelManager.swift in Sources */,
 				3A65614D1C21B4ED00321AA8 /* EngineView.swift in Sources */,
 				3A0FA1BD1C1476E300BB7043 /* ViewController.swift in Sources */,

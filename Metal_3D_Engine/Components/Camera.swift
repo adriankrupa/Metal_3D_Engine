@@ -42,35 +42,13 @@ class Camera : Component {
     
     
     var projectionMatrix = float4x4(0)
-    var renderPassDescriptor: MTLRenderPassDescriptor!
     
     override init() {
         super.init()
         updateProjectionMatrix()
-        
-        renderPassDescriptor = MTLRenderPassDescriptor()
-        renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(1.0, 1.0, 0.0, 1.0);
-        renderPassDescriptor.colorAttachments[0].loadAction = .Clear
-        renderPassDescriptor.colorAttachments[0].storeAction = .Store
-        renderPassDescriptor.depthAttachment.loadAction = .Clear
-        renderPassDescriptor.depthAttachment.storeAction = .Store
-        renderPassDescriptor.depthAttachment.clearDepth = 1.0
-
-        
         depthStencilDescriptor = MTLDepthStencilDescriptor()
         depthStencilDescriptor.depthCompareFunction = .Less
         depthStencilDescriptor.depthWriteEnabled = true
-        
-        var red: CGFloat = 0
-        var green: CGFloat = 0
-        var blue: CGFloat = 0
-        var alpha: CGFloat = 0
-        
-        color.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-        
-        renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(Double(red.native), Double(green.native), Double(blue.native), Double(alpha.native))
-        
-        
     }
     
     func updateProjectionMatrix() {
@@ -116,38 +94,6 @@ class Camera : Component {
         case .Skybox:
             break
         }
-    }
-    
-    func clear(commandBuffer: MTLCommandBuffer, texture: MTLTexture, depthTexture: MTLTexture, multisampleTexture: MTLTexture? = nil) {
-        if let mst = multisampleTexture {
-            renderPassDescriptor.colorAttachments[0].texture = mst
-            renderPassDescriptor.colorAttachments[0].resolveTexture = texture
-
-        } else {
-            renderPassDescriptor.colorAttachments[0].texture = texture
-            renderPassDescriptor.depthAttachment.texture = depthTexture
-        }
-        let renderEncoder = commandBuffer.renderCommandEncoderWithDescriptor(renderPassDescriptor)
-        renderEncoder.setDepthStencilState(EngineController.device.newDepthStencilStateWithDescriptor(depthStencilDescriptor!))
-        
-        renderEncoder.setViewport(MTLViewport(
-            originX: Double(viewport.x * Float(frameSize.width)),
-            originY: Double(viewport.y * Float(frameSize.height)),
-            width: Double((viewport.z - viewport.x) * Float(frameSize.width)),
-            height: Double((viewport.w - viewport.y) * Float(frameSize.height)), znear: 1, zfar: 1))
-        
-        switch clearFlag {
-        case .DontClear:
-            return
-        case .SolidColor:
-            renderEncoder.label = "render encoder"
-            break
-        case .OnlyDepth:
-            break
-        case .Skybox:
-            break
-        }
-        renderEncoder.endEncoding()
     }
     
     func configureEncoder(renderEncoder: MTLRenderCommandEncoder) {

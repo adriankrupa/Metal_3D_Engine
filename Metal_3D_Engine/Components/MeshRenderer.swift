@@ -59,6 +59,12 @@ class MeshRenderer: Component {
         }
         commandEncoder.setVertexBuffer(mesh.vertexBuffer, offset: 0, atIndex: 0)
         commandEncoder.setVertexBuffer(builtInUniformBuffer.buffer, offset: 0, atIndex: 1)
+        
+        for (idx, texture) in material.textures.enumerate() {
+            commandEncoder.setFragmentTexture(texture, atIndex: idx)
+        }
+        
+        
         commandEncoder.drawIndexedPrimitives(mesh.GetPrimitiveType(), indexCount: mesh.GetIndexCount(), indexType: mesh.GetMetalIndexType(), indexBuffer: mesh.indexBuffer, indexBufferOffset: 0)
     }
     
